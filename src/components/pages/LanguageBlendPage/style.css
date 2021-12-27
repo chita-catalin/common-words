@@ -1,0 +1,29 @@
+#language-blend-page {
+  display: flex;
+  flex-direction: column;
+}
+
+#blend-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 0px 0px 60px;
+}
+
+#blend-container {
+  transition: 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#result-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics-card {
+  padding: 30px;
+}

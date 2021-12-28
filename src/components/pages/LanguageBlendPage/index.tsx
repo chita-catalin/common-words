@@ -1,6 +1,6 @@
 import React from "react";
 import BlendComponent from "./BlendComponent";
-import ResultComponent from "./ResultComponent";
+import ResultComponent from "./ResultComponent/ResultComponent";
 import useLanguageBlend from "./useLanguageBlend";
 import "./style.css";
 

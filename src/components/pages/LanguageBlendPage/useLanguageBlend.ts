@@ -29,8 +29,6 @@ const useLanguageBlend = () => {
   const blend = (language1: string, language2: string) => {
     setAlert(false);
     setLoading(true);
-    console.log("l1", language1, "l2", language2);
-    console.log("BLEEENDDDD");
     let arr1 = null;
     let arr2 = null;
     if (

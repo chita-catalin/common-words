@@ -9,7 +9,6 @@ import { styled } from "@mui/material/styles";
 const NavBar = () => {
   const [pathName, setPathName] = React.useState<string>("");
   const theme = React.useContext(ThemeContext);
-  console.log(theme);
 
   const updateHighlight = (pathname: string) => {
     setPathName(pathname);
@@ -74,7 +73,7 @@ const NavBar = () => {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "15px",
-        boxShadow: "0 0 10px #949494",
+        borderBottom: theme.light ? "2px solid #121212" : "2px solid #fff",
         zIndex: 999,
         color: theme.light ? "#121212" : "white",
         backgroundColor: theme.light ? "white" : "#121212",
@@ -140,6 +139,24 @@ const NavBar = () => {
             }}
           >
             About
+          </Button>
+        </Link>
+
+        <Link
+          to="/changelog"
+          onClick={() => updateHighlight("/changelog")}
+          style={{ textDecoration: "none" }}
+        >
+          <Button
+            variant={pathName === "/changelog" ? "outlined" : "text"}
+            style={{
+              width: "100px",
+              color: theme.light ? "#121212" : "#fff",
+              borderColor: theme.light ? "#121212" : "#fff",
+              marginLeft: "10px",
+            }}
+          >
+            changelog
           </Button>
         </Link>
       </div>

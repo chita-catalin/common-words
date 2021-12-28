@@ -1,55 +1,22 @@
 import {
+  Button,
   FormControl,
   InputLabel,
-  List,
-  ListItem,
-  ListItemText,
   MenuItem,
   Paper,
   Select,
   Typography,
 } from "@mui/material";
-import React from "react";
 import { useContext } from "react";
-import { LanguageBlendContext } from "./";
+import { LanguageBlendContext } from "..";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import WordListPaper from "./ResultPapers/WordListPaper";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ResultComponent = () => {
   const blend = useContext(LanguageBlendContext);
-  const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
-  const data = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
   return (
     <>
       {blend.blendedList.length ? (
@@ -57,12 +24,15 @@ const ResultComponent = () => {
           <Typography style={{ fontSize: "3.58rem", fontWeight: 100 }}>
             RESULTS:
           </Typography>
+          <Button onClick={() => blend.setBlendedList([])}>
+            <b>&larr; &nbsp;</b> Back to blending
+          </Button>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                margin: "25px",
+                margin: "10px",
               }}
             >
               <p>
@@ -81,33 +51,17 @@ const ResultComponent = () => {
                     <MenuItem value={80}>80% match</MenuItem>
                     <MenuItem value={70}>70% match</MenuItem>
                     <MenuItem value={60}>60% match</MenuItem>
-                    <MenuItem value={50}>50% match and below</MenuItem>
+                    <MenuItem value={60}>50% match</MenuItem>
+                    <MenuItem value={60}>40% match</MenuItem>
+                    <MenuItem value={60}>30% match</MenuItem>
+                    <MenuItem value={60}>20% match</MenuItem>
+                    <MenuItem value={60}>10% match</MenuItem>
+                    <MenuItem value={60}>below 10% match</MenuItem>
                   </Select>
                 </FormControl>
               </p>
               <div style={{ display: "flex", flexWrap: "wrap" }}>
-                {" "}
-                <Paper
-                  variant="elevation"
-                  elevation={3}
-                  className="statistics-card"
-                  style={{
-                    overflowY: "scroll",
-                    height: "250px",
-                    width: "250px",
-                    margin: "10px",
-                  }}
-                >
-                  <List component="div" disablePadding>
-                    {blend.blendedList?.map((word: string) => {
-                      return (
-                        <ListItem sx={{ pl: 4 }}>
-                          <ListItemText primary={word} />
-                        </ListItem>
-                      );
-                    })}
-                  </List>
-                </Paper>
+                <WordListPaper blend={blend} />
                 <Paper
                   variant="elevation"
                   elevation={3}

@@ -15,7 +15,14 @@ const BlendComponent = () => {
   const theme = useContext(ThemeContext);
 
   return (
-    <div id="blend-section">
+    <div
+      id="blend-section"
+      style={{
+        backgroundColor: theme.light ? "#fff" : "#121212",
+        color: !theme.light ? "#fff" : "#121212",
+        minHeight: "100vh",
+      }}
+    >
       <div id="blend-container">
         <Typography
           style={{
@@ -41,10 +48,9 @@ const BlendComponent = () => {
             onChange={blend.handleSelect1}
             sx={{ width: theme.width > theme.mobileBreakpoint ? 300 : 250 }}
             style={{
-              marginRight: "30px",
-              marginTop: "10px",
-              backgroundColor: "white",
               borderRadius: "4px",
+              margin: "10px",
+              backgroundColor: "#fff",
             }}
             renderInput={(params) => (
               <TextField {...params} label="Select language" />
@@ -56,9 +62,9 @@ const BlendComponent = () => {
             options={blend.languages}
             onChange={blend.handleSelect2}
             style={{
-              backgroundColor: "white",
               borderRadius: "4px",
-              marginTop: "10px",
+              margin: "10px",
+              backgroundColor: "#fff",
             }}
             sx={{ width: theme.width > theme.mobileBreakpoint ? 300 : 250 }}
             renderInput={(params) => (

@@ -1,11 +1,12 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import NavBar from "./components/Layout/NavBar/NavBar";
-import LanguageBlendPage from "./components/pages/LanguageBlendPage";
+import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Resources from "./components/pages/Resources/Resources";
 import useTheme from "./components/ThemeComponent/useTheme";
 import React from "react";
 import "./App.css";
+import ChangeLog from "./components/pages/changelog/ChangeLog";
 
 export const ThemeContext = React.createContext<any>(null);
 
@@ -19,6 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LanguageBlendPage />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/changelog" element={<ChangeLog />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ThemeContext.Provider>

@@ -10,16 +10,14 @@ const WordListPaper = (props: Props) => {
       variant="elevation"
       elevation={3}
       style={{
-        height: "300px",
-        width: "300px",
         margin: "10px 10px 0px 0px",
       }}
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ overflowY: "scroll", height: "265px" }}>
-          <List component="div" disablePadding style={{ paddingLeft: "10px" }}>
-            {props.blend.blendedList?.map((word: string) => {
-              return <ListItemText primary={word} />;
+        <div style={{ overflowY: "scroll", height: "339px" }}>
+          <List component="div" disablePadding style={{ padding: "10px" }}>
+            {props.blend.blendedList?.map((el: any, index: number) => {
+              return <ListItemText key={index} primary={el.word} />;
             })}
           </List>
         </div>

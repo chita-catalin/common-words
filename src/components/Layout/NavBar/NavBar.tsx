@@ -1,9 +1,7 @@
 import React from "react";
-import { Button, FormControlLabel, Switch } from "@mui/material";
+import { Button, Switch } from "@mui/material";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../../App";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { styled } from "@mui/material/styles";
 
 const NavBar = () => {

@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { LanguageBlendContext } from "./";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import { ThemeContext } from "../../../App";
+import Flag from "react-world-flags";
 
 const BlendComponent = () => {
   const blend = useContext(LanguageBlendContext);
@@ -31,7 +32,7 @@ const BlendComponent = () => {
           }}
         >
           COMMON WORDS
-          <span style={{ fontSize: "1rem", fontWeight: 300 }}>V0.2(alpha)</span>
+          <span style={{ fontSize: "1rem", fontWeight: 300 }}>V0.3(alpha)</span>
         </Typography>
 
         <div
@@ -72,25 +73,50 @@ const BlendComponent = () => {
             )}
           />
         </div>
+        <div style={{ display: "flex" }}>
+          {blend.selectedLanguage1 && (
+            <Flag
+              code={blend.pickFlag(1)}
+              height="36"
+              style={{
+                borderRadius: "4px",
+                marginRight: "10px",
+                boxShadow: "0px 0px 2px grey",
+              }}
+            />
+          )}
 
-        <Button
-          variant="contained"
-          disabled={
-            blend.selectedLanguage1 === null || blend.selectedLanguage2 === null
-              ? true
-              : false
-          }
-          onClick={blend.compare}
-          style={{ marginBottom: "5px" }}
-        >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <CompareArrowsIcon style={{ marginRight: "10px" }} /> Compare
-          </div>
-        </Button>
+          <Button
+            variant="contained"
+            disabled={
+              blend.selectedLanguage1 === null ||
+              blend.selectedLanguage2 === null
+                ? true
+                : false
+            }
+            onClick={blend.compare}
+            style={{ marginBottom: "5px" }}
+          >
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <CompareArrowsIcon style={{ marginRight: "10px" }} /> Compare
+            </div>
+          </Button>
+          {blend.selectedLanguage2 && (
+            <Flag
+              code={blend.pickFlag(2)}
+              height="36"
+              style={{
+                borderRadius: "4px",
+                marginLeft: "10px",
+                boxShadow: "0px 0px 2px grey",
+              }}
+            />
+          )}
+        </div>
 
         {blend.alert && (
           <Alert style={{ marginTop: "20px" }} severity="error">
-            Please select two different languages
+            {blend.alert}
           </Alert>
         )}
       </div>

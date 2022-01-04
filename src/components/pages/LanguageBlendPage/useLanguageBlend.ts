@@ -4,6 +4,7 @@ import { FI_WORDS } from "../../../LanguageData/fi_words";
 import { FR_WORDS } from "../../../LanguageData/fr_words";
 import { IT_WORDS } from "../../../LanguageData/it_words";
 import { RO_WORDS } from "../../../LanguageData/ro_words";
+import { HU_WORDS } from "../../../LanguageData/hu_words";
 
 const useLanguageBlend = () => {
   const [selectedLanguage1, setSelectedLanguage1] = useState<string>("");
@@ -16,6 +17,7 @@ const useLanguageBlend = () => {
     { label: "English", id: "English" },
     { label: "Finnish", id: "Finnish" },
     { label: "French", id: "French" },
+    { label: "Hungarian", id: "Hungarian" },
     { label: "Italian", id: "Italian" },
     { label: "Romanian", id: "Romanian" },
   ];
@@ -47,8 +49,12 @@ const useLanguageBlend = () => {
 
       case "French":
         return "fr";
+
       case "Finnish":
         return "fi";
+
+      case "Hungarian":
+        return "hu";
     }
   };
 
@@ -76,6 +82,10 @@ const useLanguageBlend = () => {
       case "Finnish":
         arr1 = FI_WORDS;
         break;
+
+      case "Hungarian":
+        arr1 = HU_WORDS;
+        break;
     }
     //set second language array
     switch (language2) {
@@ -96,6 +106,10 @@ const useLanguageBlend = () => {
       case "Finnish":
         arr2 = FI_WORDS;
         break;
+
+      case "Hungarian":
+        arr2 = HU_WORDS;
+        break;
     }
 
     if (language1 !== language2) {
@@ -108,9 +122,7 @@ const useLanguageBlend = () => {
             }
           }
         }
-        setBlendedList(
-          arr.sort((a: any, b: any) => (a.word < b.word ? -1 : 1))
-        );
+        setBlendedList(arr);
         if (arr.length === 0) {
           setAlert("These languages have no common words");
         }

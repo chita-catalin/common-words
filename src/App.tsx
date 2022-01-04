@@ -6,6 +6,7 @@ import Resources from "./components/pages/Resources/Resources";
 import useTheme from "./components/ThemeComponent/useTheme";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
 import React from "react";
+import { MoreStatistics } from "./components/pages/MoreStatistics";
 
 export const ThemeContext = React.createContext<any>(null);
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<LanguageBlendPage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/changelog" element={<ChangeLog />} />
+          <Route path="/more-statistics" element={<MoreStatistics />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,6 +1,7 @@
 import { Button, Paper } from "@mui/material";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import { Link } from "react-router-dom";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -70,7 +71,15 @@ const StatisticsPaper = (props: Props) => {
             <Pie data={data} />
           </div>
         </div>
-        <Button variant="contained">+ more statistics</Button>
+
+        <Button variant="contained">
+          <Link
+            style={{ textDecoration: "none", color: "#fff" }}
+            to="/more-statistics"
+          >
+            + more statistics
+          </Link>
+        </Button>
       </div>
     </Paper>
   );

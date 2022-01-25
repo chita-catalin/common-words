@@ -1,29 +1,20 @@
-#language-blend-page {
-  display: flex;
-  flex-direction: column;
-  background-color: #23153c;
-}
-
-#blend-section {
-  display: flex;
-  flex-direction: column;
-  background-color: #23153c;
+#landing-page-container {
   animation: fadeIn 0.6s;
   -webkit-animation: fadeIn 0.6s;
   -moz-animation: fadeIn 0.6s;
   -o-animation: fadeIn 0.6s;
   -ms-animation: fadeIn 0.6s;
+  min-height: 100vh;
 }
 
-#result-section {
+#left-section-container {
+  flex-grow: 1;
+  max-width: 50vw;
   display: flex;
   flex-direction: column;
-  color: "#FFF";
-  animation: fadeIn 0.6s;
-  -webkit-animation: fadeIn 0.6s;
-  -moz-animation: fadeIn 0.6s;
-  -o-animation: fadeIn 0.6s;
-  -ms-animation: fadeIn 0.6s;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 160px 0 0px 50px;
 }
 
 @keyframes fadeIn {

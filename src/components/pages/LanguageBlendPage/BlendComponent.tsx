@@ -1,90 +1,84 @@
-import {
-  Alert,
-  Autocomplete,
-  Button,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Alert, Autocomplete, Button, TextField } from "@mui/material";
 import { useContext } from "react";
 import { LanguageBlendContext } from "./";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import { ThemeContext } from "../../../App";
 import Flag from "react-world-flags";
+import NavBar from "../../Layout/NavBar/NavBar";
 
 const BlendComponent = () => {
   const blend = useContext(LanguageBlendContext);
-  const theme = useContext(ThemeContext);
 
   return (
-    <div
-      id="blend-section"
-      style={{
-        backgroundColor: theme.light ? "#fff" : "#121212",
-        color: !theme.light ? "#fff" : "#121212",
-        minHeight: "100vh",
-      }}
-    >
-      <div id="blend-container">
-        <Typography
+    <div id="blend-section">
+      <NavBar />
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <div
           style={{
-            fontSize: theme.width > theme.mobileBreakpoint ? "3.58rem" : "1rem",
-            fontWeight: 100,
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "cenetr",
           }}
         >
-          COMMON WORDS
-          <span style={{ fontSize: "1rem", fontWeight: 300 }}>V0.3(alpha)</span>
-        </Typography>
-
+          <Flag
+            code={blend.pickFlag(1)}
+            style={{
+              width: "50%",
+              opacity: blend.selectedLanguage1 ? 0.6 : 0,
+            }}
+          />
+        </div>
         <div
           style={{
             display: "flex",
-            marginBottom: "30px",
-            flexWrap: "wrap",
+            flexDirection: "column",
+            alignItems: "center",
+            paddingTop: "50px",
+            transition: "1s linear",
           }}
         >
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={blend.languages}
-            onChange={blend.handleSelect1}
-            sx={{ width: theme.width > theme.mobileBreakpoint ? 300 : 250 }}
+          <h1 style={{ fontFamily: "consolas", color: "white" }}>
+            BLEND LANGUAGES
+          </h1>
+          <div
             style={{
-              borderRadius: "4px",
-              margin: "10px",
-              backgroundColor: "#fff",
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "wrap",
+              minWidth: "281px",
             }}
-            renderInput={(params) => (
-              <TextField {...params} label="Select language" />
-            )}
-          />
-          <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={blend.languages}
-            onChange={blend.handleSelect2}
-            style={{
-              borderRadius: "4px",
-              margin: "10px",
-              backgroundColor: "#fff",
-            }}
-            sx={{ width: theme.width > theme.mobileBreakpoint ? 300 : 250 }}
-            renderInput={(params) => (
-              <TextField {...params} label="Select another language" />
-            )}
-          />
-        </div>
-        <div style={{ display: "flex" }}>
-          {blend.selectedLanguage1 && (
-            <Flag
-              code={blend.pickFlag(1)}
-              height="36"
+          >
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={blend.languages}
+              onChange={blend.handleSelect1}
               style={{
                 borderRadius: "4px",
-                marginRight: "10px",
-                boxShadow: "0px 0px 2px grey",
+                margin: "10px",
+                backgroundColor: "#FFF",
+                flexGrow: 1,
               }}
+              renderInput={(params) => (
+                <TextField {...params} placeholder="Select language" />
+              )}
             />
-          )}
+            <Autocomplete
+              disablePortal
+              id="combo-box-demo"
+              options={blend.languages}
+              onChange={blend.handleSelect2}
+              style={{
+                borderRadius: "4px",
+                margin: "10px",
+                backgroundColor: "#fff",
+                flexGrow: 1,
+              }}
+              renderInput={(params) => (
+                <TextField {...params} placeholder="Select another language" />
+              )}
+            />
+          </div>
 
           <Button
             variant="contained"
@@ -95,27 +89,45 @@ const BlendComponent = () => {
                 : false
             }
             onClick={blend.compare}
-            style={{ marginBottom: "5px" }}
+            style={{
+              marginBottom: "30px",
+              backgroundColor: "white",
+              color: "#F84284",
+              width: "261px",
+              marginTop: "10px",
+            }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
-              <CompareArrowsIcon style={{ marginRight: "10px" }} /> Compare
+              <CompareArrowsIcon style={{ marginRight: "10px" }} />
+              Compare
             </div>
           </Button>
-          {blend.selectedLanguage2 && (
-            <Flag
-              code={blend.pickFlag(2)}
-              height="36"
-              style={{
-                borderRadius: "4px",
-                marginLeft: "10px",
-                boxShadow: "0px 0px 2px grey",
-              }}
-            />
-          )}
         </div>
 
+        <div
+          style={{
+            flexGrow: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "cenetr",
+          }}
+        >
+          <Flag
+            code={blend.pickFlag(2)}
+            style={{
+              width: "50%",
+              opacity: blend.selectedLanguage2 ? 0.6 : 0,
+            }}
+          />
+        </div>
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "center" }}>
         {blend.alert && (
-          <Alert style={{ marginTop: "20px" }} severity="error">
+          <Alert
+            style={{ marginTop: "20px", maxWidth: "400px" }}
+            severity="error"
+          >
             {blend.alert}
           </Alert>
         )}

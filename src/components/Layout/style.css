@@ -1,0 +1,12 @@
+#nav-bar {
+  padding: 10px 10px 0px 10px;
+  font-family: consolas;
+  color: white;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+#title {
+  font-size: 45px;
+}

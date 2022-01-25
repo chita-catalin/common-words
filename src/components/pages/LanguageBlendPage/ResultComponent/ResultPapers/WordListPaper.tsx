@@ -1,4 +1,5 @@
 import { Button, List, ListItemText, Paper } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface Props {
   blend: any;
@@ -21,7 +22,15 @@ const WordListPaper = (props: Props) => {
             })}
           </List>
         </div>
-        <Button variant="contained"> + More details</Button>
+
+        <Button variant="contained">
+          <Link
+            style={{ textDecoration: "none", color: "#fff" }}
+            to="/more-details"
+          >
+            + More details
+          </Link>
+        </Button>
       </div>
     </Paper>
   );

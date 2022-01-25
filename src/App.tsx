@@ -3,30 +3,33 @@ import NavBar from "./components/Layout/NavBar/NavBar";
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Resources from "./components/pages/Resources/Resources";
-import useTheme from "./components/ThemeComponent/useTheme";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
 import React from "react";
 import { MoreStatistics } from "./components/pages/MoreStatistics";
+import MoreDetails from "./components/pages/MoreDetails";
+import useLanguageBlend from "./useLanguageBlend";
+import LandingPage from "./components/pages/LandingPage";
 
-export const ThemeContext = React.createContext<any>(null);
+export const BlendContext = React.createContext<any>(null);
 
 function App() {
-  const theme = useTheme();
+  const blend = useLanguageBlend();
 
   return (
-    <BrowserRouter>
-      <ThemeContext.Provider value={theme}>
-        <NavBar />
+    <BlendContext.Provider value={blend}>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LanguageBlendPage />} />
+          <Route path="/language-blend" element={<LanguageBlendPage />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/changelog" element={<ChangeLog />} />
           <Route path="/more-statistics" element={<MoreStatistics />} />
+          <Route path="/more-details" element={<MoreDetails />} />
+          <Route path="/" element={<LandingPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </ThemeContext.Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </BlendContext.Provider>
   );
 }
 

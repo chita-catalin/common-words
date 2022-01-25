@@ -1,30 +1,31 @@
 import { Button } from "@mui/material";
-import React from "react";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import NavBar from "../../Layout/NavBar/NavBar";
 const NotFound = () => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        flexGrow: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "70px",
+        color: "#fff",
       }}
     >
-      <span style={{ fontSize: "6rem" }}>404</span>
-      <p style={{ marginTop: "-15px", marginBottom: "30px" }}>
-        Nothing to see here
-      </p>
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <Button variant="contained">
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <HomeIcon style={{ marginRight: "5px" }} /> Go to the homepage
-          </div>
-        </Button>
-      </Link>
+      <NavBar />
+      <div
+        style={{
+          display: "flex",
+          flexGrow: 1,
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ fontSize: "6rem", marginTop: "100px" }}>404</span>
+        <p style={{ marginTop: "-15px", marginBottom: "30px" }}>
+          Nothing to see here
+        </p>
+      </div>
     </div>
   );
 };

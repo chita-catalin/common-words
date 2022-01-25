@@ -1,13 +1,13 @@
 import React from "react";
 import BlendComponent from "./BlendComponent";
 import ResultComponent from "./ResultComponent/ResultComponent";
-import useLanguageBlend from "./useLanguageBlend";
 import "./style.css";
+import { BlendContext } from "../../../App";
 
 export const LanguageBlendContext = React.createContext<any>(null);
 
 const LanguageBlendPage = () => {
-  const blend = useLanguageBlend();
+  const blend = React.useContext(BlendContext);
 
   return (
     <LanguageBlendContext.Provider value={blend}>

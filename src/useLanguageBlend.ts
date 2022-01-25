@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { EN_WORDS } from "../../../LanguageData/en_words";
-import { FI_WORDS } from "../../../LanguageData/fi_words";
-import { FR_WORDS } from "../../../LanguageData/fr_words";
-import { IT_WORDS } from "../../../LanguageData/it_words";
-import { RO_WORDS } from "../../../LanguageData/ro_words";
-import { HU_WORDS } from "../../../LanguageData/hu_words";
+import { EN_WORDS } from "./LanguageData/en_words";
+import { FI_WORDS } from "./LanguageData/fi_words";
+import { FR_WORDS } from "./LanguageData/fr_words";
+import { IT_WORDS } from "./LanguageData/it_words";
+import { RO_WORDS } from "./LanguageData/ro_words";
+import { HU_WORDS } from "./LanguageData/hu_words";
 
 const useLanguageBlend = () => {
-  const [selectedLanguage1, setSelectedLanguage1] = useState<string>("");
-  const [selectedLanguage2, setSelectedLanguage2] = useState<any>("");
+  const [selectedLanguage1, setSelectedLanguage1] = useState<any>(null);
+  const [selectedLanguage2, setSelectedLanguage2] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [blendedList, setBlendedList] = useState<any>([]);
   const [alert, setAlert] = useState<string>("");
@@ -56,6 +56,7 @@ const useLanguageBlend = () => {
       case "Hungarian":
         return "hu";
     }
+    return "gb";
   };
 
   const blend = (language1: string, language2: string) => {

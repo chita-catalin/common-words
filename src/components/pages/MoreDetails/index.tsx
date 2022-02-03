@@ -8,7 +8,8 @@ const MoreDetails = () => {
   const blend = React.useContext(BlendContext);
   const wordList = blend.blendedList;
 
-  const [minLength, setMinLength] = React.useState(0);
+  const [minLength, setMinLength] = React.useState(1);
+  const [maxLength, setMaxLength] = React.useState(10);
 
   return (
     <div
@@ -45,23 +46,52 @@ const MoreDetails = () => {
       <div
         style={{
           padding: "10px",
-          backgroundColor: "#FFF",
           margin: "30px 0 30px 0",
+          display: "flex",
         }}
       >
-        <TextField
-          label="minimum word length"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          value={minLength}
-          onChange={(e: any) => setMinLength(Number(e.target.value))}
-        />
+        {/*minimum word length*/}
+        <div
+          style={{ display: "flex", flexDirection: "column", margin: "5px" }}
+        >
+          <span style={{ color: "white", marginBottom: "5px" }}>
+            minimum word length
+          </span>
+          <TextField
+            placeholder=""
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={minLength}
+            style={{ backgroundColor: "white", borderRadius: "4px" }}
+            onChange={(e: any) => setMinLength(Number(e.target.value))}
+          />
+        </div>
+        {/*maximum word length*/}
+        <div
+          style={{ display: "flex", flexDirection: "column", margin: "5px" }}
+        >
+          <span style={{ color: "white", marginBottom: "5px" }}>
+            maximum word length
+          </span>
+          <TextField
+            placeholder=""
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            value={maxLength}
+            style={{ backgroundColor: "white", borderRadius: "4px" }}
+            onChange={(e: any) => setMaxLength(Number(e.target.value))}
+          />
+        </div>
       </div>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         {wordList.map((el: any) =>
-          el.word && el.word.length >= minLength ? (
+          el.word &&
+          el.word.length >= minLength &&
+          el.word.length <= maxLength ? (
             <div
               style={{
                 margin: "10px",

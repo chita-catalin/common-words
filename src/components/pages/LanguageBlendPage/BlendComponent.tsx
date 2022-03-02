@@ -6,11 +6,11 @@ import Flag from "react-world-flags";
 import NavBar from "../../Layout/NavBar/NavBar";
 
 const BlendComponent = () => {
-  const blend = useContext(LanguageBlendContext);
+  const blend = useContext(LanguageBlendContext); 
 
   return (
     <div id="blend-section">
-      <NavBar />
+      {/* <NavBar />
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div
           style={{
@@ -131,7 +131,7 @@ const BlendComponent = () => {
             {blend.alert}
           </Alert>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,10 +1,4 @@
 import { useState } from "react";
-import { EN_WORDS } from "./LanguageData/en_words";
-import { FI_WORDS } from "./LanguageData/fi_words";
-import { FR_WORDS } from "./LanguageData/fr_words";
-import { IT_WORDS } from "./LanguageData/it_words";
-import { RO_WORDS } from "./LanguageData/ro_words";
-import { HU_WORDS } from "./LanguageData/hu_words";
 
 const useLanguageBlend = () => {
   const [selectedLanguage1, setSelectedLanguage1] = useState<any>(null);
@@ -65,73 +59,73 @@ const useLanguageBlend = () => {
     let arr1 = null;
     let arr2 = null;
     //set first language array
-    switch (language1) {
-      case "Romanian":
-        arr1 = RO_WORDS;
-        break;
-      case "English":
-        arr1 = EN_WORDS;
-        break;
-      case "Italian":
-        arr1 = IT_WORDS;
-        break;
+    // switch (language1) {
+    //   case "Romanian":
+    //     arr1 = RO_WORDS;
+    //     break;
+    //   case "English":
+    //     arr1 = EN_WORDS;
+    //     break;
+    //   case "Italian":
+    //     arr1 = IT_WORDS;
+    //     break;
 
-      case "French":
-        arr1 = FR_WORDS;
-        break;
+    //   case "French":
+    //     arr1 = FR_WORDS;
+    //     break;
 
-      case "Finnish":
-        arr1 = FI_WORDS;
-        break;
+    //   case "Finnish":
+    //     arr1 = FI_WORDS;
+    //     break;
 
-      case "Hungarian":
-        arr1 = HU_WORDS;
-        break;
-    }
-    //set second language array
-    switch (language2) {
-      case "Romanian":
-        arr2 = RO_WORDS;
-        break;
-      case "English":
-        arr2 = EN_WORDS;
-        break;
-      case "Italian":
-        arr2 = IT_WORDS;
-        break;
+    //   case "Hungarian":
+    //     arr1 = HU_WORDS;
+    //     break;
+    // }
+    // //set second language array
+    // switch (language2) {
+    //   case "Romanian":
+    //     arr2 = RO_WORDS;
+    //     break;
+    //   case "English":
+    //     arr2 = EN_WORDS;
+    //     break;
+    //   case "Italian":
+    //     arr2 = IT_WORDS;
+    //     break;
 
-      case "French":
-        arr2 = FR_WORDS;
-        break;
+    //   case "French":
+    //     arr2 = FR_WORDS;
+    //     break;
 
-      case "Finnish":
-        arr2 = FI_WORDS;
-        break;
+    //   case "Finnish":
+    //     arr2 = FI_WORDS;
+    //     break;
 
-      case "Hungarian":
-        arr2 = HU_WORDS;
-        break;
-    }
+    //   case "Hungarian":
+    //     arr2 = HU_WORDS;
+    //     break;
+    // }
 
-    if (language1 !== language2) {
-      if (arr1 && arr2) {
-        let arr: any = [];
-        for (let i = 0; i < arr1.length; i++) {
-          for (let j = 0; j < arr2.length; j++) {
-            if (arr1[i].word === arr2[j].word) {
-              arr = [...arr, arr1[i]];
-            }
-          }
-        }
-        setBlendedList(arr);
-        if (arr.length === 0) {
-          setAlert("These languages have no common words");
-        }
-        console.log(blendedList);
-      }
-    } else {
-      setAlert("Please select 2 different languages");
-    }
+    // if (language1 !== language2) {
+    //   if (arr1 && arr2) {
+    //     let arr: any = [];
+    //     for (let i = 0; i < arr1.length; i++) {
+    //       for (let j = 0; j < arr2.length; j++) {
+    //         if (arr1[i].word === arr2[j].word) {
+    //           arr = [...arr, arr1[i]];
+    //         }
+    //       }
+    //     }
+    //     setBlendedList(arr);
+    //     if (arr.length === 0) {
+    //       setAlert("These languages have no common words");
+    //     }
+    //     console.log(blendedList);
+    //   }
+    // } else {
+    //   setAlert("Please select 2 different languages");
+    // }
     setLoading(false);
   };
 

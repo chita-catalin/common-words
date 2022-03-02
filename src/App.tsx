@@ -19,12 +19,18 @@ function App() {
     <BlendContext.Provider value={blend}>
       <BrowserRouter>
         <Routes>
-          <Route path="/language-blend" element={<LanguageBlendPage />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/changelog" element={<ChangeLog />} />
-          <Route path="/more-statistics" element={<MoreStatistics />} />
-          <Route path="/more-details" element={<MoreDetails />} />
-          <Route path="/" element={<LandingPage />} />
+          <Route
+            path="/common-words/language-blend"
+            element={<LanguageBlendPage />}
+          />
+          <Route path="/common-words/resources" element={<Resources />} />
+          <Route path="/common-words/changelog" element={<ChangeLog />} />
+          <Route
+            path="/common-words/more-statistics"
+            element={<MoreStatistics />}
+          />
+          <Route path="/common-words/more-details" element={<MoreDetails />} />
+          <Route path="/common-words/" element={<LandingPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

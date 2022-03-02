@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, HashRouter } from "react-router-dom";
 import NavBar from "./components/Layout/NavBar/NavBar";
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
 import NotFound from "./components/pages/NotFound/NotFound";
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BlendContext.Provider value={blend}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
             path="/common-words/language-blend"
@@ -34,7 +34,7 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </BlendContext.Provider>
   );
 }

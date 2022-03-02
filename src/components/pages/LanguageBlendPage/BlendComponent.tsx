@@ -2,16 +2,15 @@ import { Alert, Autocomplete, Button, TextField } from "@mui/material";
 import { useContext } from "react";
 import { LanguageBlendContext } from "./";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import Flag from "react-world-flags";
 import NavBar from "../../Layout/NavBar/NavBar";
 
 const BlendComponent = () => {
-  const blend = useContext(LanguageBlendContext); 
+  const blend = useContext(LanguageBlendContext);
 
   return (
     <div id="blend-section">
-      {/* <NavBar />
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <NavBar />
+      {/*<div style={{ display: "flex", flexDirection: "row" }}>
         <div
           style={{
             flexGrow: 1,

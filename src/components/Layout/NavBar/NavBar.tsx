@@ -9,8 +9,8 @@ const NavBar = () => {
           to="/"
           style={{
             textDecoration: "none",
-            color: "white",
             fontFamily: "consolas",
+            color: "#222831",
           }}
         >
           COMMON WORDS
@@ -20,7 +20,7 @@ const NavBar = () => {
         style={{
           fontSize: "13px",
           marginRight: "30px",
-          color: "lightgrey",
+          color: "#393E46",
           marginLeft: "3px",
         }}
       >
@@ -31,7 +31,7 @@ const NavBar = () => {
         style={{
           marginRight: "30px",
           textDecoration: "none",
-          color: "#F84284",
+          color: "#00ADB5",
         }}
       >
         <u>resources</u>
@@ -41,7 +41,7 @@ const NavBar = () => {
         style={{
           marginRight: "30px",
           textDecoration: "none",
-          color: "#F84284",
+          color: "#00ADB5",
         }}
       >
         <u>about</u>
@@ -51,7 +51,7 @@ const NavBar = () => {
         style={{
           marginRight: "30px",
           textDecoration: "none",
-          color: "#F84284",
+          color: "#00ADB5",
         }}
       >
         <u>changelog</u>

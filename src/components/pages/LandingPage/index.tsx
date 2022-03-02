@@ -24,6 +24,10 @@ const LandingPage = () => {
       setVantaEffect(
         GLOBE({
           el: myRef.current,
+          color: 0x00adb5,
+          color2: 0x222831,
+          backgroundColor: 0xeeeeee,
+          //and so on...
         })
       );
     }
@@ -38,7 +42,7 @@ const LandingPage = () => {
         <p
           style={{
             fontFamily: "consolas",
-            color: "white",
+            color: "#222831",
             width: "370px",
             marginBottom: "30px",
           }}
@@ -53,13 +57,13 @@ const LandingPage = () => {
           <Button
             variant="contained"
             style={{
-              backgroundColor: "#FFF",
-              color: "#F84284",
+              backgroundColor: "#393E46",
+              color: "#EEEEEE",
             }}
           >
             Start Exploring
             <ArrowForwardIosRoundedIcon
-              style={{ fontSize: "16px", color: "#F84284" }}
+              style={{ fontSize: "16px", color: "#EEEEEE" }}
             />
           </Button>
         </Link>
@@ -72,7 +76,7 @@ const LandingPage = () => {
           right: 10,
           bottom: 10,
           textDecoration: "none",
-          color: "lightgrey",
+          color: "#00ADB5",
         }}
       >
         vanta.js

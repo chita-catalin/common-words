@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/common-words/static/css/main.06d7128c.chunk.css",
-    "main.js": "/common-words/static/js/main.8b883366.chunk.js",
-    "main.js.map": "/common-words/static/js/main.8b883366.chunk.js.map",
+    "main.js": "/common-words/static/js/main.bf6b1bee.chunk.js",
+    "main.js.map": "/common-words/static/js/main.bf6b1bee.chunk.js.map",
     "runtime-main.js": "/common-words/static/js/runtime-main.b0b396bb.js",
     "runtime-main.js.map": "/common-words/static/js/runtime-main.b0b396bb.js.map",
     "static/js/2.9f1655b4.chunk.js": "/common-words/static/js/2.9f1655b4.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.b0b396bb.js",
     "static/js/2.9f1655b4.chunk.js",
     "static/css/main.06d7128c.chunk.css",
-    "static/js/main.8b883366.chunk.js"
+    "static/js/main.bf6b1bee.chunk.js"
   ]
 }

@@ -2,7 +2,7 @@
   "name": "common-words-frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chita-catalin.github.io",
+  "homepage": "https://chita-catalin.github.io/common-words",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",

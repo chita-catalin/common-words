@@ -4,16 +4,9 @@ import "./style.css";
 
 const ChangeLog = () => {
   return (
-    <div style={{ color: "#FFF" }}>
+    <div>
       <NavBar />
-      <div
-        style={{
-          display: "flex",
-          flexGrow: 1,
-          alignItems: "center",
-          flexDirection: "column",
-        }}
-      >
+      <div id="changelog-container">
         <div
           style={{
             display: "flex",
@@ -22,29 +15,22 @@ const ChangeLog = () => {
             marginTop: "40px",
           }}
         >
-          <Chip
-            label="V0.3 / 29.12.2021"
-            className="changelog-chip"
-            style={{ backgroundColor: "lightgrey" }}
-          />
+          <Chip label="V0.0.4 / 16.4.2022" className="changelog-chip" />
+          <span> Removed language lists from frontend side</span>
+          <span> Added about section</span>
+          <span> Removed light/dark theme switch</span>
+          <span> Enhanced landing page UI</span>
+          <span> Updated versioning system to match web standards </span>
+
+          <Chip label="V0.3 / 29.12.2021" className="changelog-chip" />
           <span> Added Italian,French,Finnish languages</span>
           <span> Enhanced results page.</span>
           <span> added changelog section.</span>
           <span> added country flags.</span>
           <span> added dark/light theme switch</span>
-
-          <Chip
-            label="V0.2 / 10.12.2021"
-            className="changelog-chip"
-            style={{ backgroundColor: "lightgrey" }}
-          />
+          <Chip label="V0.2 / 10.12.2021" className="changelog-chip" />
           <span> Added basic language blending</span>
-
-          <Chip
-            label="V0.1 / 1.12.2021"
-            className="changelog-chip"
-            style={{ backgroundColor: "lightgrey" }}
-          />
+          <Chip label="V0.1 / 1.12.2021" className="changelog-chip" />
           <span> Project created.</span>
         </div>
       </div>

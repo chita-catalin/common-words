@@ -1,7 +1,5 @@
-import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
 import NavBar from "../../Layout/NavBar/NavBar";
+
 const NotFound = () => {
   return (
     <div

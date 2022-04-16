@@ -24,7 +24,7 @@ const NavBar = () => {
           marginLeft: "3px",
         }}
       >
-        V0.3
+        V0.0.4
       </span>
       <Link
         to="/about"

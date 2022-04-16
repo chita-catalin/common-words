@@ -1,14 +1,14 @@
-import { Route, Routes, BrowserRouter, HashRouter } from "react-router-dom";
-import NavBar from "./components/Layout/NavBar/NavBar";
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
-import NotFound from "./components/pages/NotFound/NotFound";
+import { MoreStatistics } from "./components/pages/MoreStatistics";
 import Resources from "./components/pages/Resources/Resources";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
-import React from "react";
-import { MoreStatistics } from "./components/pages/MoreStatistics";
+import { Route, Routes, HashRouter } from "react-router-dom";
+import NotFound from "./components/pages/NotFound/NotFound";
 import MoreDetails from "./components/pages/MoreDetails";
-import useLanguageBlend from "./useLanguageBlend";
 import LandingPage from "./components/pages/LandingPage";
+import useLanguageBlend from "./useLanguageBlend";
+import React from "react";
+import { About } from "./components/pages/about";
 
 export const BlendContext = React.createContext<any>(null);
 
@@ -24,6 +24,7 @@ function App() {
           <Route path="/changelog" element={<ChangeLog />} />
           <Route path="/more-statistics" element={<MoreStatistics />} />
           <Route path="/more-details" element={<MoreDetails />} />
+          <Route path="/about" element={<About />} />
           <Route path="/" element={<LandingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

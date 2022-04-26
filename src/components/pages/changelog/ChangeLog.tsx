@@ -21,6 +21,10 @@ const ChangeLog = () => {
           <span> Added not-yet-functional table to "blend-page"</span>
           <span> added Google Analytics script to begin monitoring</span>
           <span> added Romanian word list to "Resources" page </span>
+          <span>
+            added Google Ads for paying off the backend hosting
+            <br /> (hope Github doesn't mind)
+          </span>
 
           <Chip label="V0.0.4 / 16.4.2022" className="changelog-chip" />
           <span> Removed language lists from frontend side</span>

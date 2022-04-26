@@ -15,6 +15,13 @@ const ChangeLog = () => {
             marginTop: "40px",
           }}
         >
+          <Chip label="V0.0.5 / 26.4.2022" className="changelog-chip" />
+          <span> Connected to Backend App</span>
+          <span> Now retreiving languages list from database</span>
+          <span> Added not-yet-functional table to "blend-page"</span>
+          <span> added Google Analytics script to begin monitoring</span>
+          <span> added Romanian word list to "Resources" page </span>
+
           <Chip label="V0.0.4 / 16.4.2022" className="changelog-chip" />
           <span> Removed language lists from frontend side</span>
           <span> Added about section</span>

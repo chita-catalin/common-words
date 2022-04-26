@@ -1,6 +1,6 @@
 {
   "name": "common-words-frontend",
-  "version": "0.1.0",
+  "version": "0.0.5",
   "private": true,
   "homepage": "https://chita-catalin.github.io/common-words",
   "dependencies": {
@@ -17,8 +17,10 @@
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
     "@types/react-dom": "^17.0.11",
+    "axios": "^0.26.1",
     "chart.js": "^3.6.2",
     "classnames": "^2.3.1",
+    "dotenv": "^16.0.0",
     "install": "^0.13.0",
     "material-ui-flags": "^1.2.4",
     "npm": "^8.3.2",
@@ -61,9 +63,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-simple-maps": "^1.0.7",
-    "@types/react-world-flags": "^1.4.2"
   }
 }

@@ -7,8 +7,12 @@ import NotFound from "./components/pages/NotFound/NotFound";
 import MoreDetails from "./components/pages/MoreDetails";
 import LandingPage from "./components/pages/LandingPage";
 import useLanguageBlend from "./useLanguageBlend";
-import React from "react";
 import { About } from "./components/pages/about";
+import React from "react";
+
+//env
+import "dotenv/config";
+import { Romanian } from "./components/pages/Resources/Romanian";
 
 export const BlendContext = React.createContext<any>(null);
 
@@ -20,6 +24,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/language-blend" element={<LanguageBlendPage />} />
+          <Route path="/languages/ro" element={<Romanian />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/changelog" element={<ChangeLog />} />
           <Route path="/more-statistics" element={<MoreStatistics />} />

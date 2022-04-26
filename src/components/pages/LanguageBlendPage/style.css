@@ -68,3 +68,27 @@
     opacity: 1;
   }
 }
+
+#language-blend-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#language-blend-inputs-container {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin:30px 10px 10px 30px;
+}
+
+#first-input {
+  width: 300px;
+  margin: 0 10px 0 0;
+}
+
+#second-input {
+  width: 300px;
+  margin: 0 0 0 10px;
+}

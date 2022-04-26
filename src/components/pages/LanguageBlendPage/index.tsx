@@ -1,8 +1,11 @@
-import React from "react";
-import BlendComponent from "./BlendComponent";
-import ResultComponent from "./ResultComponent/ResultComponent";
-import "./style.css";
+import { WordsTable } from "./components/wordsTable";
+import { CircularProgress } from "@mui/material";
+import NavBar from "../../Layout/NavBar/NavBar";
 import { BlendContext } from "../../../App";
+import React from "react";
+
+import "./style.css";
+import { TableHeader } from "./components/tableHeader";
 
 export const LanguageBlendContext = React.createContext<any>(null);
 
@@ -11,13 +14,16 @@ const LanguageBlendPage = () => {
 
   return (
     <LanguageBlendContext.Provider value={blend}>
-      <div id="language-blend-page">
-        {blend.blendedList.length > 0 ? (
-          <ResultComponent />
-        ) : (
-          <BlendComponent />
-        )}
-      </div>
+      <NavBar />
+
+      {blend.loading === true ? (
+        <CircularProgress />
+      ) : (
+        <>
+          <TableHeader />
+          <WordsTable />
+        </>
+      )}
     </LanguageBlendContext.Provider>
   );
 };

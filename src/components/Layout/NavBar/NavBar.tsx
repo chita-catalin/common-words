@@ -24,10 +24,10 @@ const NavBar = () => {
           marginLeft: "3px",
         }}
       >
-        V0.0.4
+        V0.0.5
       </span>
       <Link
-        to="/about"
+        to="/resources"
         style={{
           marginRight: "30px",
           textDecoration: "none",

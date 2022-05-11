@@ -16,8 +16,8 @@ const LandingPage = () => {
 
   React.useEffect(() => {
     //clear blending history
-    blend.selectedLanguage1 = null;
-    blend.selectedLanguage2 = null;
+    blend.selectedLanguage1 = [];
+    blend.selectedLanguage2 = [];
     blend.blendedList = [];
 
     if (!vantaEffect) {

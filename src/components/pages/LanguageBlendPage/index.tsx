@@ -1,11 +1,10 @@
+import { TableHeader } from "./components/tableHeader";
 import { WordsTable } from "./components/wordsTable";
-import { CircularProgress } from "@mui/material";
 import NavBar from "../../Layout/NavBar/NavBar";
 import { BlendContext } from "../../../App";
 import React from "react";
 
 import "./style.css";
-import { TableHeader } from "./components/tableHeader";
 
 export const LanguageBlendContext = React.createContext<any>(null);
 
@@ -16,14 +15,8 @@ const LanguageBlendPage = () => {
     <LanguageBlendContext.Provider value={blend}>
       <NavBar />
 
-      {blend.loading === true ? (
-        <CircularProgress />
-      ) : (
-        <>
-          <TableHeader />
-          <WordsTable />
-        </>
-      )}
+      <TableHeader />
+      <WordsTable />
     </LanguageBlendContext.Provider>
   );
 };

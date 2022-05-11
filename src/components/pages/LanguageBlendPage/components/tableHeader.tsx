@@ -1,13 +1,5 @@
-import {
-  Button,
-  FormControl,
-  InputLabel,
-  makeStyles,
-  MenuItem,
-  Select,
-} from "@mui/material";
+import { MenuItem, Select } from "@mui/material";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import BlenderIcon from "@mui/icons-material/Blender";
 import { Language } from "../../../../types";
 import { LanguageBlendContext } from "..";
 import { useContext } from "react";
@@ -17,69 +9,64 @@ import "../style.css";
 export const TableHeader = () => {
   const blend = useContext(LanguageBlendContext);
 
+  const handleFirstLanguageChange = (e: any) => {
+    console.log("dude", e.target.value);
+    blend.getFirstLanguage(e.target.value);
+  };
+
+  const handleSecondLanguageChange = (e: any) => {
+    console.log("dude", e.target.value);
+    blend.getSecondLanguage(e.target.value);
+  };
+
   return (
-    <div id="language-blend-inputs-container">
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "center",
+        marginTop: "60px",
+        marginBottom: "20px",
+      }}
+    >
       {blend.languages.length > 0 && (
-        <>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <div id="first-input">
             {/*first language input*/}
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Language</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                // value={age}
-                label="Language"
-                // onChange={handleChange}
-              >
-                {blend.languages.map((language: Language) => {
-                  return (
-                    <MenuItem value={language.name} key={language._id}>
-                      {language.name}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+            <Select
+              onChange={handleFirstLanguageChange}
+              style={{ width: "100%" }}
+              placeholder="select a language"
+            >
+              {blend.languages.map((language: Language) => {
+                return (
+                  <MenuItem value={language.name} key={language._id}>
+                    {language.name}
+                  </MenuItem>
+                );
+              })}
+            </Select>
           </div>
 
           <CompareArrowsIcon style={{ fontSize: "3rem", color: "grey" }} />
           {/*second language input*/}
 
           <div id="second-input">
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Language</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                // value={age}
-                label="Language"
-                // onChange={handleChange}
-              >
-                {blend.languages.map((language: Language) => {
-                  return (
-                    <MenuItem value={language.name} key={language._id}>
-                      {language.name}
-                    </MenuItem>
-                  );
-                })}
-              </Select>
-            </FormControl>
+            <Select
+              placeholder="select another language"
+              onChange={handleSecondLanguageChange}
+              style={{ width: "100%" }}
+            >
+              {blend.languages.map((language: Language) => {
+                return (
+                  <MenuItem value={language.name} key={language._id}>
+                    {language.name}
+                  </MenuItem>
+                );
+              })}
+            </Select>
           </div>
-
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#393E46",
-              color: "#EEEEEE",
-              width: "150px",
-              marginLeft: "40px",
-              alignSelf: "flex-end",
-            }}
-          >
-            Blend <BlenderIcon style={{ marginLeft: "5px" }} />
-          </Button>
-        </>
+        </div>
       )}
     </div>
   );

@@ -81,7 +81,7 @@ const useLanguageBlend = () => {
       );
 
       var duplicate = Object.keys(count)
-        .filter((k) => count[k] > 2)
+        .filter((k) => count[k] > 1)
         .map(String);
 
       console.log(duplicate);

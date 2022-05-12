@@ -23,21 +23,25 @@ export const TableHeader = () => {
     <div
       style={{
         display: "flex",
-        width: "100%",
+        margin: "30px 20% 20px 20%",
         justifyContent: "center",
-        marginTop: "60px",
-        marginBottom: "20px",
       }}
     >
       {blend.languages.length > 0 && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div id="first-input">
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+          }}
+        >
+          <div id="first-input" style={{ flexGrow: 1 }}>
             {/*first language input*/}
             <Select
               onChange={handleFirstLanguageChange}
               style={{ width: "100%" }}
               placeholder="select a language"
-            >
+            > 
               {blend.languages.map((language: Language) => {
                 return (
                   <MenuItem value={language.name} key={language._id}>
@@ -51,7 +55,7 @@ export const TableHeader = () => {
           <CompareArrowsIcon style={{ fontSize: "3rem", color: "grey" }} />
           {/*second language input*/}
 
-          <div id="second-input">
+          <div id="second-input" style={{ flexGrow: 1 }}>
             <Select
               placeholder="select another language"
               onChange={handleSecondLanguageChange}

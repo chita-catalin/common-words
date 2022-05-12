@@ -7,12 +7,13 @@ import React from "react";
 import GLOBE from "vanta/dist/vanta.globe.min";
 import { Link } from "react-router-dom";
 import NavBar from "../../Layout/NavBar/NavBar";
-import { BlendContext } from "../../../App";
+import { BlendContext, LanguageContext } from "../../../App";
 
 const LandingPage = () => {
   const [vantaEffect, setVantaEffect] = React.useState<any>(0);
   const myRef = useRef(null);
   const blend = React.useContext(BlendContext);
+  const { startExploring, landingPageText } = React.useContext(LanguageContext);
 
   React.useEffect(() => {
     //clear blending history
@@ -47,8 +48,7 @@ const LandingPage = () => {
             marginBottom: "30px",
           }}
         >
-          Compare your language with another! Find the common words, and more
-          fun statistics about languages, completely free!
+          {landingPageText}
         </p>
         <Link
           to="/language-blend"
@@ -61,7 +61,7 @@ const LandingPage = () => {
               color: "#EEEEEE",
             }}
           >
-            Start Exploring
+            {startExploring}
             <ArrowForwardIosRoundedIcon
               style={{ fontSize: "16px", color: "#EEEEEE" }}
             />

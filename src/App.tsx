@@ -14,6 +14,8 @@ import React from "react";
 
 //env
 import "dotenv/config";
+import Tools from "./components/pages/Tools";
+import TextScraper from "./components/pages/Tools/TextScraper";
 
 export const LanguageContext = React.createContext<any>(null);
 export const BlendContext = React.createContext<any>(null);
@@ -21,7 +23,7 @@ export const BlendContext = React.createContext<any>(null);
 function App() {
   const blend = useLanguageBlend();
   const language = useLanguage();
-  
+
   return (
     <LanguageContext.Provider value={language}>
       <BlendContext.Provider value={blend}>
@@ -36,6 +38,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/tools" element={<Tools />} />
+            <Route path="/tools/text-scraper" element={<TextScraper />} />
           </Routes>
         </HashRouter>
       </BlendContext.Provider>

@@ -1,16 +1,33 @@
-import Paper from "@mui/material/Paper";
+import { BlendContext, LanguageContext } from "../../../../App";
 import { CircularProgress, TextField } from "@mui/material";
-import { useContext, useState } from "react";
-import { BlendContext } from "../../../../App";
+import { useContext, useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import ReadingImg from "../reading-side.png";
+import Paper from "@mui/material/Paper";
 
 export const WordsTable = () => {
   const blend = useContext(BlendContext);
+  const {
+    selectTwoLanguages,
+    wordsPerPage,
+    words,
+    minWordLength,
+    maxWordLength,
+  } = useContext(LanguageContext);
   const [page, setPage] = useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = useState<number>(25);
   const [minLength, setMinLength] = useState<number>(3);
   const [maxLength, setMaxLength] = useState<number>(6);
+  const [localFilteredList, setLocalFilteredList] = useState<string[]>([]);
+
+  useEffect(() => {
+    setLocalFilteredList(
+      blend.blendedList.filter((word: string) => {
+        if (word.length >= minLength && word.length <= maxLength) return true;
+        else return false;
+      })
+    );
+  }, [minLength, maxLength, blend.blendedList]);
 
   const navigate = (e: any) => {
     if (e.target.dataset.testid === "NavigateNextIcon") {
@@ -34,9 +51,9 @@ export const WordsTable = () => {
             flexDirection: "column",
           }}
         >
-          <img src={ReadingImg} style={{ width: "25%" }} />
+          <img src={ReadingImg} style={{ width: "25%", marginTop: "30px " }} />
           <div style={{ fontSize: "30px", color: "#bfbfbf" }}>
-            Select two languages!
+            {selectTwoLanguages}
           </div>
         </div>
       )}
@@ -59,7 +76,7 @@ export const WordsTable = () => {
           >
             <TextField
               id="outlined-number"
-              label="Words per Page"
+              label={wordsPerPage}
               type="number"
               InputLabelProps={{
                 shrink: true,
@@ -72,7 +89,7 @@ export const WordsTable = () => {
 
             <TextField
               id="outlined-number"
-              label="Min. word length"
+              label={minWordLength}
               type="number"
               InputLabelProps={{
                 shrink: true,
@@ -85,7 +102,7 @@ export const WordsTable = () => {
 
             <TextField
               id="outlined-number"
-              label="Max word length"
+              label={maxWordLength}
               type="number"
               InputLabelProps={{
                 shrink: true,
@@ -104,7 +121,7 @@ export const WordsTable = () => {
             }}
           >
             <Pagination
-              count={Math.ceil(blend.blendedList.length / itemsPerPage)}
+              count={Math.ceil(localFilteredList.length / itemsPerPage)}
               shape="rounded"
               onChange={navigate}
               page={page + 1}
@@ -153,7 +170,7 @@ export const WordsTable = () => {
                       width: "23%",
                     }}
                   >
-                    {blend.blendedList.length} words
+                    {localFilteredList.length} {words}
                   </div>
                   <div
                     style={{
@@ -173,8 +190,8 @@ export const WordsTable = () => {
                   </div>
                 </div>
 
-                {blend.blendedList.length > 0 &&
-                  blend.blendedList.map((word: string, index: number) => {
+                {localFilteredList.length > 0 &&
+                  localFilteredList.map((word: string, index: number) => {
                     if (
                       index >= itemsPerPage * page &&
                       index <= itemsPerPage * (page + 1) - 1
@@ -241,7 +258,7 @@ export const WordsTable = () => {
             }}
           >
             <Pagination
-              count={Math.ceil(blend.blendedList.length / itemsPerPage)}
+              count={Math.ceil(localFilteredList.length / itemsPerPage)}
               shape="rounded"
               onChange={navigate}
               page={page + 1}

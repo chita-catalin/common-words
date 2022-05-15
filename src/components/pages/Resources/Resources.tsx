@@ -21,6 +21,8 @@ const Resources = () => {
           {">"} (ro) Romanian word list
         </Link>
       </div>
+      german: Großes Wörterbuch der deutschen Sprache
+      https://www.researchgate.net/publication/335202645_Das_digitale_Worterbuch_der_deutschen_Sprache_DWDS
     </div>
   );
 };

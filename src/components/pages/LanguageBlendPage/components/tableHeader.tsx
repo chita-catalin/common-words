@@ -1,5 +1,5 @@
-import { MenuItem, Select } from "@mui/material";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
+import { MenuItem, Select } from "@mui/material";
 import { Language } from "../../../../types";
 import { LanguageBlendContext } from "..";
 import { useContext } from "react";
@@ -10,12 +10,10 @@ export const TableHeader = () => {
   const blend = useContext(LanguageBlendContext);
 
   const handleFirstLanguageChange = (e: any) => {
-    console.log("dude", e.target.value);
     blend.getFirstLanguage(e.target.value);
   };
 
   const handleSecondLanguageChange = (e: any) => {
-    console.log("dude", e.target.value);
     blend.getSecondLanguage(e.target.value);
   };
 
@@ -36,12 +34,11 @@ export const TableHeader = () => {
           }}
         >
           <div id="first-input" style={{ flexGrow: 1 }}>
-            {/*first language input*/}
             <Select
               onChange={handleFirstLanguageChange}
               style={{ width: "100%" }}
               placeholder="select a language"
-            > 
+            >
               {blend.languages.map((language: Language) => {
                 return (
                   <MenuItem value={language.name} key={language._id}>
@@ -53,7 +50,6 @@ export const TableHeader = () => {
           </div>
 
           <CompareArrowsIcon style={{ fontSize: "3rem", color: "grey" }} />
-          {/*second language input*/}
 
           <div id="second-input" style={{ flexGrow: 1 }}>
             <Select

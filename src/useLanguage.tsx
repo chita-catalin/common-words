@@ -11,6 +11,14 @@ export const useLanguage = () => {
   const [landingPageText, setLandingPageText] = useState(
     "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
   );
+  const [selectTwoLanguages, setSelectTwoLanguages] = useState(
+    "Select two languages!"
+  );
+  const [wordsPerPage, setWordsPerPage] = useState("Words per page");
+  const [words, setWords] = useState("Words");
+  const [minWordLength, setMinWordLength] = useState("Min. word length");
+  const [maxWordLength, setMaxWordLength] = useState("Max. word length");
+  const [tools, setTools] = useState("tools");
 
   useEffect(() => {
     switch (language) {
@@ -23,6 +31,12 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
         );
+        setSelectTwoLanguages("Select two languages!");
+        setWordsPerPage("Words per page");
+        setWords("Words");
+        setMinWordLength("Min. word length");
+        setMaxWordLength("Max. word length");
+        setTools("tools");
         break;
 
       case "romanian":
@@ -34,9 +48,17 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compară limba ta cu altă limbă! Găsește cuvintele comune, și alte statistici interesante despre limbi, complet gratuit!"
         );
+        setSelectTwoLanguages("Selectează două limbi diferite!");
+        setWordsPerPage("Cuvinte pe pagină");
+        setWords("Cuvinte");
+        setMinWordLength("Lungime minimă");
+        setMaxWordLength("Lungime maximă");
+        setTools("unelte");
+
         break;
     }
   }, [language]);
+
   return {
     language,
     setLanguage,
@@ -46,5 +68,11 @@ export const useLanguage = () => {
     changelog,
     startExploring,
     landingPageText,
+    selectTwoLanguages,
+    wordsPerPage,
+    words,
+    minWordLength,
+    maxWordLength,
+    tools,
   };
 };

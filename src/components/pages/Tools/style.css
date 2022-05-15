@@ -1,0 +1,26 @@
+.tool-paper {
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #222831;
+  font-size: 20px;
+}
+
+.tool-paper:hover {
+  background-color: #00adb5;
+  color: white;
+}
+
+#tools-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.tool-paper-title {
+  margin-bottom: 10px;
+}

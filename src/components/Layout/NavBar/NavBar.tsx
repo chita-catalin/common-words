@@ -1,37 +1,21 @@
-import { InputLabel, MenuItem, Select } from "@mui/material";
+import LanguageIcon from "@mui/icons-material/Language";
+import { MenuItem, Select } from "@mui/material";
 import { LanguageContext } from "../../../App";
-import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import LanguageIcon from "@mui/icons-material/Language";
 
 import "../style.css";
 
 const NavBar = () => {
-  const {
-    setLanguage,
-    commonWords,
-    resources,
-    about,
-    changelog,
-    startExploring,
-    landingPageText,
-  } = useContext(LanguageContext);
-
-  const classes: any = makeStyles({
-    label: {
-      color: "darkred",
-      "&.Mui-focused": {
-        color: "darkred",
-      },
-    },
-  });
+  const { setLanguage, commonWords, resources, about, changelog, tools } =
+    useContext(LanguageContext);
 
   return (
     <nav
       style={{
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
       }}
     >
       <div style={{ display: "flex", alignItems: "baseline" }}>
@@ -58,6 +42,16 @@ const NavBar = () => {
         >
           V0.0.5
         </span>
+        <Link
+          to="/tools"
+          style={{
+            marginRight: "30px",
+            textDecoration: "none",
+            color: "#00ADB5",
+          }}
+        >
+          <u>{tools}</u>
+        </Link>
         <Link
           to="/resources"
           style={{
@@ -92,7 +86,7 @@ const NavBar = () => {
       <Select
         label="Age"
         onChange={(e) => setLanguage(e.target.value)}
-        style={{ width: "70px", margin: "15px 32px 0px 0px", height: "40px" }}
+        style={{ width: "70px", margin: "0 32px 0px 0px", height: "40px" }}
         renderValue={(selected: any) => {
           return (
             <LanguageIcon style={{ color: "#00ADB5", marginBottom: "-3px" }} />

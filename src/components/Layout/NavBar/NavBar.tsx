@@ -40,7 +40,7 @@ const NavBar = () => {
             marginLeft: "3px",
           }}
         >
-          V0.0.5
+          V0.5.0
         </span>
         <Link
           to="/tools"

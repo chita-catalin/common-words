@@ -57,13 +57,18 @@ export const TableHeader = () => {
               onChange={handleSecondLanguageChange}
               style={{ width: "100%" }}
             >
-              {blend.languages.map((language: Language) => {
-                return (
-                  <MenuItem value={language.name} key={language._id}>
-                    {language.name}
-                  </MenuItem>
-                );
-              })}
+              {blend.languages
+                .sort((a: Language, b: Language) => {
+                  if (a.name > b.name) return 1;
+                  return -1;
+                })
+                .map((language: Language) => {
+                  return (
+                    <MenuItem value={language.name} key={language._id}>
+                      {language.name}
+                    </MenuItem>
+                  );
+                })}
             </Select>
           </div>
         </div>

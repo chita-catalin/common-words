@@ -19,6 +19,7 @@ const useLanguageBlend = () => {
 
       if (response.status === 200) {
         setLanguages(response.data.data);
+        console.log(response.data.data)
       }
       console.log("we recieve", response);
     } catch (error) {

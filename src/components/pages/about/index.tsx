@@ -11,15 +11,24 @@ import NavBar from "../../Layout/NavBar/NavBar";
 import ApiIcon from "@mui/icons-material/Api";
 
 import "./style.css";
+import { LanguageContext } from "../../../App";
+import { useContext } from "react";
 
 export const About = () => {
+  const {
+    findTheCommonWordsOfLanguages,
+    appBuiltUsingMERN,
+    developerAndCommunity,
+    getInvolved,
+    contribuitors,
+  } = useContext(LanguageContext);
+
   return (
     <div id="about-page-container">
       <NavBar />
       <div id="about-content">
-        {/*project description*/}
         <div id="project-description-container">
-          <h1>FIND THE COMMON WORDS OF LANGUAGES</h1>
+          <h1>{findTheCommonWordsOfLanguages}</h1>
           <div style={{ display: "flex", color: "grey", alignItems: "center" }}>
             <span style={{ color: "grey" }}>
               <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
@@ -77,72 +86,41 @@ export const About = () => {
         </div>
         {/*App made using mern stack*/}
 
-        <h1>
-          THIS APP WAS BUILT USING THE{" "}
-          <a
-            href="https://www.mongodb.com/mern-stack"
-            style={{ color: "#00ADB5" }}
-          >
-            MERN
-          </a>{" "}
-          STACK
-        </h1>
+        <h1>{appBuiltUsingMERN}</h1>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            paddingBottom: "20px",
-          }}
-        >
+        <div id="mern-container">
           <div className="technology-container">
-            <div style={{ marginBottom: "10px" }}>
-              <a href="https://www.mongodb.com/" style={{ color: "#00ADB5" }}>
-                mongoDB
-              </a>
-            </div>
+            <a href="https://www.mongodb.com/" style={{ color: "#00ADB5" }}>
+              mongoDB
+            </a>
             <StorageIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <div style={{ marginBottom: "10px" }}>
-              <a href="https://nodejs.dev/" style={{ color: "#00ADB5" }}>
-                Node
-              </a>
-            </div>
+            <a href="https://nodejs.dev/" style={{ color: "#00ADB5" }}>
+              Node
+            </a>
             <ApiIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <div style={{ marginBottom: "10px" }}>
-              <a href="https://expressjs.com/" style={{ color: "#00ADB5" }}>
-                Express
-              </a>
-            </div>
+            <a href="https://expressjs.com/" style={{ color: "#00ADB5" }}>
+              Express
+            </a>
             <ConstructionIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <div style={{ marginBottom: "10px" }}>
-              <a href="https://reactjs.org/" style={{ color: "#00ADB5" }}>
-                React
-              </a>
-            </div>
+            <a href="https://reactjs.org/" style={{ color: "#00ADB5" }}>
+              React
+            </a>
             <DashboardIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
         </div>
-        {/*developer & community*/}
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            backgroundColor: "white",
-            alignItems: "center",
-            flexDirection: "column",
-            paddingBottom: "20px",
-          }}
-        >
-          <h1>DEVELOPER & COMMUNITY</h1>
+
+        <div id="developer-and-community-container">
+          <h1>{developerAndCommunity}</h1>
+
           <div style={{ display: "flex", alignItems: "center" }}>
             <ContactMailIcon
               style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
@@ -151,7 +129,9 @@ export const About = () => {
               chita.catalin.adrian@gmail.com
             </div>
           </div>
-          <h2 style={{ fontWeight: 100 }}>GET INVOLVED!</h2>
+
+          <h2 style={{ fontWeight: 100 }}>{getInvolved}</h2>
+
           <div style={{ display: "flex", alignItems: "center" }}>
             <GitHubIcon
               style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
@@ -169,7 +149,8 @@ export const About = () => {
               https://github.com/chita-catalin/common-words-backend
             </div>
           </div>
-          <h2 style={{ fontWeight: 100 }}>CONTRIBUTORS:</h2>
+
+          <h2 style={{ fontWeight: 100 }}>{contribuitors}</h2>
           <a
             href="https://github.com/chita-catalin"
             style={{ color: "#00ADB5" }}

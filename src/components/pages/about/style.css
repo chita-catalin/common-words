@@ -6,6 +6,21 @@
   width: 100%;
 }
 
+#mern-container {
+  display: flex;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+#developer-and-community-container {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
 .grey-text {
   color: grey;
 }

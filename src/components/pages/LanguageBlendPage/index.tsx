@@ -4,8 +4,6 @@ import NavBar from "../../Layout/NavBar/NavBar";
 import { BlendContext } from "../../../App";
 import React from "react";
 
-import "./style.css";
-
 export const LanguageBlendContext = React.createContext<any>(null);
 
 const LanguageBlendPage = () => {
@@ -14,7 +12,6 @@ const LanguageBlendPage = () => {
   return (
     <LanguageBlendContext.Provider value={blend}>
       <NavBar />
-
       <TableHeader />
       <WordsTable />
     </LanguageBlendContext.Provider>

@@ -1,0 +1,27 @@
+.language-link {
+  color: #00adb5;
+  margin-top: 5px;
+}
+
+#resources-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 30px;
+}
+
+#languages-list-container {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+#languages-title {
+  color: #222831;
+}
+
+#resource-spinner {
+  color: #00adb5;
+  font-size: 100px;
+  margin:auto;
+}

@@ -1,48 +1,31 @@
-import { Chip } from "@mui/material";
 import NavBar from "../../Layout/NavBar/NavBar";
+import { LanguageContext } from "../../../App";
+import { Chip } from "@mui/material";
+import { useContext } from "react";
+
 import "./style.css";
 
 const ChangeLog = () => {
+  const { update1, update2, update3, update4, update5, update6 } =
+    useContext(LanguageContext);
+
   return (
     <div>
       <NavBar />
       <div id="changelog-container">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            marginTop: "40px",
-          }}
-        >
+        <div id="changelog-sub-container">
+          <Chip label="V0.5.0 / 17.5.2022" className="changelog-chip" />
+          {update6}
           <Chip label="V0.0.5 / 26.4.2022" className="changelog-chip" />
-          <span> Connected to Backend App</span>
-          <span> Now retreiving languages list from database</span>
-          <span> Added not-yet-functional table to "blend-page"</span>
-          <span> added Google Analytics script to begin monitoring</span>
-          <span> added Romanian word list to "Resources" page </span>
-          <span>
-            added Google Ads for paying off the backend hosting
-            <br /> (hope Github doesn't mind)
-          </span>
-
+          {update5}
           <Chip label="V0.0.4 / 16.4.2022" className="changelog-chip" />
-          <span> Removed language lists from frontend side</span>
-          <span> Added about section</span>
-          <span> Removed light/dark theme switch</span>
-          <span> Enhanced landing page UI</span>
-          <span> Updated versioning system to match web standards </span>
-
+          {update4}
           <Chip label="V0.3 / 29.12.2021" className="changelog-chip" />
-          <span> Added Italian,French,Finnish languages</span>
-          <span> Enhanced results page.</span>
-          <span> added changelog section.</span>
-          <span> added country flags.</span>
-          <span> added dark/light theme switch</span>
+          {update3}
           <Chip label="V0.2 / 10.12.2021" className="changelog-chip" />
-          <span> Added basic language blending</span>
+          {update2}
           <Chip label="V0.1 / 1.12.2021" className="changelog-chip" />
-          <span> Project created.</span>
+          {update1}
         </div>
       </div>
     </div>

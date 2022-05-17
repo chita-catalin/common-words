@@ -1,6 +1,6 @@
 import DocumentScannerRoundedIcon from "@mui/icons-material/DocumentScannerRounded";
-import CompareArrowsRoundedIcon from "@mui/icons-material/CompareArrowsRounded";
-import ListAltRoundedIcon from "@mui/icons-material/ListAltRounded";
+//import CompareArrowsRoundedIcon from "@mui/icons-material/CompareArrowsRounded";
+//import ListAltRoundedIcon from "@mui/icons-material/ListAltRounded";
 import NavBar from "../../Layout/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
@@ -19,14 +19,14 @@ const Tools = () => {
           </Paper>
         </Link>
 
-        <Paper elevation={3} className="tool-paper">
+        {/* <Paper elevation={3} className="tool-paper">
           <div className="tool-paper-title">COMPARE YOUR OWN LISTS</div>
           <div style={{ display: "flex" }}>
             <ListAltRoundedIcon style={{ fontSize: "50px" }} />
             <CompareArrowsRoundedIcon style={{ fontSize: "50px" }} />
             <ListAltRoundedIcon style={{ fontSize: "50px" }} />
           </div>
-        </Paper>
+        </Paper> */}
       </div>
     </>
   );

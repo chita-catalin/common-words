@@ -1,21 +1,21 @@
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
+import LanguageList from "./components/pages/Resources/LanguageList";
 import { MoreStatistics } from "./components/pages/MoreStatistics";
-import { Romanian } from "./components/pages/Resources/Romanian";
 import Resources from "./components/pages/Resources/Resources";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
+import TextScraper from "./components/pages/Tools/TextScraper";
 import { Route, Routes, HashRouter } from "react-router-dom";
 import NotFound from "./components/pages/NotFound/NotFound";
 import MoreDetails from "./components/pages/MoreDetails";
 import LandingPage from "./components/pages/LandingPage";
 import useLanguageBlend from "./useLanguageBlend";
 import { About } from "./components/pages/about";
+import Tools from "./components/pages/Tools";
 import { useLanguage } from "./useLanguage";
 import React from "react";
 
 //env
 import "dotenv/config";
-import Tools from "./components/pages/Tools";
-import TextScraper from "./components/pages/Tools/TextScraper";
 
 export const LanguageContext = React.createContext<any>(null);
 export const BlendContext = React.createContext<any>(null);
@@ -30,8 +30,8 @@ function App() {
         <HashRouter>
           <Routes>
             <Route path="/language-blend" element={<LanguageBlendPage />} />
-            <Route path="/languages/ro" element={<Romanian />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:language" element={<LanguageList />} />
             <Route path="/changelog" element={<ChangeLog />} />
             <Route path="/more-statistics" element={<MoreStatistics />} />
             <Route path="/more-details" element={<MoreDetails />} />

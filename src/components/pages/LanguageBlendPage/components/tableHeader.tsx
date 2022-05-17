@@ -18,26 +18,15 @@ export const TableHeader = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        margin: "30px 20% 20px 20%",
-        justifyContent: "center",
-      }}
-    >
+    <div id="table-header-container">
       {blend.languages.length > 0 && (
-        <div
-          style={{
-            display: "flex",
-            width: "100%",
-            justifyContent: "center",
-          }}
-        >
+        <div id="table-header-inputs-container">
           <div id="first-input" style={{ flexGrow: 1 }}>
             <Select
               onChange={handleFirstLanguageChange}
               style={{ width: "100%" }}
               placeholder="select a language"
+              defaultValue={""}
             >
               {blend.languages.map((language: Language) => {
                 return (
@@ -56,6 +45,7 @@ export const TableHeader = () => {
               placeholder="select another language"
               onChange={handleSecondLanguageChange}
               style={{ width: "100%" }}
+              defaultValue={""}
             >
               {blend.languages
                 .sort((a: Language, b: Language) => {

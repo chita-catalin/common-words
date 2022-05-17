@@ -94,6 +94,7 @@ const NavBar = () => {
         }}
         displayEmpty
         inputProps={{ "aria-label": "Without label" }}
+        defaultValue={""}
       >
         <MenuItem value="english">English</MenuItem>
         <MenuItem value="romanian">Română</MenuItem>

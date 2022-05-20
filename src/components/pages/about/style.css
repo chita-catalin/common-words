@@ -4,12 +4,14 @@
   align-items: center;
   flex-grow: 1;
   width: 100%;
+  text-align: center;
 }
 
 #mern-container {
   display: flex;
   align-items: center;
-  padding-bottom: 30px;
+  padding: 0px 10px 30px 10px;
+  flex-wrap: wrap;
 }
 
 #developer-and-community-container {
@@ -18,7 +20,7 @@
   background-color: white;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding: 0px 15px 20px 15px;
 }
 
 .grey-text {
@@ -40,13 +42,13 @@
   align-items: center;
   width: 100%;
   margin: 20px 0px 0px 0px;
-  padding: 0px 10px 20px 10px;
+  padding-bottom: 20px;
 }
 
 .technology-container {
   display: flex;
   flex-direction: column;
-  margin: 0px 20px 0px 20px;
+  margin: 0px 10px 0px 10px;
   align-items: center;
 }
 

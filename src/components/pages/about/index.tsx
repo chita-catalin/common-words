@@ -29,7 +29,14 @@ export const About = () => {
       <div id="about-content">
         <div id="project-description-container">
           <h1>{findTheCommonWordsOfLanguages}</h1>
-          <div style={{ display: "flex", color: "grey", alignItems: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              color: "grey",
+              alignItems: "center",
+              maxWidth: "95%",
+            }}
+          >
             <span style={{ color: "grey" }}>
               <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
                 ABC
@@ -137,16 +144,7 @@ export const About = () => {
               style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
             />
             <div style={{ color: "#00ADB5" }}>
-              https://github.com/chita-catalin/common-words{" "}
-            </div>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <GitHubIcon
-              style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
-            />
-            <div style={{ color: "#00ADB5" }}>
-              https://github.com/chita-catalin/common-words-backend
+              github.com/chita-catalin/common-words{" "}
             </div>
           </div>
 

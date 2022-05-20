@@ -5,6 +5,7 @@
   -o-animation: fadeIn 0.6s;
   -ms-animation: fadeIn 0.6s;
   min-height: 100vh;
+  width: 100vw;
 }
 
 #left-section-container {
@@ -15,6 +16,48 @@
   align-items: flex-start;
   justify-content: center;
   padding: 160px 0 0px 50px;
+}
+
+#doodle-1 {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 10%;
+  left: 0;
+  z-index: -100;
+  max-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#doodle-img {
+  width: 35rem;
+}
+
+/*Laptop*/
+@media only screen and (max-width: 1024px) {
+  #doodle-img {
+    width: 20rem;
+  }
+}
+
+/*Tablet*/
+@media only screen and (max-width: 768px) {
+  #left-section-container {
+    padding: 10px 0 0px 11px;
+  }
+
+  #doodle-img {
+    width: 80%;
+    margin-top: 220px;
+  }
+
+  #doodle-1 {
+    right: 0;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @keyframes fadeIn {

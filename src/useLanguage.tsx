@@ -11,6 +11,9 @@ export const useLanguage = () => {
   const [landingPageText, setLandingPageText] = useState(
     "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
   );
+
+  const [tools, setTools] = useState("tools");
+  //blend page
   const [selectTwoLanguages, setSelectTwoLanguages] = useState(
     "Select two languages!"
   );
@@ -18,7 +21,7 @@ export const useLanguage = () => {
   const [words, setWords] = useState("Words");
   const [minWordLength, setMinWordLength] = useState("Min. word length");
   const [maxWordLength, setMaxWordLength] = useState("Max. word length");
-  const [tools, setTools] = useState("tools");
+  const [wordMatch, setWordMatch] = useState("Word match (different letters)");
   //about page
   const [findTheCommonWordsOfLanguages, setFindTheCommonWordsOfLanguages] =
     useState("FIND THE COMMON WORDS OF LANGUAGES");
@@ -72,12 +75,14 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
         );
+        setTools("tools");
+        //blend page
         setSelectTwoLanguages("Select two languages!");
         setWordsPerPage("Words per page");
         setWords("Words");
         setMinWordLength("Min. word length");
         setMaxWordLength("Max. word length");
-        setTools("tools");
+        setWordMatch("Word Match (different letters)");
         //about page
         setFindTheCommonWordsOfLanguages("FIND THE COMMON WORDS OF LANGUAGES");
         setDeveloperAndCommunity("DEVELOPER & COMMUNITY");
@@ -124,12 +129,14 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compară limba ta cu altă limbă! Găsește cuvintele comune, și alte statistici interesante despre limbi, complet gratuit!"
         );
+        setTools("unelte");
+        //blend page
         setSelectTwoLanguages("Selectează două limbi diferite!");
         setWordsPerPage("Cuvinte pe pagină");
         setWords("Cuvinte");
         setMinWordLength("Lungime minimă");
         setMaxWordLength("Lungime maximă");
-        setTools("unelte");
+        setWordMatch("Potrivire cuvinte (litere diferite)");
         //about page
         setFindTheCommonWordsOfLanguages(
           "GĂSEȘTE CUVINTELE COMUNE ALE LIMBILOR"
@@ -184,18 +191,20 @@ export const useLanguage = () => {
     changelog,
     startExploring,
     landingPageText,
+    tools,
+    //blend page
     selectTwoLanguages,
     wordsPerPage,
     words,
     minWordLength,
     maxWordLength,
-    tools,
     //about page
     findTheCommonWordsOfLanguages,
     developerAndCommunity,
     getInvolved,
     contribuitors,
     appBuiltUsingMERN,
+    wordMatch,
     //resources
     languageWordList,
     //languages

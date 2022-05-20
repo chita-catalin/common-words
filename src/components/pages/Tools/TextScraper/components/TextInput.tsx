@@ -24,7 +24,7 @@ const TextInput = () => {
   return (
     <textarea
       rows={15}
-      cols={60}
+      cols={100}
       name="description"
       placeholder="Extract the unique words from every text!"
       onChange={(e) => optimizedFn(e.target.value)}

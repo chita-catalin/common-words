@@ -4,6 +4,7 @@ import axios from "axios";
 const useLanguageBlend = () => {
   const [selectedLanguage1, setSelectedLanguage1] = useState<any>([]);
   const [selectedLanguage2, setSelectedLanguage2] = useState<any>([]);
+  const [lettersToIgnore, setLettersToIgnore] = useState<number>(0);
   const [languageCode1, setLanguageCode1] = useState<string>("");
   const [languageCode2, setLanguageCode2] = useState<string>("");
   const [languages, setLanguages] = useState<string[]>([]);
@@ -183,6 +184,9 @@ const useLanguageBlend = () => {
     setLanguageCode1,
     languageCode2,
     setLanguageCode2,
+
+    lettersToIgnore,
+    setLettersToIgnore,
   };
 };
 

@@ -1,16 +1,15 @@
-import "./style.css";
-import { Button } from "@mui/material";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import { BlendContext, LanguageContext } from "../../../App";
+import NavBar from "../../Layout/NavBar/NavBar";
+import Doodle from "./FloatDoodle.png";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 import { useRef } from "react";
 import React from "react";
-//@ts-ignore
-import GLOBE from "vanta/dist/vanta.globe.min";
-import { Link } from "react-router-dom";
-import NavBar from "../../Layout/NavBar/NavBar";
-import { BlendContext, LanguageContext } from "../../../App";
+
+import "./style.css";
 
 const LandingPage = () => {
-  const [vantaEffect, setVantaEffect] = React.useState<any>(0);
   const myRef = useRef(null);
   const blend = React.useContext(BlendContext);
   const { startExploring, landingPageText } = React.useContext(LanguageContext);
@@ -20,24 +19,14 @@ const LandingPage = () => {
     blend.selectedLanguage1 = [];
     blend.selectedLanguage2 = [];
     blend.blendedList = [];
+  }, []);
 
-    if (!vantaEffect) {
-      setVantaEffect(
-        GLOBE({
-          el: myRef.current,
-          color: 0x00adb5,
-          color2: 0x222831,
-          backgroundColor: 0xeeeeee,
-          //and so on...
-        })
-      );
-    }
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
   return (
-    <div style={{ height: "100vh" }} ref={myRef} id="landing-page-container">
+    <div
+      style={{ height: "100vh", width: "100vw" }}
+      ref={myRef}
+      id="landing-page-container"
+    >
       <NavBar />
       <div id="left-section-container">
         <p
@@ -59,6 +48,7 @@ const LandingPage = () => {
             style={{
               backgroundColor: "#393E46",
               color: "#EEEEEE",
+              width: "180px",
             }}
           >
             {startExploring}
@@ -68,19 +58,9 @@ const LandingPage = () => {
           </Button>
         </Link>
       </div>
-      <div id="right-section-container"></div>
-      <a
-        href="https://www.vantajs.com/"
-        style={{
-          position: "absolute",
-          right: 10,
-          bottom: 10,
-          textDecoration: "none",
-          color: "#00ADB5",
-        }}
-      >
-        vanta.js
-      </a>
+      <div id="doodle-1">
+        <img src={Doodle} id="doodle-img" />
+      </div>
     </div>
   );
 };

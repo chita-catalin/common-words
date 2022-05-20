@@ -1,9 +1,7 @@
-import DocumentScannerRoundedIcon from "@mui/icons-material/DocumentScannerRounded";
-//import CompareArrowsRoundedIcon from "@mui/icons-material/CompareArrowsRounded";
-//import ListAltRoundedIcon from "@mui/icons-material/ListAltRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import NavBar from "../../Layout/NavBar/NavBar";
 import { Link } from "react-router-dom";
-import Paper from "@mui/material/Paper";
+import { Button } from "@mui/material";
 
 import "./style.css";
 
@@ -13,20 +11,14 @@ const Tools = () => {
       <NavBar />
       <div id="tools-container">
         <Link to="/tools/text-scraper" style={{ textDecoration: "none" }}>
-          <Paper elevation={3} className="tool-paper">
-            <div className="tool-paper-title">TEXT SCRAPER</div>
-            <DocumentScannerRoundedIcon style={{ fontSize: "50px" }} />
-          </Paper>
+          <Button
+            variant="contained"
+            style={{ fontSize: "16px", backgroundColor: "#393E46" }}
+          >
+            TEXT SCRAPER
+            <ArrowForwardIosRoundedIcon style={{ fontSize: "18px",marginLeft:"2px" }} />
+          </Button>
         </Link>
-
-        {/* <Paper elevation={3} className="tool-paper">
-          <div className="tool-paper-title">COMPARE YOUR OWN LISTS</div>
-          <div style={{ display: "flex" }}>
-            <ListAltRoundedIcon style={{ fontSize: "50px" }} />
-            <CompareArrowsRoundedIcon style={{ fontSize: "50px" }} />
-            <ListAltRoundedIcon style={{ fontSize: "50px" }} />
-          </div>
-        </Paper> */}
       </div>
     </>
   );

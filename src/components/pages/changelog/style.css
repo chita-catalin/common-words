@@ -7,7 +7,7 @@
   flex-grow: 1;
   align-items: center;
   flex-direction: column;
-  padding-bottom:80px;
+  margin: 0px 10px 80px 10px;
 }
 
 #changelog-sub-container {
@@ -15,5 +15,12 @@
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 40px;
-  white-space: pre;
+  max-width: 40%;
+
+}
+
+@media only screen and (max-width: 768px) {
+  #changelog-sub-container {
+    max-width: 300px;
+  }
 }

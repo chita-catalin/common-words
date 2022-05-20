@@ -16,6 +16,7 @@ export const WordsTable = () => {
     words,
     minWordLength,
     maxWordLength,
+    wordMatch,
   } = useContext(LanguageContext);
 
   const [page, setPage] = useState<number>(0);
@@ -65,7 +66,7 @@ export const WordsTable = () => {
         <>
           <div id="settings-container">
             <TextField
-              id="outlined-number"
+              style={{ margin: "0px 8px 0px 0px" }}
               label={wordsPerPage}
               type="number"
               InputLabelProps={{
@@ -78,6 +79,7 @@ export const WordsTable = () => {
             />
 
             <TextField
+              style={{ margin: "0px 8px 0px 8px" }}
               id="outlined-number"
               label={minWordLength}
               type="number"
@@ -91,6 +93,7 @@ export const WordsTable = () => {
             />
 
             <TextField
+              style={{ margin: "0px 8px 0px 8px" }}
               id="outlined-number"
               label={maxWordLength}
               type="number"
@@ -100,6 +103,20 @@ export const WordsTable = () => {
               value={maxLength}
               onChange={(e) => {
                 setMaxLength(parseInt(e.target.value));
+              }}
+            />
+
+            <TextField
+              style={{ margin: "0px 0px 0px 8px",minWidth:"220px" }}
+              id="outlined-number"
+              label={wordMatch}
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              value={blend.lettersToIgnore}
+              onChange={(e) => {
+                blend.setLettersToIgnore(parseInt(e.target.value));
               }}
             />
           </div>
@@ -154,7 +171,7 @@ export const WordsTable = () => {
                               href={`https://${blend.languageCode1}.wiktionary.org/wiki/${word}`}
                               style={{ color: "#00ADB5" }}
                             >
-                              {blend.languageCode1}.wiktionary.org/wiki/{word}
+                              {blend.languageCode1}.wiktionary/{word}
                             </a>
                           </div>
 
@@ -164,7 +181,7 @@ export const WordsTable = () => {
                               href={`https://${blend.languageCode2}.wiktionary.org/wiki/${word}`}
                               style={{ color: "#00ADB5" }}
                             >
-                              {blend.languageCode2}.wiktionary.org/wiki/{word}
+                              {blend.languageCode2}.wiktionary/{word}
                             </a>
                           </div>
                         </div>

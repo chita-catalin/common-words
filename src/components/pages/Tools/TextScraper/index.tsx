@@ -1,10 +1,10 @@
+import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import useTextScraper from "./components/useTextScraper";
-import { Separators } from "./components/Separators";
 import NavBar from "../../../Layout/NavBar/NavBar";
 import TextInput from "./components/TextInput";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Paper } from "@mui/material";
 import React from "react";
 
 export const TextScraperContext = React.createContext<any>(null);
@@ -12,6 +12,9 @@ export const TextScraperContext = React.createContext<any>(null);
 const TextScraper = () => {
   const textScraper = useTextScraper();
   const [extraSeparators, setExtraSeparators] = useState([]);
+
+  const statisticsRef: any = useRef(null);
+  const executeScroll = () => statisticsRef.current.scrollIntoView();
 
   useEffect(() => {
     let arr = [];
@@ -123,6 +126,20 @@ const TextScraper = () => {
             >
               CLEAR
             </Button>
+
+            {textScraper.wordsArray.length > 0 && (
+              <Button
+                variant="contained"
+                style={{
+                  margin: "10px 0 10px 0",
+                  backgroundColor: "#FF2E63",
+                }}
+                onClick={executeScroll}
+              >
+                VIEW STATISTICS <ArrowDownwardOutlinedIcon />
+              </Button>
+            )}
+
             <Button
               variant="contained"
               style={{ margin: "10px 0 10px 0", backgroundColor: "#00adb5" }}
@@ -133,26 +150,22 @@ const TextScraper = () => {
           </div>
           <textarea
             rows={15}
-            cols={60}
+            cols={100}
             name="description"
             placeholder="Unique words will appear here"
             value={textScraper.wordsArray.join("\n")}
             readOnly
           ></textarea>
+
+          {textScraper.wordsArray.length > 0 && (
+            <Paper
+              ref={statisticsRef}
+              style={{ width: "100%", marginTop: "30px",minHeight: "100px"}}
+            >
+              Statistici
+            </Paper>
+          )}
         </div>
-        {/* <div
-          style={{
-            backgroundColor: "white",
-            margin: "20px 2px 20px 2px",
-            padding: "10px",
-            fontWeight: "bold",
-            color: "#222831",
-            borderRadius: "4px",
-          }}
-        >
-          Select the characters to be ignored in the text ↓
-        </div> */}
-        {/* <Separators /> */}
       </div>
     </TextScraperContext.Provider>
   );

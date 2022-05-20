@@ -11,14 +11,10 @@ const NavBar = () => {
     useContext(LanguageContext);
 
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "baseline" }}>
+    <nav id="nav-bar">
+      <div
+        style={{ display: "flex", alignItems: "baseline", flexWrap: "wrap" }}
+      >
         <div id="title">
           <Link
             to="/"
@@ -31,74 +27,45 @@ const NavBar = () => {
           >
             {commonWords}
           </Link>
+          <span id="version-number">V1.0.0</span>
         </div>
-        <span
-          style={{
-            fontSize: "13px",
-            marginRight: "30px",
-            color: "#393E46",
-            marginLeft: "3px",
-          }}
-        >
-          V0.5.0
-        </span>
-        <Link
-          to="/tools"
-          style={{
-            marginRight: "30px",
-            textDecoration: "none",
-            color: "#00ADB5",
-          }}
-        >
-          <u>{tools}</u>
-        </Link>
-        <Link
-          to="/resources"
-          style={{
-            marginRight: "30px",
-            textDecoration: "none",
-            color: "#00ADB5",
-          }}
-        >
-          <u>{resources}</u>
-        </Link>
-        <Link
-          to="/about"
-          style={{
-            marginRight: "30px",
-            textDecoration: "none",
-            color: "#00ADB5",
-          }}
-        >
-          <u>{about}</u>
-        </Link>
-        <Link
-          to="/changelog"
-          style={{
-            marginRight: "30px",
-            textDecoration: "none",
-            color: "#00ADB5",
-          }}
-        >
-          <u>{changelog}</u>
-        </Link>
+
+        <div>
+          <Link to="/tools" className="first-small-nav">
+            <u>{tools}</u>
+          </Link>
+          <Link to="/resources" className="small-nav">
+            <u>{resources}</u>
+          </Link>
+          <Link to="/about" className="small-nav">
+            <u>{about}</u>
+          </Link>
+          <Link to="/changelog" className="small-nav">
+            <u>{changelog}</u>
+          </Link>
+        </div>
       </div>
-      <Select
-        label="Age"
-        onChange={(e) => setLanguage(e.target.value)}
-        style={{ width: "70px", margin: "0 32px 0px 0px", height: "40px" }}
-        renderValue={(selected: any) => {
-          return (
-            <LanguageIcon style={{ color: "#00ADB5", marginBottom: "-3px" }} />
-          );
-        }}
-        displayEmpty
-        inputProps={{ "aria-label": "Without label" }}
-        defaultValue={""}
-      >
-        <MenuItem value="english">English</MenuItem>
-        <MenuItem value="romanian">Română</MenuItem>
-      </Select>
+
+      <div id="language-picker">
+        <Select
+          label="Age"
+          onChange={(e) => setLanguage(e.target.value)}
+          style={{ width: "100%", height: "40px" }}
+          renderValue={(selected: any) => {
+            return (
+              <LanguageIcon
+                style={{ color: "#00ADB5", marginBottom: "-3px" }}
+              />
+            );
+          }}
+          displayEmpty
+          inputProps={{ "aria-label": "Without label" }}
+          defaultValue={""}
+        >
+          <MenuItem value="english">English</MenuItem>
+          <MenuItem value="romanian">Română</MenuItem>
+        </Select>
+      </div>
     </nav>
   );
 };

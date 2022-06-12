@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const useLanguage = () => {
   const [language, setLanguage] = useState("english");
 
-  const [commonWords, setCommonWords] = useState("COMMON WORDS");
+  const [commonWords, setCommonWords] = useState<string>("COMMON WORDS");
   const [resources, setResources] = useState("resources");
   const [about, setAbout] = useState("about");
   const [changelog, setChangelog] = useState("changelog");

@@ -1,6 +1,5 @@
 import { TableHeader } from "./components/tableHeader";
 import { WordsTable } from "./components/wordsTable";
-import NavBar from "../../Layout/NavBar/NavBar";
 import { BlendContext } from "../../../App";
 import React from "react";
 
@@ -11,7 +10,6 @@ const LanguageBlendPage = () => {
 
   return (
     <LanguageBlendContext.Provider value={blend}>
-      <NavBar />
       <TableHeader />
       <WordsTable />
     </LanguageBlendContext.Provider>

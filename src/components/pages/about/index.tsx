@@ -7,7 +7,6 @@ import LanguageIcon from "@mui/icons-material/Language";
 import StorageIcon from "@mui/icons-material/Storage";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import NavBar from "../../Layout/NavBar/NavBar";
 import ApiIcon from "@mui/icons-material/Api";
 
 import "./style.css";
@@ -25,7 +24,6 @@ export const About = () => {
 
   return (
     <div id="about-page-container">
-      <NavBar />
       <div id="about-content">
         <div id="project-description-container">
           <h1>{findTheCommonWordsOfLanguages}</h1>

@@ -1,52 +1,24 @@
 import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import useTextScraper from "./components/useTextScraper";
-import NavBar from "../../../Layout/NavBar/NavBar";
 import TextInput from "./components/TextInput";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Pie } from "react-chartjs-2";
 import { Button, Paper } from "@mui/material";
 import React from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const TextScraperContext = React.createContext<any>(null);
 
 const TextScraper = () => {
   const textScraper = useTextScraper();
   const [extraSeparators, setExtraSeparators] = useState([]);
+  const [initialNrOfWords, setInitialNrOfWords] = useState<number>(0);
 
   const statisticsRef: any = useRef(null);
   const executeScroll = () => statisticsRef.current.scrollIntoView();
-
-  useEffect(() => {
-    let arr = [];
-    let goodArr: string[] = [];
-    for (let i = 0; i <= 10175; i++) {
-      //get good characters
-      if ((i >= 97 && i <= 122) || (i >= 65 && i <= 90)) {
-        goodArr.push(String.fromCharCode(i));
-      }
-      // (i >= 256 && i <= 383) ||
-      // (i >= 384 && i <= 591) ||
-      // (i >= 688 && i <= 767) ||
-      // (i >= 768 && i <= 879) ||
-      // (i >= 880 && i <= 1023) ||
-      // (i >= 1024 && i <= 1279) ||
-      // (i >= 1280 && i <= 1327) ||
-      // (i >= 8192 && i <= 8303) ||
-      // (i >= 8352 && i <= 8399) ||
-      // (i >= 8448 && i <= 8527) ||
-      // (i >= 8592 && i <= 8703) ||
-      // (i >= 8704 && i <= 8959) ||
-      // (i >= 9472 && i <= 9599) ||
-      // (i >= 9600 && i <= 9631) ||
-      // (i >= 9632 && i <= 9727) ||
-      // (i >= 9728 && i <= 9983) ||
-      // (i >= 9984 && i <= 10175)
-
-      arr.push(String.fromCharCode(i));
-    }
-    textScraper.setGoodCharacters(goodArr);
-    textScraper.setUTF8Array(arr);
-  }, []);
 
   const scrape = () => {
     //split text into words
@@ -57,6 +29,9 @@ const TextScraper = () => {
       );
     //lowercase?
     arr = arr.map((word: string) => word.toLowerCase());
+
+    setInitialNrOfWords(arr.length);
+
     //remove duplicates
     arr = Object.keys(
       arr.reduce((reducer: any, word: any) => {
@@ -79,9 +54,27 @@ const TextScraper = () => {
     textScraper.setWordsArray([]);
   };
 
+  const pieData = {
+    labels: [
+      `${initialNrOfWords} total words (100%)`,
+      `${textScraper.wordsArray.length} unique words (${(
+        (textScraper.wordsArray.length * 100) /
+        initialNrOfWords
+      ).toFixed(2)}%)`,
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [initialNrOfWords, textScraper.wordsArray.length],
+        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
+        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
   return (
     <TextScraperContext.Provider value={textScraper}>
-      <NavBar />
       <div
         style={{
           display: "flex",
@@ -160,9 +153,12 @@ const TextScraper = () => {
           {textScraper.wordsArray.length > 0 && (
             <Paper
               ref={statisticsRef}
-              style={{ width: "100%", marginTop: "30px",minHeight: "100px"}}
+              style={{ width: "100%", marginTop: "30px", minHeight: "100px" }}
             >
-              Statistici
+              <div style={{ width: "45%", margin: "20px" }}>
+                {" "}
+                <Pie data={pieData} />
+              </div>
             </Paper>
           )}
         </div>

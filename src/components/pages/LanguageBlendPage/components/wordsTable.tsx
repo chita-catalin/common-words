@@ -2,7 +2,6 @@ import { BlendContext, LanguageContext } from "../../../../App";
 import { CircularProgress, TextField } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
-import ReadingImg from "../reading-side.png";
 import Paper from "@mui/material/Paper";
 
 import "../style.css";
@@ -49,7 +48,6 @@ export const WordsTable = () => {
     <>
       {blend.blendedList.length === 0 && !blend.loading && (
         <div id="placeholder-image-container">
-          <img src={ReadingImg} style={{ width: "25%", marginTop: "30px " }} />
           <div style={{ fontSize: "30px", color: "#bfbfbf" }}>
             {selectTwoLanguages}
           </div>
@@ -107,7 +105,7 @@ export const WordsTable = () => {
             />
 
             <TextField
-              style={{ margin: "0px 0px 0px 8px",minWidth:"220px" }}
+              style={{ margin: "0px 0px 0px 8px", minWidth: "220px" }}
               id="outlined-number"
               label={wordMatch}
               type="number"

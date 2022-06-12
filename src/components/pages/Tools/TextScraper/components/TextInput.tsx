@@ -17,6 +17,7 @@ const TextInput = () => {
 
   const handleChange = (text: string) => {
     setText(text);
+    console.log("acum se face set state")
   };
 
   const optimizedFn = useCallback(debounce(handleChange), []);

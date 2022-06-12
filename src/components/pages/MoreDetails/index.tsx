@@ -2,7 +2,6 @@ import { TextField } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { BlendContext } from "../../../App";
-import NavBar from "../../Layout/NavBar/NavBar";
 
 const MoreDetails = () => {
   const blend = React.useContext(BlendContext);
@@ -18,7 +17,6 @@ const MoreDetails = () => {
         flexDirection: "column",
       }}
     >
-      <NavBar />
       <div style={{ display: "flex", justifyContent: "center" }}>
         <h1
           style={{ fontFamily: "consolas", color: "white", marginTop: "30px" }}

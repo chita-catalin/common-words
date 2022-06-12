@@ -1,26 +1,12 @@
-.changelog-chip {
-  margin: 20px 0 10px 0;
-}
-
 #changelog-container {
   display: flex;
   flex-grow: 1;
   align-items: center;
   flex-direction: column;
-  margin: 0px 10px 80px 10px;
 }
 
 #changelog-sub-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top: 40px;
-  max-width: 40%;
-
-}
-
-@media only screen and (max-width: 768px) {
-  #changelog-sub-container {
-    max-width: 300px;
-  }
 }

@@ -1,4 +1,3 @@
-import NavBar from "../../Layout/NavBar/NavBar";
 import { LanguageContext } from "../../../App";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -22,7 +21,6 @@ const Resources = () => {
 
   return (
     <div>
-      <NavBar />
       <div id="resources-container">
         <div id="laguages-title">{languageWordList}</div>
         <div id="languages-list-container">

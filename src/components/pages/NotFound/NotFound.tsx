@@ -1,5 +1,3 @@
-import NavBar from "../../Layout/NavBar/NavBar";
-
 const NotFound = () => {
   return (
     <div
@@ -9,7 +7,6 @@ const NotFound = () => {
         color: "#fff",
       }}
     >
-      <NavBar />
       <div
         style={{
           display: "flex",

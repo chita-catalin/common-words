@@ -3,15 +3,14 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ConstructionIcon from "@mui/icons-material/Construction";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import LanguageIcon from "@mui/icons-material/Language";
 import StorageIcon from "@mui/icons-material/Storage";
-import ListAltIcon from "@mui/icons-material/ListAlt";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ApiIcon from "@mui/icons-material/Api";
-
+import { SwapOutlined } from "@ant-design/icons";
 import "./style.css";
 import { LanguageContext } from "../../../App";
 import { useContext } from "react";
+import { Card } from "antd";
 
 export const About = () => {
   const {
@@ -24,137 +23,137 @@ export const About = () => {
 
   return (
     <div id="about-page-container">
-      <div id="about-content">
-        <div id="project-description-container">
-          <h1>{findTheCommonWordsOfLanguages}</h1>
+      <Card id="project-description-container">
+        <h1>{findTheCommonWordsOfLanguages}</h1>
+        <div
+          style={{
+            display: "flex",
+            color: "grey",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <div
             style={{
-              display: "flex",
               color: "grey",
-              alignItems: "center",
-              maxWidth: "95%",
+              display: "flex",
+              flexDirection: "column",
+              border: "1px solid lightgrey",
+              padding: "8px",
             }}
           >
-            <span style={{ color: "grey" }}>
-              <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
-                ABC
-              </span>{" "}
-              PVBF AUX{" "}
-              <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
-                DEF
-              </span>{" "}
-              IQYE
-            </span>
-            <LanguageIcon
-              style={{ fontSize: "3rem", margin: "0px 10px 0px 10px" }}
-            />
-            <CompareArrowsIcon
-              style={{ fontSize: "2rem", margin: "0px 10px 0px 10px" }}
-            />
-            <LanguageIcon
-              style={{ fontSize: "3rem", margin: "0px 10px 0px 10px" }}
-            />
-            <span style={{ color: "grey" }}>
-              OQUE{" "}
-              <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
-                ABC
-              </span>{" "}
-              KIYW JSU{" "}
-              <span style={{ color: "#00ADB5", fontWeight: "bolder" }}>
-                DEF
-              </span>
-            </span>
+            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>ABC</span>{" "}
+            PVBF AUX{" "}
+            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>DEF</span>{" "}
+            IQYE
           </div>
-          <ArrowDownwardIcon style={{ fontSize: "2rem", color: "grey" }} />
+
+          <SwapOutlined
+            style={{ fontSize: "2rem", margin: "0px 10px 0px 10px" }}
+          />
 
           <div
             style={{
+              color: "grey",
               display: "flex",
-              alignItems: "center",
-              marginLeft: "37px",
+              flexDirection: "column",
+              border: "1px solid lightgrey",
+              padding: "8px",
             }}
           >
-            <ListAltIcon style={{ fontSize: "3rem", color: "grey" }} />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                color: "#00ADB5",
-                marginLeft: "7px",
-                fontWeight: "bolder",
-              }}
-            >
-              <span>ABC</span>
-              <span>DEF</span>
-            </div>
+            OQUE{" "}
+            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>ABC</span>{" "}
+            KIYW JSU{" "}
+            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>DEF</span>
           </div>
         </div>
-        {/*App made using mern stack*/}
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ArrowDownwardIcon style={{ fontSize: "2rem", color: "grey" }} />
+        </div>
 
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              color: "#2f54eb",
+              marginLeft: "7px",
+              fontWeight: "bolder",
+              border: "1px solid lightgrey",
+              padding: "8px",
+            }}
+          >
+            <span>ABC</span>
+            <span>DEF</span>
+          </div>
+        </div>
+      </Card>
+      {/*App made using mern stack*/}
+
+      <Card id="mern-container">
         <h1>{appBuiltUsingMERN}</h1>
-
-        <div id="mern-container">
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
           <div className="technology-container">
-            <a href="https://www.mongodb.com/" style={{ color: "#00ADB5" }}>
+            <a href="https://www.mongodb.com/" style={{ color: "#2f54eb" }}>
               mongoDB
             </a>
             <StorageIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <a href="https://nodejs.dev/" style={{ color: "#00ADB5" }}>
+            <a href="https://nodejs.dev/" style={{ color: "#2f54eb" }}>
               Node
             </a>
             <ApiIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <a href="https://expressjs.com/" style={{ color: "#00ADB5" }}>
+            <a href="https://expressjs.com/" style={{ color: "#2f54eb" }}>
               Express
             </a>
             <ConstructionIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
 
           <div className="technology-container">
-            <a href="https://reactjs.org/" style={{ color: "#00ADB5" }}>
+            <a href="https://reactjs.org/" style={{ color: "#2f54eb" }}>
               React
             </a>
             <DashboardIcon style={{ fontSize: "3rem", color: "grey" }} />
           </div>
         </div>
+      </Card>
 
-        <div id="developer-and-community-container">
-          <h1>{developerAndCommunity}</h1>
+      <Card id="developer-and-community-container">
+        <h1>{developerAndCommunity}</h1>
 
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <ContactMailIcon
-              style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
-            />
-            <div style={{ color: "#00ADB5" }}>
-              chita.catalin.adrian@gmail.com
-            </div>
-          </div>
-
-          <h2 style={{ fontWeight: 100 }}>{getInvolved}</h2>
-
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <GitHubIcon
-              style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
-            />
-            <div style={{ color: "#00ADB5" }}>
-              github.com/chita-catalin/common-words{" "}
-            </div>
-          </div>
-
-          <h2 style={{ fontWeight: 100 }}>{contribuitors}</h2>
-          <a
-            href="https://github.com/chita-catalin"
-            style={{ color: "#00ADB5" }}
-          >
-            chita-catalin
-          </a>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <ContactMailIcon
+            style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
+          />
+          <div style={{ color: "#2f54eb" }}>chita.catalin.adrian@gmail.com</div>
         </div>
-      </div>
+
+        <h2 style={{ fontWeight: 100 }}>{getInvolved}</h2>
+
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <GitHubIcon
+            style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
+          />
+          <div style={{ color: "#2f54eb" }}>
+            github.com/chita-catalin/common-words{" "}
+          </div>
+        </div>
+
+        <h2 style={{ fontWeight: 100 }}>{contribuitors}</h2>
+        <a href="https://github.com/chita-catalin" style={{ color: "#2f54eb" }}>
+          chita-catalin
+        </a>
+      </Card>
     </div>
   );
 };

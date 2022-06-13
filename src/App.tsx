@@ -15,9 +15,12 @@ import { useLanguage } from "./useLanguage";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  ToolOutlined,
+  HistoryOutlined,
+  HomeOutlined,
+  SwapOutlined,
+  DatabaseOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Select } from "antd";
 import React, { useState } from "react";
@@ -57,39 +60,34 @@ function App() {
               >
                 <Menu.Item key="0">
                   <Link to="/">
-                    <UserOutlined />
+                    <HomeOutlined />
                     <span>Explore</span>
                   </Link>
                 </Menu.Item>
 
                 <Menu.Item key="1">
                   <Link to="/language-blend">
-                    <UserOutlined />
-                    <span>Compare languages</span>
+                    <SwapOutlined /> <span>Compare languages</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="2">
                   <Link to="/tools">
-                    <UserOutlined />
-                    <span>{language.tools}</span>
+                    <ToolOutlined /> <span>{language.tools}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="3">
                   <Link to="/resources">
-                    <UserOutlined />
-                    <span>{language.resources}</span>
+                    <DatabaseOutlined /> <span>{language.resources}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="4">
                   <Link to="/about">
-                    <UserOutlined />
-                    <span>{language.about}</span>
+                    <InfoCircleOutlined /> <span>{language.about}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="5">
                   <Link to="/changelog">
-                    <UserOutlined />
-                    <span>{language.changelog}</span>
+                    <HistoryOutlined /> <span>{language.changelog}</span>
                   </Link>
                 </Menu.Item>
               </Menu>

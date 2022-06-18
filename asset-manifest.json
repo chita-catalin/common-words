@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/common-words/static/css/main.f529b446.chunk.css",
-    "main.js": "/common-words/static/js/main.2455fa40.chunk.js",
-    "main.js.map": "/common-words/static/js/main.2455fa40.chunk.js.map",
+    "main.css": "/common-words/static/css/main.39cfb8c9.chunk.css",
+    "main.js": "/common-words/static/js/main.2918fe8d.chunk.js",
+    "main.js.map": "/common-words/static/js/main.2918fe8d.chunk.js.map",
     "runtime-main.js": "/common-words/static/js/runtime-main.b0b396bb.js",
     "runtime-main.js.map": "/common-words/static/js/runtime-main.b0b396bb.js.map",
     "static/css/2.56d20c57.chunk.css": "/common-words/static/css/2.56d20c57.chunk.css",
-    "static/js/2.5b39f60d.chunk.js": "/common-words/static/js/2.5b39f60d.chunk.js",
-    "static/js/2.5b39f60d.chunk.js.map": "/common-words/static/js/2.5b39f60d.chunk.js.map",
+    "static/js/2.7e947b79.chunk.js": "/common-words/static/js/2.7e947b79.chunk.js",
+    "static/js/2.7e947b79.chunk.js.map": "/common-words/static/js/2.7e947b79.chunk.js.map",
     "index.html": "/common-words/index.html",
     "static/css/2.56d20c57.chunk.css.map": "/common-words/static/css/2.56d20c57.chunk.css.map",
-    "static/css/main.f529b446.chunk.css.map": "/common-words/static/css/main.f529b446.chunk.css.map",
-    "static/js/2.5b39f60d.chunk.js.LICENSE.txt": "/common-words/static/js/2.5b39f60d.chunk.js.LICENSE.txt"
+    "static/css/main.39cfb8c9.chunk.css.map": "/common-words/static/css/main.39cfb8c9.chunk.css.map",
+    "static/js/2.7e947b79.chunk.js.LICENSE.txt": "/common-words/static/js/2.7e947b79.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b0b396bb.js",
     "static/css/2.56d20c57.chunk.css",
-    "static/js/2.5b39f60d.chunk.js",
-    "static/css/main.f529b446.chunk.css",
-    "static/js/main.2455fa40.chunk.js"
+    "static/js/2.7e947b79.chunk.js",
+    "static/css/main.39cfb8c9.chunk.css",
+    "static/js/main.2918fe8d.chunk.js"
   ]
 }

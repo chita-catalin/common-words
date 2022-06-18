@@ -11,6 +11,11 @@ const useLanguageBlend = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [blendedList, setBlendedList] = useState<any>([]);
   const [alert, setAlert] = useState<string>("");
+  const [tableView, setTableView] = useState<boolean>(true);
+
+  //controls
+  const [minLength, setMinLength] = useState<number>(0);
+  const [maxLength, setMaxLength] = useState<number>(99);
 
   const getLanguages = async () => {
     setLoading(true);
@@ -187,6 +192,15 @@ const useLanguageBlend = () => {
 
     lettersToIgnore,
     setLettersToIgnore,
+
+    tableView,
+    setTableView,
+
+    minLength,
+    setMinLength,
+
+    maxLength,
+    setMaxLength,
   };
 };
 

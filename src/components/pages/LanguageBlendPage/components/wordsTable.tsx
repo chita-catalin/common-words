@@ -1,55 +1,35 @@
 import { BlendContext, LanguageContext } from "../../../../App";
-import { CircularProgress, TextField } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
-import Pagination from "@mui/material/Pagination";
-import Paper from "@mui/material/Paper";
 
 import "../style.css";
-import { Table } from "antd";
+import { Pagination, Table, Tag } from "antd";
 
 export const WordsTable = () => {
   const blend = useContext(BlendContext);
 
-  const {
-    selectTwoLanguages,
-    wordsPerPage,
-    words,
-    minWordLength,
-    maxWordLength,
-    wordMatch,
-  } = useContext(LanguageContext);
+  const { wordsPerPage, words, minWordLength, maxWordLength, wordMatch } =
+    useContext(LanguageContext);
 
   const [page, setPage] = useState<number>(0);
-  const [itemsPerPage, setItemsPerPage] = useState<number>(25);
-  const [minLength, setMinLength] = useState<number>(4);
-  const [maxLength, setMaxLength] = useState<number>(15);
-  const [localFilteredList, setLocalFilteredList] = useState<string[]>([]);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(200);
+  const [localFilteredList, setLocalFilteredList] = useState<string[]>(
+    blend.blendedList.length ? blend.blendedList : []
+  );
 
   useEffect(() => {
     setLocalFilteredList(
       blend.blendedList.filter((word: string) => {
-        if (word.length >= minLength && word.length <= maxLength) return true;
+        if (word.length >= blend.minLength && word.length <= blend.maxLength)
+          return true;
         else return false;
       })
     );
-  }, [minLength, maxLength, blend.blendedList]);
-
-  const navigate = (e: any) => {
-    if (e.target.dataset.testid === "NavigateNextIcon") {
-      setPage(page + 1);
-      return;
-    }
-    if (e.target.dataset.testid === "NavigateBeforeIcon") {
-      setPage(page - 1);
-      return;
-    }
-    setPage(parseInt(e.target.outerText) - 1);
-  };
+  }, [blend.minLength, blend.maxLength, blend.blendedList]);
 
   const data: any = blend.blendedList.map((el: string) => {
     return { word: el };
   });
-  console.log(data);
+
   const columns: any = [
     {
       title: "word",
@@ -59,173 +39,65 @@ export const WordsTable = () => {
     },
   ];
   return (
-    // <>
-    //   {blend.blendedList.length === 0 && !blend.loading && (
-    //     <div id="placeholder-image-container">
-    //       <div style={{ fontSize: "30px", color: "#bfbfbf" }}>
-    //         {selectTwoLanguages}
-    //       </div>
-    //     </div>
-    //   )}
-    //   {blend.loading && (
-    //     <div style={{ display: "flex", flexGrow: 1, justifyContent: "center" }}>
-    //       <CircularProgress
-    //         style={{ fontSize: "60px", color: "#00ADB5", marginTop: "40px" }}
-    //       />
-    //     </div>
-    //   )}
-    //   {blend.blendedList.length > 0 && !blend.loading && (
-    //     <>
-    //       <div id="settings-container">
-    //         <TextField
-    //           style={{ margin: "0px 8px 0px 0px" }}
-    //           label={wordsPerPage}
-    //           type="number"
-    //           InputLabelProps={{
-    //             shrink: true,
-    //           }}
-    //           value={itemsPerPage}
-    //           onChange={(e) => {
-    //             setItemsPerPage(parseInt(e.target.value));
-    //           }}
-    //         />
-
-    //         <TextField
-    //           style={{ margin: "0px 8px 0px 8px" }}
-    //           id="outlined-number"
-    //           label={minWordLength}
-    //           type="number"
-    //           InputLabelProps={{
-    //             shrink: true,
-    //           }}
-    //           value={minLength}
-    //           onChange={(e) => {
-    //             setMinLength(parseInt(e.target.value));
-    //           }}
-    //         />
-
-    //         <TextField
-    //           style={{ margin: "0px 8px 0px 8px" }}
-    //           id="outlined-number"
-    //           label={maxWordLength}
-    //           type="number"
-    //           InputLabelProps={{
-    //             shrink: true,
-    //           }}
-    //           value={maxLength}
-    //           onChange={(e) => {
-    //             setMaxLength(parseInt(e.target.value));
-    //           }}
-    //         />
-
-    //         <TextField
-    //           style={{ margin: "0px 0px 0px 8px", minWidth: "220px" }}
-    //           id="outlined-number"
-    //           label={wordMatch}
-    //           type="number"
-    //           InputLabelProps={{
-    //             shrink: true,
-    //           }}
-    //           value={blend.lettersToIgnore}
-    //           onChange={(e) => {
-    //             blend.setLettersToIgnore(parseInt(e.target.value));
-    //           }}
-    //         />
-    //       </div>
-    //       <div id="top-pagination">
-    //         <Pagination
-    //           count={Math.ceil(localFilteredList.length / itemsPerPage)}
-    //           shape="rounded"
-    //           onChange={navigate}
-    //           page={page + 1}
-    //         />
-    //       </div>
-    //       <Paper id="words-table-container">
-    //         {blend.loading ? (
-    //           <CircularProgress style={{ fontSize: "60px" }} />
-    //         ) : (
-    //           <>
-    //             {blend.selectedLanguage1.length *
-    //               blend.selectedLanguage2.length ===
-    //               0 && (
-    //               <h3 style={{ color: "lightgrey" }}>
-    //                 Select 2 languages to begin!
-    //               </h3>
-    //             )}
-
-    //             <div id="words-table-header">
-    //               <div className="first-column">
-    //                 {localFilteredList.length} {words}
-    //               </div>
-    //               <div className="second-column">Link</div>
-    //               <div className="third-column">Link</div>
-    //             </div>
-
-    //             {localFilteredList.length > 0 &&
-    //               localFilteredList.map((word: string, index: number) => {
-    //                 if (
-    //                   index >= itemsPerPage * page &&
-    //                   index <= itemsPerPage * (page + 1) - 1
-    //                 )
-    //                   return (
-    //                     <div
-    //                       key={`${word}${index}`}
-    //                       className="blended-words-table-row"
-    //                       style={{
-    //                         backgroundColor: index % 2 === 1 ? "#EEEEEE" : "",
-    //                       }}
-    //                     >
-    //                       <div className="first-column">{word}</div>
-
-    //                       <div className="second-column">
-    //                         <a
-    //                           target="_blank"
-    //                           href={`https://${blend.languageCode1}.wiktionary.org/wiki/${word}`}
-    //                           style={{ color: "#00ADB5" }}
-    //                         >
-    //                           {blend.languageCode1}.wiktionary/{word}
-    //                         </a>
-    //                       </div>
-
-    //                       <div className="third-column">
-    //                         <a
-    //                           target="_blank"
-    //                           href={`https://${blend.languageCode2}.wiktionary.org/wiki/${word}`}
-    //                           style={{ color: "#00ADB5" }}
-    //                         >
-    //                           {blend.languageCode2}.wiktionary/{word}
-    //                         </a>
-    //                       </div>
-    //                     </div>
-    //                   );
-    //               })}
-    //           </>
-    //         )}
-    //       </Paper>
-    //       <div
-    //         style={{
-    //           display: "flex",
-    //           justifyContent: "center",
-    //           margin: "10px",
-    //         }}
-    //       >
-    //         <Pagination
-    //           count={Math.ceil(localFilteredList.length / itemsPerPage)}
-    //           shape="rounded"
-    //           onChange={navigate}
-    //           page={page + 1}
-    //         />
-    //       </div>
-    //     </>
-    //   )}
-    //</>
-    <Table
-      columns={columns}
-      dataSource={data}
-      style={{ marginTop: "12px" }}
-      bordered
-      loading={blend.loading}
-      size="small"
-    />
+    <>
+      {blend.tableView && blend.blendedList.length > 0 ? (
+        <Table
+          columns={columns}
+          dataSource={data}
+          style={{ marginTop: "12px" }}
+          bordered
+          loading={blend.loading}
+          size="small"
+        />
+      ) : blend.blendedList.length > 0 ? (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            paddingTop: "12px",
+          }}
+        >
+          <Pagination
+            current={page}
+            pageSize={itemsPerPage}
+            defaultCurrent={1}
+            total={localFilteredList.length}
+            pageSizeOptions={[50, 100, 200, 500, 1000, 2000, 5000, 10000]}
+            style={{ flexGrow: 1 }}
+            onChange={(page, pageSize: number) => {
+              setItemsPerPage(pageSize);
+              setPage(page);
+            }}
+          />
+          <div style={{ display: "flex", flexWrap: "wrap", marginTop: "6px" }}>
+            {localFilteredList.map((word: string, index: number) => {
+              if (
+                index >= itemsPerPage * page &&
+                index <= itemsPerPage * (page + 1) - 1
+              ) {
+                return (
+                  <Tag
+                    style={{
+                      marginTop: "6px",
+                      backgroundColor:
+                        word.length <= 5
+                          ? "#e6f7ff"
+                          : word.length <= 10
+                          ? "#bae7ff"
+                          : word.length <= 15
+                          ? "#91d5ff"
+                          : "#69c0ff",
+                    }}
+                  >
+                    {word}
+                  </Tag>
+                );
+              }
+            })}
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 };

@@ -12,6 +12,7 @@ const ChangeLog = () => {
     <div>
       <div id="changelog-container">
         <div id="changelog-sub-container">
+          <Card title="V1.0.0 / -" style={{ margin: "12px" }}></Card>
           <Card title="V0.5.0 / 17.5.2022" style={{ margin: "12px" }}>
             {update6}
           </Card>

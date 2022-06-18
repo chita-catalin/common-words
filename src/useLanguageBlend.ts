@@ -13,6 +13,9 @@ const useLanguageBlend = () => {
   const [alert, setAlert] = useState<string>("");
   const [tableView, setTableView] = useState<boolean>(true);
 
+  //filtered list
+  const [filteredList, setFilteredList] = useState<string[]>([]);
+
   //controls
   const [minLength, setMinLength] = useState<number>(0);
   const [maxLength, setMaxLength] = useState<number>(99);
@@ -201,6 +204,9 @@ const useLanguageBlend = () => {
 
     maxLength,
     setMaxLength,
+
+    filteredList,
+    setFilteredList,
   };
 };
 

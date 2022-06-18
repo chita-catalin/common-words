@@ -1,9 +1,8 @@
+import { Card, Divider, InputNumber, Select, Statistic, Switch } from "antd";
 import { WordsTable } from "./components/wordsTable";
-import { BlendContext } from "../../../App";
-import { Card, InputNumber, Select, Statistic, Switch } from "antd";
-import { Language } from "../../../types";
 import { SwapOutlined } from "@ant-design/icons";
-import Countdown from "antd/lib/statistic/Countdown";
+import { BlendContext } from "../../../App";
+import { Language } from "../../../types";
 import React from "react";
 
 import "./style.css";
@@ -63,13 +62,26 @@ const LanguageBlendPage = () => {
         </Card>
 
         <Card id="statistics-card">
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Statistic
               title="Common words"
-              value={123}
+              value={blend.filteredList.length}
               style={{ marginRight: "24px" }}
             />
-            <Countdown title="Execution time" format="ss:SSS" value={123} />
+            <Statistic
+              title="Language match"
+              suffix="%"
+              value={
+                blend.filteredList.length > 0
+                  ? (
+                      (blend.filteredList.length * 100) /
+                      (blend.selectedLanguage1.length +
+                        blend.selectedLanguage2.length)
+                    ).toFixed(2)
+                  : 0
+              }
+              style={{ marginRight: "24px" }}
+            />
           </div>
         </Card>
 
@@ -85,12 +97,14 @@ const LanguageBlendPage = () => {
                 unCheckedChildren="Words view"
                 checked={blend.tableView}
               />
+              <Divider type="vertical" />
               <Switch
                 style={{ margin: "5px" }}
                 checkedChildren="Accent marks (a=ä)"
                 unCheckedChildren="Accent marks (a≠ä)"
                 defaultChecked
               />
+              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Minimum word length:{" "}
@@ -105,6 +119,7 @@ const LanguageBlendPage = () => {
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Maximum word length:{" "}
@@ -119,6 +134,7 @@ const LanguageBlendPage = () => {
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Same prefix length:{" "}
@@ -131,6 +147,7 @@ const LanguageBlendPage = () => {
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Same suffix length:{" "}
@@ -143,6 +160,7 @@ const LanguageBlendPage = () => {
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Word match (number of different letters) :{" "}

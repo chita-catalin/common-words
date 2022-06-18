@@ -28,6 +28,7 @@ const LandingPage = () => {
           display: "flex",
           flexDirection: "column",
           height: "100%",
+          backgroundColor: "#fafafa",
         }}
       >
         <div style={{ marginBottom: "10px" }}>{landingPageText}</div>
@@ -38,11 +39,15 @@ const LandingPage = () => {
           />
         </Button>
       </Card>
-      <Card style={{ margin: "12px", flexGrow: 1 }}>
+      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#f5f5f5" }}>
         <Statistic title="Languages" value={10} />
       </Card>
-      <Card style={{ margin: "12px", flexGrow: 1 }}>wow</Card>
-      <Card style={{ margin: "12px", flexGrow: 1 }}>wow</Card>
+      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#f0f0f0" }}>
+        wow
+      </Card>
+      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#d9d9d9" }}>
+        wow
+      </Card>
 
       {/* <div id="left-section-container">
         <p

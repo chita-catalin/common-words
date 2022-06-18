@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 
 import "./style.css";
+import { Divider } from "antd";
 
 const Resources = () => {
   const {
@@ -20,41 +21,78 @@ const Resources = () => {
   } = useContext(LanguageContext);
 
   return (
-    <div>
-      <div id="resources-container">
-        <div id="laguages-title">{languageWordList}</div>
-        <div id="languages-list-container">
-          <Link to="/resources/english" className="language-link">
-            {">"} (en) {english}
-          </Link>
-          <Link to="/resources/finnish" className="language-link">
-            {">"} (fi) {finnish}
-          </Link>
-          <Link to="/resources/french" className="language-link">
-            {">"} (fr) {french}
-          </Link>
-          <Link to="/resources/german" className="language-link">
-            {">"} (de) {german}
-          </Link>
-          <Link to="/resources/hungarian" className="language-link">
-            {">"} (hu) {hungarian}
-          </Link>
-          <Link to="/resources/italian" className="language-link">
-            {">"} (it) {italian}
-          </Link>
-          <Link to="/resources/polish" className="language-link">
-            {">"} (pl) {polish}
-          </Link>
-          <Link to="/resources/romanian" className="language-link">
-            {">"} (ro) {romanian}
-          </Link>
-          <Link to="/resources/spanish" className="language-link">
-            {">"} (es) {spanish}
-          </Link>
-          <Link to="/resources/turkish" className="language-link">
-            {">"} (tr) {turkish}
-          </Link>
-        </div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(en) {english}</div>
+        <Link to="/resources/english">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(fi) {finnish}</div>
+
+        <Link to="/resources/finnish">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(fr) {french}</div>
+        <Link to="/resources/french">View list</Link>
+      </div>
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(de) {german}</div>
+
+        <Link to="/resources/german">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(hu) {hungarian}</div>
+
+        <Link to="/resources/hungarian">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(it) {italian}</div>
+
+        <Link to="/resources/italian">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(pl) {polish}</div>
+
+        <Link to="/resources/polish">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(ro) {romanian}</div>
+        <Link to="/resources/romanian">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(es) {spanish}</div>
+        <Link to="/resources/spanish">View list</Link>
+      </div>
+
+      <Divider style={{ marginTop: "8px", marginBottom: "2px" }} />
+
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div>(tr) {turkish}</div>
+
+        <Link to="/resources/turkish">View list</Link>
       </div>
     </div>
   );

@@ -93,7 +93,24 @@ export const WordsTable = () => {
                           : "#69c0ff",
                     }}
                   >
-                    {word}
+                    {word.split("").map((letter: string, index) => (
+                      <span
+                        style={{
+                          color:
+                            index < blend.suffixLetters &&
+                            blend.suffixLetetrs1 !== 0
+                              ? "#f5222d"
+                              : "black",
+                          fontWeight:
+                            index < blend.suffixLetters &&
+                            blend.suffixLetetrs1 !== 0
+                              ? 500
+                              : 100,
+                        }}
+                      >
+                        {letter}
+                      </span>
+                    ))}
                   </Tag>
                 );
               }

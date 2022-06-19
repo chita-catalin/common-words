@@ -1,4 +1,12 @@
-import { Card, Divider, InputNumber, Select, Statistic, Switch } from "antd";
+import {
+  Button,
+  Card,
+  Divider,
+  InputNumber,
+  Select,
+  Statistic,
+  Switch,
+} from "antd";
 import { WordsTable } from "./components/wordsTable";
 import { SwapOutlined } from "@ant-design/icons";
 import { BlendContext } from "../../../App";
@@ -11,6 +19,12 @@ export const LanguageBlendContext = React.createContext<any>(null);
 
 const LanguageBlendPage = () => {
   const blend = React.useContext(BlendContext);
+
+  const resetFilters = () => {
+    blend.setMinLength(1);
+    blend.setMaxLength(99);
+    blend.setSuffixLetters(0);
+  };
 
   const handleFirstLanguageChange = (value: string) => {
     blend.getFirstLanguage(value);
@@ -74,9 +88,10 @@ const LanguageBlendPage = () => {
               value={
                 blend.filteredList.length > 0
                   ? (
-                      (blend.filteredList.length * 100) /
-                      (blend.selectedLanguage1.length +
-                        blend.selectedLanguage2.length)
+                      ((blend.filteredList.length * 100) /
+                        (blend.selectedLanguage1.length +
+                          blend.selectedLanguage2.length)) *
+                      2
                     ).toFixed(2)
                   : 0
               }
@@ -98,13 +113,6 @@ const LanguageBlendPage = () => {
                 checked={blend.tableView}
               />
               <Divider type="vertical" />
-              <Switch
-                style={{ margin: "5px" }}
-                checkedChildren="Accent marks (a=ä)"
-                unCheckedChildren="Accent marks (a≠ä)"
-                defaultChecked
-              />
-              <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
                 Minimum word length:{" "}
@@ -112,7 +120,7 @@ const LanguageBlendPage = () => {
                   size="small"
                   min={1}
                   max={99}
-                  defaultValue={blend.minLength}
+                  value={blend.minLength}
                   onChange={(nr: number) => {
                     blend.setMinLength(nr);
                   }}
@@ -127,7 +135,7 @@ const LanguageBlendPage = () => {
                   size="small"
                   min={1}
                   max={99}
-                  defaultValue={blend.maxLength}
+                  value={blend.maxLength}
                   onChange={(nr: number) => {
                     blend.setMaxLength(nr);
                   }}
@@ -155,8 +163,10 @@ const LanguageBlendPage = () => {
                   size="small"
                   min={0}
                   max={99}
-                  defaultValue={0}
-                  onChange={() => {}}
+                  value={blend.suffixLetters}
+                  onChange={(nr: number) => {
+                    blend.setSuffixLetters(nr);
+                  }}
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
@@ -168,11 +178,18 @@ const LanguageBlendPage = () => {
                   size="small"
                   min={0}
                   max={99}
-                  defaultValue={0}
-                  onChange={() => {}}
+                  value={blend.lettersToIgnore}
+                  onChange={(nr: number) => {
+                    blend.setLettersToIgnore(nr);
+                  }}
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <Button style={{ marginTop: "12px" }} onClick={resetFilters}>
+                Reset all filters
+              </Button>
             </div>
           </Card>
         )}

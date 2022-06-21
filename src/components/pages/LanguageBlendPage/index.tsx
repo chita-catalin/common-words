@@ -79,10 +79,10 @@ const LanguageBlendPage = () => {
           <div style={{ display: "flex", justifyContent: "space-around" }}>
             <Statistic
               title="Common words"
-              value={blend.filteredList.length}
+              value={0}
               style={{ marginRight: "24px" }}
             />
-            <Statistic
+            {/* <Statistic
               title="Language match"
               suffix="%"
               value={
@@ -96,7 +96,7 @@ const LanguageBlendPage = () => {
                   : 0
               }
               style={{ marginRight: "24px" }}
-            />
+            /> */}
           </div>
         </Card>
 
@@ -148,10 +148,12 @@ const LanguageBlendPage = () => {
                 Same prefix length:{" "}
                 <InputNumber
                   size="small"
-                  min={0}
+                  min={3}
                   max={99}
-                  defaultValue={0}
-                  onChange={() => {}}
+                  value={blend.prefixLetters}
+                  onChange={(nr: number) => {
+                    blend.setPrefixLetters(nr);
+                  }}
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>

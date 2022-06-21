@@ -15,10 +15,7 @@ const useLanguageBlend = () => {
   //word restrictions
   const [lettersToIgnore, setLettersToIgnore] = useState<number>(0);
   const [suffixLetters, setSuffixLetters] = useState<number>(4);
-  const [prefixLetters, setPrefixLetters] = useState<number>(0);
-
-  //filtered list
-  const [filteredList, setFilteredList] = useState<string[]>([]);
+  const [prefixLetters, setPrefixLetters] = useState<number>(3);
 
   //controls
   const [minLength, setMinLength] = useState<number>(1);
@@ -177,27 +174,58 @@ const useLanguageBlend = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedLanguage1.length > 0 && selectedLanguage2.length > 0) {
-      var count = [...selectedLanguage1, ...selectedLanguage2].reduce(
-        (o, v) => {
-          o[v] = o[v] + 1 || 1;
-          return o;
-        },
-        {}
-      );
+    //for prefix stuff
+    if (prefixLetters !== 0) {
+      if (selectedLanguage1.length > 0 && selectedLanguage2.length > 0) {
+        var words = [...selectedLanguage1, ...selectedLanguage2].reduce(
+          (o, v) => {
+            let key = v.substring(0, prefixLetters);
+            o[key] = o[key] === undefined ? "" : o[key] + "|" + v;
+            return o;
+          },
+          {}
+        );
 
-      //count is an object with keys
-      console.log(Object.keys(count)[23]);
+        //count is an object with keys
+        console.log(words[Object.keys(words)[28]]);
+        //Object.keys(obj).length
+        var filteredArray = Object.keys(words)
+          .map(String)
+          .map((key: string) => {
+            //(("str1,str2,str3,str4".match(/,/g) || []).length)
+            if (words[key].split("|").length >= 3) return words[key].split("|");
+          })
+          .filter((el: any) => {
+            if (el !== undefined) return true;
+            return false;
+          });
+        console.log(filteredArray);
 
-      var duplicate = Object.keys(count)
-        .filter((k) => count[k] > 1)
-        .map(String);
+        setBlendedList(filteredArray);
+      }
+    } else {
+      if (selectedLanguage1.length > 0 && selectedLanguage2.length > 0) {
+        var count = [...selectedLanguage1, ...selectedLanguage2].reduce(
+          (o, v) => {
+            o[v] = o[v] + 1 || 1;
+            return o;
+          },
+          {}
+        );
 
-      setBlendedList(duplicate);
+        //count is an object with keys
+        console.log(Object.keys(count)[23]);
+
+        var duplicate = Object.keys(count)
+          .filter((k) => count[k] > 1)
+          .map(String);
+
+        setBlendedList(duplicate);
+      }
     }
 
     //set language codes
-  }, [selectedLanguage1, selectedLanguage2]);
+  }, [selectedLanguage1, selectedLanguage2, prefixLetters]);
 
   return {
     selectedLanguage1,
@@ -237,9 +265,6 @@ const useLanguageBlend = () => {
 
     maxLength,
     setMaxLength,
-
-    filteredList,
-    setFilteredList,
 
     suffixLetters,
     setSuffixLetters,

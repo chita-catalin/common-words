@@ -1,16 +1,18 @@
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import ContactMailIcon from "@mui/icons-material/ContactMail";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import StorageIcon from "@mui/icons-material/Storage";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ApiIcon from "@mui/icons-material/Api";
 import { SwapOutlined } from "@ant-design/icons";
-import "./style.css";
 import { LanguageContext } from "../../../App";
 import { useContext } from "react";
 import { Card } from "antd";
+import {
+  ArrowRightOutlined,
+  GithubOutlined,
+  MailOutlined,
+  DatabaseOutlined,
+  ToolOutlined,
+  AntDesignOutlined,
+  CloudServerOutlined,
+} from "@ant-design/icons";
+
+import "./style.css";
 
 export const About = () => {
   const {
@@ -42,10 +44,8 @@ export const About = () => {
               padding: "8px",
             }}
           >
-            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>ABC</span>{" "}
-            PVBF AUX{" "}
-            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>DEF</span>{" "}
-            IQYE
+            <span style={{ color: "#2f54eb" }}>ABC</span> PVBF AUX{" "}
+            <span style={{ color: "#2f54eb" }}>DEF</span> IQYE
           </div>
 
           <SwapOutlined
@@ -61,35 +61,35 @@ export const About = () => {
               padding: "8px",
             }}
           >
-            OQUE{" "}
-            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>ABC</span>{" "}
-            KIYW JSU{" "}
-            <span style={{ color: "#2f54eb", fontWeight: "bolder" }}>DEF</span>
+            OQUE <span style={{ color: "#2f54eb" }}>ABC</span> KIYW JSU{" "}
+            <span style={{ color: "#2f54eb" }}>DEF</span>
           </div>
-        </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <ArrowDownwardIcon style={{ fontSize: "2rem", color: "grey" }} />
-        </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <ArrowRightOutlined
+              style={{ fontSize: "2rem", color: "grey", marginLeft: "10px" }}
+            />
+          </div>
+
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
-              color: "#2f54eb",
-              marginLeft: "7px",
-              fontWeight: "bolder",
-              border: "1px solid lightgrey",
-              padding: "8px",
+              justifyContent: "center",
             }}
           >
-            <span>ABC</span>
-            <span>DEF</span>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                color: "#2f54eb",
+                marginLeft: "7px",
+                border: "1px solid lightgrey",
+                padding: "8px",
+              }}
+            >
+              <span>ABC</span>
+              <span>DEF</span>
+            </div>
           </div>
         </div>
       </Card>
@@ -102,28 +102,36 @@ export const About = () => {
             <a href="https://www.mongodb.com/" style={{ color: "#2f54eb" }}>
               mongoDB
             </a>
-            <StorageIcon style={{ fontSize: "3rem", color: "grey" }} />
+            <DatabaseOutlined
+              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+            />
           </div>
 
           <div className="technology-container">
             <a href="https://nodejs.dev/" style={{ color: "#2f54eb" }}>
               Node
             </a>
-            <ApiIcon style={{ fontSize: "3rem", color: "grey" }} />
+            <CloudServerOutlined
+              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+            />
           </div>
 
           <div className="technology-container">
             <a href="https://expressjs.com/" style={{ color: "#2f54eb" }}>
               Express
             </a>
-            <ConstructionIcon style={{ fontSize: "3rem", color: "grey" }} />
+            <ToolOutlined
+              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+            />
           </div>
 
           <div className="technology-container">
             <a href="https://reactjs.org/" style={{ color: "#2f54eb" }}>
               React
             </a>
-            <DashboardIcon style={{ fontSize: "3rem", color: "grey" }} />
+            <AntDesignOutlined
+              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+            />
           </div>
         </div>
       </Card>
@@ -132,7 +140,7 @@ export const About = () => {
         <h1>{developerAndCommunity}</h1>
 
         <div style={{ display: "flex", alignItems: "center" }}>
-          <ContactMailIcon
+          <MailOutlined
             style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
           />
           <div style={{ color: "#2f54eb" }}>chita.catalin.adrian@gmail.com</div>
@@ -141,7 +149,7 @@ export const About = () => {
         <h2 style={{ fontWeight: 100 }}>{getInvolved}</h2>
 
         <div style={{ display: "flex", alignItems: "center" }}>
-          <GitHubIcon
+          <GithubOutlined
             style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
           />
           <div style={{ color: "#2f54eb" }}>

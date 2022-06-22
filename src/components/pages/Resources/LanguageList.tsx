@@ -1,9 +1,9 @@
-import { CircularProgress } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 import "./style.css";
+import { Spin } from "antd";
 
 const LanguageList = () => {
   const { language }: any = useParams();
@@ -35,7 +35,7 @@ const LanguageList = () => {
 
   return (
     <>
-      {loading === true && <CircularProgress id="resource-spinner" />}
+      {loading === true && <Spin />}
       <p style={{ whiteSpace: "pre" }}>{wordList.join("\r\n")}</p>
     </>
   );

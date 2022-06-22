@@ -1,7 +1,6 @@
 #tools-container {
   display: flex;
-  justify-content: center;
-  padding-top: 30px;
+  flex-direction: column;
 }
 
 .tool-paper-title {

@@ -10,11 +10,8 @@ const useLanguageBlend = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [blendedList, setBlendedList] = useState<any>([]);
   const [alert, setAlert] = useState<string>("");
-  const [tableView, setTableView] = useState<boolean>(true);
 
   //word restrictions
-  const [lettersToIgnore, setLettersToIgnore] = useState<number>(0);
-  const [suffixLetters, setSuffixLetters] = useState<number>(4);
   const [prefixLetters, setPrefixLetters] = useState<number>(3);
 
   //controls
@@ -44,8 +41,6 @@ const useLanguageBlend = () => {
     }
     return track[str2.length][str1.length];
   };
-
-  useEffect(() => {}, [lettersToIgnore]);
 
   const getLanguages = async () => {
     setLoading(true);
@@ -108,7 +103,9 @@ const useLanguageBlend = () => {
       );
 
       if (response.status === 200) {
-        setSelectedLanguage1(response.data.data[0].list);
+        setSelectedLanguage1(
+          response.data.data[0].list.map((el: string) => el + "1")
+        );
       }
     } catch (error) {
       console.log(error);
@@ -160,7 +157,9 @@ const useLanguageBlend = () => {
       );
 
       if (response.status === 200) {
-        setSelectedLanguage2(response.data.data[0].list);
+        setSelectedLanguage2(
+          response.data.data[0].list.map((el: string) => el + "2")
+        );
       }
     } catch (error) {
       console.log(error);
@@ -254,20 +253,11 @@ const useLanguageBlend = () => {
     languageCode2,
     setLanguageCode2,
 
-    lettersToIgnore,
-    setLettersToIgnore,
-
-    tableView,
-    setTableView,
-
     minLength,
     setMinLength,
 
     maxLength,
     setMaxLength,
-
-    suffixLetters,
-    setSuffixLetters,
 
     prefixLetters,
     setPrefixLetters,

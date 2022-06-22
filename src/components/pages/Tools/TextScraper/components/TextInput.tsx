@@ -17,15 +17,15 @@ const TextInput = () => {
 
   const handleChange = (text: string) => {
     setText(text);
-    console.log("acum se face set state")
+    console.log("acum se face set state");
   };
 
   const optimizedFn = useCallback(debounce(handleChange), []);
 
   return (
     <textarea
+      style={{ boxSizing: "border-box", width: "100%" }}
       rows={15}
-      cols={100}
       name="description"
       placeholder="Extract the unique words from every text!"
       onChange={(e) => optimizedFn(e.target.value)}

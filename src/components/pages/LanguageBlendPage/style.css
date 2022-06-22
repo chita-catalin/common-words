@@ -24,6 +24,7 @@
   background: #f0f0f0;
   border-width: 0px;
   border-radius: 0px;
+  flex-grow: 1;
 }
 
 #controls-content {
@@ -32,4 +33,9 @@
   align-items: center;
   flex-wrap: wrap;
   margin: -5px;
+}
+
+.word-tag:hover {
+  border-color: black;
+  box-shadow: 1px 1px 5px #0050b3;
 }

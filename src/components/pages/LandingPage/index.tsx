@@ -1,4 +1,3 @@
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import { BlendContext, LanguageContext } from "../../../App";
 import { useRef } from "react";
 import { Card, Statistic, Button } from "antd";
@@ -32,12 +31,7 @@ const LandingPage = () => {
         }}
       >
         <div style={{ marginBottom: "10px" }}>{landingPageText}</div>
-        <Button type="primary">
-          {startExploring}
-          <ArrowForwardIosRoundedIcon
-            style={{ fontSize: "16px", color: "#EEEEEE" }}
-          />
-        </Button>
+        <Button type="primary">{startExploring}</Button>
       </Card>
       <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#f5f5f5" }}>
         <Statistic title="Languages" value={10} />

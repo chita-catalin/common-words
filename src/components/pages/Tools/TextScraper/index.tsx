@@ -1,24 +1,13 @@
-import ArrowDownwardOutlinedIcon from "@mui/icons-material/ArrowDownwardOutlined";
 import useTextScraper from "./components/useTextScraper";
 import TextInput from "./components/TextInput";
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Pie } from "react-chartjs-2";
-import { Button, Paper } from "@mui/material";
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { Button } from "antd";
 
 export const TextScraperContext = React.createContext<any>(null);
 
 const TextScraper = () => {
   const textScraper = useTextScraper();
-  const [extraSeparators, setExtraSeparators] = useState([]);
-  const [initialNrOfWords, setInitialNrOfWords] = useState<number>(0);
-
-  const statisticsRef: any = useRef(null);
-  const executeScroll = () => statisticsRef.current.scrollIntoView();
 
   const scrape = () => {
     //split text into words
@@ -29,8 +18,6 @@ const TextScraper = () => {
       );
     //lowercase?
     arr = arr.map((word: string) => word.toLowerCase());
-
-    setInitialNrOfWords(arr.length);
 
     //remove duplicates
     arr = Object.keys(
@@ -54,38 +41,20 @@ const TextScraper = () => {
     textScraper.setWordsArray([]);
   };
 
-  const pieData = {
-    labels: [
-      `${initialNrOfWords} total words (100%)`,
-      `${textScraper.wordsArray.length} unique words (${(
-        (textScraper.wordsArray.length * 100) /
-        initialNrOfWords
-      ).toFixed(2)}%)`,
-    ],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [initialNrOfWords, textScraper.wordsArray.length],
-        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
-        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
   return (
     <TextScraperContext.Provider value={textScraper}>
       <div
         style={{
           display: "flex",
+          width: "100%",
           flexDirection: "column",
           alignItems: "center",
-          padding: "20px 10px 50px 10px",
         }}
       >
         <div
           style={{
             display: "flex",
+            width: "100%",
             flexDirection: "column",
             alignItems: "center",
           }}
@@ -94,14 +63,7 @@ const TextScraper = () => {
             to="/tools"
             style={{ alignSelf: "flex-start", textDecoration: "none" }}
           >
-            <Button
-              style={{
-                color: "#00adb5",
-                marginBottom: "10px",
-              }}
-            >
-              {"< Go back"}
-            </Button>
+            <Button style={{ marginBottom: "10px" }}>{"< Go back"}</Button>
           </Link>
           <TextInput />
 
@@ -112,55 +74,26 @@ const TextScraper = () => {
               width: "100%",
             }}
           >
-            <Button
-              variant="contained"
-              style={{ margin: "10px 0 10px 0", backgroundColor: "grey" }}
-              onClick={clear}
-            >
+            <Button style={{ margin: "10px 0 10px 0" }} onClick={clear}>
               CLEAR
             </Button>
 
-            {textScraper.wordsArray.length > 0 && (
-              <Button
-                variant="contained"
-                style={{
-                  margin: "10px 0 10px 0",
-                  backgroundColor: "#FF2E63",
-                }}
-                onClick={executeScroll}
-              >
-                VIEW STATISTICS <ArrowDownwardOutlinedIcon />
-              </Button>
-            )}
-
             <Button
-              variant="contained"
-              style={{ margin: "10px 0 10px 0", backgroundColor: "#00adb5" }}
+              type="primary"
+              style={{ margin: "10px 0 10px 0" }}
               onClick={scrape}
             >
               EXTRACT UNIQUE WORDS
             </Button>
           </div>
           <textarea
+            style={{ boxSizing: "border-box", width: "100%" }}
             rows={15}
-            cols={100}
             name="description"
             placeholder="Unique words will appear here"
             value={textScraper.wordsArray.join("\n")}
             readOnly
           ></textarea>
-
-          {textScraper.wordsArray.length > 0 && (
-            <Paper
-              ref={statisticsRef}
-              style={{ width: "100%", marginTop: "30px", minHeight: "100px" }}
-            >
-              <div style={{ width: "45%", margin: "20px" }}>
-                {" "}
-                <Pie data={pieData} />
-              </div>
-            </Paper>
-          )}
         </div>
       </div>
     </TextScraperContext.Provider>

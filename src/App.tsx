@@ -1,12 +1,10 @@
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
 import LanguageList from "./components/pages/Resources/LanguageList";
-import { MoreStatistics } from "./components/pages/MoreStatistics";
+import { Route, Routes, HashRouter, Link } from "react-router-dom";
 import Resources from "./components/pages/Resources/Resources";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
 import TextScraper from "./components/pages/Tools/TextScraper";
-import { Route, Routes, HashRouter, Link } from "react-router-dom";
 import NotFound from "./components/pages/NotFound/NotFound";
-import MoreDetails from "./components/pages/MoreDetails";
 import LandingPage from "./components/pages/LandingPage";
 import useLanguageBlend from "./useLanguageBlend";
 import { About } from "./components/pages/about";
@@ -162,8 +160,6 @@ function App() {
                     element={<LanguageList />}
                   />
                   <Route path="/changelog" element={<ChangeLog />} />
-                  <Route path="/more-statistics" element={<MoreStatistics />} />
-                  <Route path="/more-details" element={<MoreDetails />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/" element={<LandingPage />} />
                   <Route path="*" element={<NotFound />} />

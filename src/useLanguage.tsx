@@ -12,7 +12,21 @@ export const useLanguage = () => {
     "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
   );
 
+  //tools page
   const [tools, setTools] = useState("tools");
+  const [textScraper, setTextScraper] = useState("TEXT SCRAPER");
+  const [goBack, setGoBack] = useState("Go back");
+  const [extractUniqueWords, setExtractUniqueWords] = useState(
+    "EXTRACT UNIQUE WORDS"
+  );
+  const [
+    extractTheUniqueWordsFromAnyText,
+    setExtractTheUniqueWordsFromAnyText,
+  ] = useState("Extract the unique words from any text!");
+  const [clear, setClear] = useState("CLEAR");
+  const [uniqueWordsWillAppearHere, setUniqueWordsWillAppearHere] = useState(
+    "Unique words will appear here!"
+  );
   //blend page
   const [selectTwoLanguages, setSelectTwoLanguages] = useState(
     "Select two languages!"
@@ -75,7 +89,9 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
         );
+        //tools
         setTools("tools");
+        setTextScraper("TEXT SCRAPER");
         //blend page
         setSelectTwoLanguages("Select two languages!");
         setWordsPerPage("Words per page");
@@ -129,7 +145,9 @@ export const useLanguage = () => {
         setLandingPageText(
           "Compară limba ta cu altă limbă! Găsește cuvintele comune, și alte statistici interesante despre limbi, complet gratuit!"
         );
+        //tools
         setTools("unelte");
+        setTextScraper("IDENTIFICATOR CUVINTE UNICE");
         //blend page
         setSelectTwoLanguages("Selectează două limbi diferite!");
         setWordsPerPage("Cuvinte pe pagină");

@@ -19,48 +19,47 @@ const LandingPage = () => {
 
   return (
     <div id="landing-page-container">
-      <Card
-        style={{
-          margin: "12px",
-          flexGrow: 1,
-          maxWidth: "40%",
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-          backgroundColor: "#fafafa",
-        }}
-      >
-        <div style={{ marginBottom: "10px" }}>{landingPageText}</div>
-        <Button type="primary">{startExploring}</Button>
-      </Card>
-      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#f5f5f5" }}>
-        <Statistic title="Languages" value={10} />
-      </Card>
-      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#f0f0f0" }}>
-        wow
-      </Card>
-      <Card style={{ margin: "12px", flexGrow: 1, backgroundColor: "#d9d9d9" }}>
-        wow
-      </Card>
-
-      {/* <div id="left-section-container">
-        <p
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Card
           style={{
-            fontFamily: "consolas",
-            color: "#222831",
-            width: "370px",
-            marginBottom: "30px",
+            margin: "12px",
+            flexGrow: 1,
+            maxWidth: "40%",
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+            backgroundColor: "#fafafa",
           }}
         >
-          
-        </p>
-        <Link
-          to="/language-blend"
-          style={{ textDecoration: "none", color: "#F84284" }}
+          <div style={{ marginBottom: "10px" }}>{landingPageText}</div>
+          <Button type="primary">{startExploring}</Button>
+        </Card>
+        <Card
+          style={{
+            margin: "12px",
+            flexGrow: 1,
+            backgroundColor: "#fafafa",
+            display: "flex",
+            flexWrap: "wrap",
+          }}
         >
-          
-        </Link>
-      </div> */}
+          <Statistic title="Languages" value={10} />
+          english finnish french german hungarian italian polish romanian
+          spanish turkish
+        </Card>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "24px" }}>
+        <Card
+          style={{ margin: "12px", flexGrow: 1, backgroundColor: "#fafafa" }}
+        >
+          wow
+        </Card>
+        <Card
+          style={{ margin: "12px", flexGrow: 1, backgroundColor: "#fafafa" }}
+        >
+          wow
+        </Card>
+      </div>
     </div>
   );
 };

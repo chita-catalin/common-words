@@ -45,7 +45,13 @@ function App() {
       <BlendContext.Provider value={blend}>
         <HashRouter>
           <Layout>
-            <Sider trigger={null} collapsible collapsed={collapsed}>
+            <Sider
+              trigger={null}
+              collapsible
+              collapsed={collapsed}
+              className="sider"
+              collapsedWidth={0}
+            >
               <Menu
                 style={{
                   paddingTop: "60px",
@@ -59,13 +65,13 @@ function App() {
                 <Menu.Item key="0">
                   <Link to="/">
                     <HomeOutlined />
-                    <span>Explore</span>
+                    <span>{language.explore}</span>
                   </Link>
                 </Menu.Item>
 
                 <Menu.Item key="1">
                   <Link to="/language-blend">
-                    <SwapOutlined /> <span>Compare languages</span>
+                    <SwapOutlined /> <span>{language.compareLanguages}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="2">
@@ -90,7 +96,7 @@ function App() {
                 </Menu.Item>
               </Menu>
             </Sider>
-            <Layout className="site-layout">
+            <Layout className="site-layout" style={{ minWidth: 320 }}>
               <Header
                 className="site-layout-background"
                 style={{
@@ -100,17 +106,19 @@ function App() {
                   justifyContent: "space-between",
                 }}
               >
-                {collapsed ? (
-                  <MenuUnfoldOutlined
-                    className="trigger"
-                    onClick={() => setCollapsed(!collapsed)}
-                  />
-                ) : (
-                  <MenuFoldOutlined
-                    className="trigger"
-                    onClick={() => setCollapsed(!collapsed)}
-                  />
-                )}
+                <div className="trigger-container">
+                  {collapsed ? (
+                    <MenuUnfoldOutlined
+                      className="trigger"
+                      onClick={() => setCollapsed(!collapsed)}
+                    />
+                  ) : (
+                    <MenuFoldOutlined
+                      className="trigger"
+                      onClick={() => setCollapsed(!collapsed)}
+                    />
+                  )}
+                </div>
 
                 <div id="title">
                   <Link
@@ -122,7 +130,10 @@ function App() {
                   >
                     {language.commonWords}
                   </Link>
-                  <span style={{ fontSize: "15px", marginLeft: "2px" }}>
+                  <span
+                    style={{ fontSize: "15px", marginLeft: "2px" }}
+                    className="version"
+                  >
                     V1.0.0
                   </span>
                 </div>
@@ -131,6 +142,9 @@ function App() {
                   style={{ marginRight: "24px" }}
                   defaultValue="english"
                   bordered={false}
+                  value={
+                    language.language === "romanian" ? "Română" : "English"
+                  }
                   onChange={(lng: string) => language.setLanguage(lng)}
                 >
                   <Select.Option value="english">
@@ -147,6 +161,7 @@ function App() {
                   margin: "24px 16px",
                   padding: 12,
                   minHeight: 280,
+                  minWidth: 320,
                 }}
               >
                 <Routes>

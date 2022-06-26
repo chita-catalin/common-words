@@ -1,8 +1,10 @@
 import { TextScraperContext } from "..";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext } from "react";
+import { LanguageContext } from "../../../../../App";
 
 const TextInput = () => {
   const { setText, textRef } = useContext(TextScraperContext);
+  const { extractTheUniqueWordsFromAnyText } = useContext(LanguageContext);
 
   const debounce = (func: any) => {
     let timer: any;
@@ -17,7 +19,6 @@ const TextInput = () => {
 
   const handleChange = (text: string) => {
     setText(text);
-    console.log("acum se face set state");
   };
 
   const optimizedFn = useCallback(debounce(handleChange), []);
@@ -25,9 +26,9 @@ const TextInput = () => {
   return (
     <textarea
       style={{ boxSizing: "border-box", width: "100%" }}
-      rows={15}
+      rows={8}
       name="description"
-      placeholder="Extract the unique words from every text!"
+      placeholder={extractTheUniqueWordsFromAnyText}
       onChange={(e) => optimizedFn(e.target.value)}
       ref={textRef}
     ></textarea>

@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 export const useLanguage = () => {
   const [language, setLanguage] = useState("english");
 
+  const [explore, setExplore] = useState("Explore");
+  const [compareLanguages, setCompareLanguages] = useState("Compare languages");
+  const [viewList, setViewList] = useState("View list");
+
   const [commonWords, setCommonWords] = useState<string>("COMMON WORDS");
   const [resources, setResources] = useState("resources");
   const [about, setAbout] = useState("about");
@@ -14,7 +18,7 @@ export const useLanguage = () => {
 
   //tools page
   const [tools, setTools] = useState("tools");
-  const [textScraper, setTextScraper] = useState("TEXT SCRAPER");
+  const [textScraper, setTextScraper] = useState("UNIQUE WORDS IDENTIFIER");
   const [goBack, setGoBack] = useState("Go back");
   const [extractUniqueWords, setExtractUniqueWords] = useState(
     "EXTRACT UNIQUE WORDS"
@@ -27,6 +31,8 @@ export const useLanguage = () => {
   const [uniqueWordsWillAppearHere, setUniqueWordsWillAppearHere] = useState(
     "Unique words will appear here!"
   );
+  const [initialWords, setInitialWords] = useState("Initial words");
+  const [uniqueWords, setUniqueWords] = useState("Unique words");
   //blend page
   const [selectTwoLanguages, setSelectTwoLanguages] = useState(
     "Select two languages!"
@@ -82,6 +88,9 @@ export const useLanguage = () => {
     switch (language) {
       case "english":
         setCommonWords("COMMON WORDS");
+        setExplore("Explore");
+        setCompareLanguages("Compare languages");
+        setViewList("View list");
         setResources("resources");
         setAbout("about");
         setChangelog("changelog");
@@ -90,8 +99,17 @@ export const useLanguage = () => {
           "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
         );
         //tools
-        setTools("tools");
-        setTextScraper("TEXT SCRAPER");
+        setTools("Tools");
+        setTextScraper("UNIQUE WORDS IDENTIFIER");
+        setGoBack("Go back");
+        setExtractUniqueWords("EXTRACT UNIQUE WORDS");
+        setClear("CLEAR");
+        setUniqueWordsWillAppearHere("Unique words will appear here!");
+        setInitialWords("Initial words");
+        setUniqueWords("Unique words");
+        setExtractTheUniqueWordsFromAnyText(
+          "Extract the unique words from any text!"
+        );
         //blend page
         setSelectTwoLanguages("Select two languages!");
         setWordsPerPage("Words per page");
@@ -138,16 +156,30 @@ export const useLanguage = () => {
 
       case "romanian":
         setCommonWords("CUVINTE COMUNE");
-        setResources("resurse");
-        setAbout("despre");
-        setChangelog("istoric schimbari");
+        setExplore("Explorează");
+        setCompareLanguages("Compară");
+        setViewList("Vezi lista");
+        setResources("Resurse");
+        setAbout("Despre");
+        setChangelog("Istoric schimbari");
         setStartExploring("EXPLOREAZĂ");
         setLandingPageText(
           "Compară limba ta cu altă limbă! Găsește cuvintele comune, și alte statistici interesante despre limbi, complet gratuit!"
         );
+
         //tools
-        setTools("unelte");
+        setTools("Unelte");
         setTextScraper("IDENTIFICATOR CUVINTE UNICE");
+        setGoBack("Înapoi");
+        setExtractUniqueWords("EXTRAGE CUVINTE UNICE");
+        setClear("ȘTERGE");
+        setUniqueWordsWillAppearHere("Cuvintele unice vor apărea aici!");
+        setInitialWords("Cuvinte inițiale");
+        setUniqueWords("Cuvinte unice");
+        setExtractTheUniqueWordsFromAnyText(
+          "Extrage cuvintele unice din orice text!"
+        );
+
         //blend page
         setSelectTwoLanguages("Selectează două limbi diferite!");
         setWordsPerPage("Cuvinte pe pagină");
@@ -202,6 +234,9 @@ export const useLanguage = () => {
 
   return {
     language,
+    explore,
+    compareLanguages,
+    viewList,
     setLanguage,
     commonWords,
     resources,
@@ -209,7 +244,16 @@ export const useLanguage = () => {
     changelog,
     startExploring,
     landingPageText,
+    //tools
+    clear,
+    uniqueWordsWillAppearHere,
+    initialWords,
+    uniqueWords,
     tools,
+    textScraper,
+    goBack,
+    extractTheUniqueWordsFromAnyText,
+    extractUniqueWords,
     //blend page
     selectTwoLanguages,
     wordsPerPage,

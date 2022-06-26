@@ -22,11 +22,21 @@
 
 #title {
   font-size: 30px;
-  margin-top:2px;
+  margin-top: 2px;
 }
 
+.trigger {
+  font-size: 25px;
+  margin: 10px;
+}
 
-.trigger{
-    font-size:25px;
-    margin:10px;
+@media only screen and (max-width: 600px) {
+  #title {
+    margin-left: 8px;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .version {
+    display: none;
+  }
 }

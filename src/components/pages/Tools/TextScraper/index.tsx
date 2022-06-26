@@ -1,40 +1,49 @@
 import useTextScraper from "./components/useTextScraper";
 import TextInput from "./components/TextInput";
 import { Link } from "react-router-dom";
-import React from "react";
-import { Button } from "antd";
+import React, { useContext, useState } from "react";
+import { Button, Statistic } from "antd";
+import { LanguageContext } from "../../../../App";
 
 export const TextScraperContext = React.createContext<any>(null);
 
 const TextScraper = () => {
   const textScraper = useTextScraper();
 
+  const {
+    clear,
+    uniqueWordsWillAppearHere,
+    initialWords,
+    uniqueWords,
+    goBack,
+    extractUniqueWords,
+  } = useContext(LanguageContext);
+
+  const [initialWordsCount, setInitialWordsCount] = useState<number>(0);
+
   const scrape = () => {
-    //split text into words
     let arr = textScraper.text
       .replace(/\r/g, " ")
       .split(
         /[ ■+#’‘%$=^†…„♦¬«»•¹²1234567890“*”.·:;?!~,`"&|()<>{}\[\]\r\n/\\]+/
       );
-    //lowercase?
-    arr = arr.map((word: string) => word.toLowerCase());
 
-    //remove duplicates
+    arr = arr.map((word: string) => word.toLowerCase());
+    setInitialWordsCount(arr.length);
+
     arr = Object.keys(
       arr.reduce((reducer: any, word: any) => {
         reducer[word] = true;
         return reducer;
       }, {})
     );
-    //sorting?
+
     arr.sort();
 
     textScraper.setWordsArray(arr);
-    console.log(arr);
   };
 
-  const clear = () => {
-    console.log("wa", textScraper.textRef);
+  const clearText = () => {
     //@ts-ignore
     textScraper.textRef.current.value = "";
     textScraper.setText("");
@@ -63,7 +72,10 @@ const TextScraper = () => {
             to="/tools"
             style={{ alignSelf: "flex-start", textDecoration: "none" }}
           >
-            <Button style={{ marginBottom: "10px" }}>{"< Go back"}</Button>
+            <Button style={{ marginBottom: "10px" }}>
+              {"< "}
+              {goBack}
+            </Button>
           </Link>
           <TextInput />
 
@@ -74,8 +86,8 @@ const TextScraper = () => {
               width: "100%",
             }}
           >
-            <Button style={{ margin: "10px 0 10px 0" }} onClick={clear}>
-              CLEAR
+            <Button style={{ margin: "10px 0 10px 0" }} onClick={clearText}>
+              {clear}
             </Button>
 
             <Button
@@ -83,14 +95,51 @@ const TextScraper = () => {
               style={{ margin: "10px 0 10px 0" }}
               onClick={scrape}
             >
-              EXTRACT UNIQUE WORDS
+              {extractUniqueWords}
             </Button>
           </div>
+
+          {/*statistics*/}
+          {textScraper.wordsArray.length > 0 ? (
+            <div
+              style={{
+                backgroundColor: "#fafafa",
+                display: "flex",
+                justifyContent: "space-around",
+                width: "100%",
+                padding: "12px",
+                marginBottom: "12px",
+              }}
+            >
+              <Statistic
+                title={initialWords}
+                value={
+                  textScraper.wordsArray[0] === ""
+                    ? initialWordsCount - 1
+                    : initialWordsCount
+                }
+              />
+              <Statistic
+                title={uniqueWords}
+                value={
+                  textScraper.wordsArray[0] === ""
+                    ? textScraper.wordsArray.length - 1
+                    : textScraper.wordsArray.length
+                }
+                suffix={` (${(
+                  (textScraper.wordsArray.length * 100) /
+                  initialWordsCount
+                ).toFixed(2)})%
+                `}
+              />
+            </div>
+          ) : null}
+
           <textarea
             style={{ boxSizing: "border-box", width: "100%" }}
-            rows={15}
+            rows={8}
             name="description"
-            placeholder="Unique words will appear here"
+            placeholder={uniqueWordsWillAppearHere}
             value={textScraper.wordsArray.join("\n")}
             readOnly
           ></textarea>

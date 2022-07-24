@@ -1,8 +1,15 @@
 #tools-container {
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 90px);
+  overflow: hidden;
+  margin-right: -12px;
 }
 
 .tool-paper-title {
   margin-bottom: 10px;
+}
+
+::placeholder {
+  color: white;
 }

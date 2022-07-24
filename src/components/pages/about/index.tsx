@@ -42,6 +42,7 @@ export const About = () => {
               flexDirection: "column",
               border: "1px solid lightgrey",
               padding: "8px",
+              borderRadius: "10px",
             }}
           >
             <span style={{ color: "#2f54eb" }}>ABC</span> PVBF AUX{" "}
@@ -59,6 +60,7 @@ export const About = () => {
               flexDirection: "column",
               border: "1px solid lightgrey",
               padding: "8px",
+              borderRadius: "10px",
             }}
           >
             OQUE <span style={{ color: "#2f54eb" }}>ABC</span> KIYW JSU{" "}
@@ -85,6 +87,7 @@ export const About = () => {
                 marginLeft: "7px",
                 border: "1px solid lightgrey",
                 padding: "8px",
+                borderRadius: "10px",
               }}
             >
               <span>ABC</span>
@@ -145,8 +148,6 @@ export const About = () => {
           />
           <div style={{ color: "#2f54eb" }}>chita.catalin.adrian@gmail.com</div>
         </div>
-
-        <h2 style={{ fontWeight: 100 }}>{getInvolved}</h2>
 
         <div style={{ display: "flex", alignItems: "center" }}>
           <GithubOutlined

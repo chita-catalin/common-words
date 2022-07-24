@@ -21,7 +21,7 @@ export const useLanguage = () => {
   const [textScraper, setTextScraper] = useState("UNIQUE WORDS IDENTIFIER");
   const [goBack, setGoBack] = useState("Go back");
   const [extractUniqueWords, setExtractUniqueWords] = useState(
-    "EXTRACT UNIQUE WORDS"
+    "Extract unique words"
   );
   const [
     extractTheUniqueWordsFromAnyText,
@@ -102,7 +102,7 @@ export const useLanguage = () => {
         setTools("Tools");
         setTextScraper("UNIQUE WORDS IDENTIFIER");
         setGoBack("Go back");
-        setExtractUniqueWords("EXTRACT UNIQUE WORDS");
+        setExtractUniqueWords("Extract unique words");
         setClear("CLEAR");
         setUniqueWordsWillAppearHere("Unique words will appear here!");
         setInitialWords("Initial words");
@@ -171,7 +171,7 @@ export const useLanguage = () => {
         setTools("Unelte");
         setTextScraper("IDENTIFICATOR CUVINTE UNICE");
         setGoBack("Înapoi");
-        setExtractUniqueWords("EXTRAGE CUVINTE UNICE");
+        setExtractUniqueWords("Extrage cuvinte unice");
         setClear("ȘTERGE");
         setUniqueWordsWillAppearHere("Cuvintele unice vor apărea aici!");
         setInitialWords("Cuvinte inițiale");

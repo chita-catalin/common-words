@@ -76,7 +76,7 @@ function App() {
                 </Menu.Item>
                 <Menu.Item key="2">
                   <Link to="/tools">
-                    <ToolOutlined /> <span>{language.tools}</span>
+                    <ToolOutlined /> <span>{language.extractUniqueWords}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="3">
@@ -156,12 +156,12 @@ function App() {
                 </Select>
               </Header>
               <Content
-                className="site-layout-background"
                 style={{
-                  margin: "24px 16px",
-                  padding: 12,
+                  padding: "12px",
+                  color: "white",
                   minHeight: 280,
                   minWidth: 320,
+                  backgroundColor: "#434343",
                 }}
               >
                 <Routes>
@@ -191,20 +191,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
- <Link to="/tools" className="first-small-nav">
-            <u>{tools}</u>
-          </Link>
-          <Link to="/resources" className="small-nav">
-            <u>{resources}</u>
-          </Link>
-          <Link to="/about" className="small-nav">
-            <u>{about}</u>
-          </Link>
-          <Link to="/changelog" className="small-nav">
-            <u>{changelog}</u>
-          </Link>
-
-export default App;*/

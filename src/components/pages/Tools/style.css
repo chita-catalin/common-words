@@ -13,3 +13,142 @@
 ::placeholder {
   color: white;
 }
+
+#characters-count {
+  background-color: rgb(100, 100, 100);
+  margin: 2px 6px 0px 6px;
+  border-top: 2px solid lightgrey;
+  font-weight: bold;
+}
+
+#allowed-chars-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1px;
+}
+
+#allowed-chars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+.fixed-controls-collapse {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.fixed-controls-collapse:hover {
+  background-color: #fa8c16;
+}
+
+.fixed-statistics-collapse {
+  position: absolute;
+  top: 20px;
+  right: 232px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 600px) {
+  .fixed-statistics-collapse {
+    right: 157px;
+  }
+}
+.fixed-statistics-collapse:hover {
+  background-color: #fa8c16;
+}
+
+#fixed-controls-container {
+  position: absolute;
+  top: 48px;
+  right: 24px;
+  width: 200px;
+  min-height: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-direction: column;
+  background-color: rgb(100, 100, 100);
+  padding-bottom: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  #fixed-controls-container {
+    width: 120px;
+  }
+}
+
+#fixed-statistics-container {
+  position: absolute;
+  top: 48px;
+  right: 235px;
+  width: 150px;
+  min-height: 10px;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: hidden;
+  border-radius: 4px;
+  flex-direction: column;
+  background-color: rgb(100, 100, 100);
+  padding-bottom: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+  #fixed-statistics-container {
+    width: 100px;
+    right: 160px;
+  }
+}
+
+#main-action-button {
+  width: 100px;
+  align-self: center;
+  position: absolute;
+  bottom: 12px;
+  background-color: #fa8c16;
+  outline: none;
+  border: none;
+}
+
+#clear-button {
+  width: 70px;
+  align-self: center;
+  position: absolute;
+  bottom: 12px;
+  background-color: rgb(100, 100, 100);
+  color: white;
+  margin-left: 185px;
+}
+
+#text-area {
+  background-color: transparent;
+  color: white;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.blue-text.ant-progress .ant-progress-text {
+  color: #40a9ff;
+}
+
+.white-text.ant-progress .ant-progress-text {
+  color: white;
+}

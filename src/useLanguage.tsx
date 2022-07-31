@@ -17,20 +17,23 @@ export const useLanguage = () => {
   );
 
   //tools page
-  const [tools, setTools] = useState("tools");
-  const [textScraper, setTextScraper] = useState("UNIQUE WORDS IDENTIFIER");
-  const [goBack, setGoBack] = useState("Go back");
+  const [copied, setCopied] = useState("Copied!");
   const [extractUniqueWords, setExtractUniqueWords] = useState(
     "Extract unique words"
   );
-  const [
-    extractTheUniqueWordsFromAnyText,
-    setExtractTheUniqueWordsFromAnyText,
-  ] = useState("Extract the unique words from any text!");
-  const [clear, setClear] = useState("CLEAR");
-  const [uniqueWordsWillAppearHere, setUniqueWordsWillAppearHere] = useState(
-    "Unique words will appear here!"
+  const [copyAll, setCopyAll] = useState("Copy all");
+  const [extract, setExtract] = useState("Extract");
+  const [textLanguage, setTextLanguage] = useState("Text language");
+  const [customCharacters, setCustomCharacters] = useState("Custom characters");
+  const [allowAll, setAllowAll] = useState("Allow all");
+  const [enterYourTextHere, setEnterYourTextHere] = useState(
+    "Enter your text here..."
   );
+  const [extractionTime, setExtractionTime] = useState("Extraction time");
+  const [allWords, setAllWords] = useState("All words");
+  const [characters, setCharacters] = useState("Characters");
+  const [tools, setTools] = useState("tools");
+  const [clear, setClear] = useState("Clear");
   const [initialWords, setInitialWords] = useState("Initial words");
   const [uniqueWords, setUniqueWords] = useState("Unique words");
   //blend page
@@ -59,16 +62,67 @@ export const useLanguage = () => {
   );
   //languages
   const [english, setEnglish] = useState("English");
-  const [finnish, setFinnish] = useState("Finnish");
+  const [mandarinChinese, setMandarinChinese] = useState("Mandarin Chinese");
+  const [hindi, setHindi] = useState("Hindi");
+  const [spanish, setSpanish] = useState("Spanish");
   const [french, setFrench] = useState("French");
+  const [standardArabic, setStandardArabic] = useState("Standard Arabic");
+  const [bengali, setBengali] = useState("Bengali");
+  const [dutch, setDutch] = useState("Dutch");
+  const [ukrainian, setUkrainian] = useState("Ukrainian");
+
+  const [finnish, setFinnish] = useState("Finnish");
   const [german, setGerman] = useState("German");
   const [hungarian, setHungarian] = useState("Hungarian");
   const [italian, setItalian] = useState("Italian");
   const [polish, setPolish] = useState("Polish");
   const [romanian, setRomanian] = useState("Romanian");
-  const [spanish, setSpanish] = useState("Spanish");
   const [turkish, setTurkish] = useState("Turkish");
-  //ChangeLog
+
+  //                 const[Russian – 258M
+  //           const[Portuguese – 252.2M
+  //             const[Indonesian – 199M
+  //               const[Urdu – 170.6M
+  //                 const[Standard German – 131.6M
+  //                   const[Japanese – 126.4M
+  //                     const[Swahili – 98.5M
+  //                       const[Marathi – 95.3M
+  //                         const[Telugu – 93M
+  //                           const[Turkish – 85.2M
+  //                             const[Yue Chinese – 84.9M
+  //                               const[Tamil – 83.8M
+  //                                 const[Western Punjabi – 82.8M
+  //                                   const[Wu Chinese – 81.8M
+  //                                     const[Korean – 79.4M
+  //                                       const[Vietnamese -77M
+  //                                         const[Hausa – 72.7M
+  //                                           const[Javanese – 68.3M
+  //                                             const[Egyptian Arabic – 67.8M
+  //                                               const[Italian – 67.7M
+  //                                                 const[Thai – 60.7M
+  //                                                   const[Gujarati – 60.7M
+  //                                                     const[Kannada – 56.5M
+  //                                                       const[Persian – 55M
+  //                                                         const[Bhojpuri – 52.4M
+  //                                                           const[Polish – 50M
+  //                                                             const[Southern Min – 48.5M
+  //                                                               const[Hakka – 47.8M
+  //                                                                 const[Filipino – 45M
+  //                                                                   const[Pashto – 40M
+  //                                                                     const[Ukranian – 40M
+  //                                                                       const[Yoruba – 40M
+  //                                                                         const[Malayalam – 37.7M
+  //                                                                           const[Xiang Chinese – 36M
+  //                                                                             const[Odia – 35M
+  //                                                                               const[Maithili – 35M
+  //                                                                                 const[Sudanese Arabic– 33M
+  //                                                                                   const[Burmese – 32M
+  //                                                                                     const[Oromo – 30M
+  //                                                                                       const[Uzbek – 27M
+  //                                                                                         const[Romanian – 26M
+  //                                                                                           const[Sindhi – 25M
+  //                                                                                             const[Tagalog – 23.8M
+  // //ChangeLog
   const [update1, setUpdate1] = useState("Project created");
   const [update2, setUpdate2] = useState("Added basic language blending");
   const [update3, setUpdate3] = useState(
@@ -99,17 +153,21 @@ export const useLanguage = () => {
           "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
         );
         //tools
-        setTools("Tools");
-        setTextScraper("UNIQUE WORDS IDENTIFIER");
-        setGoBack("Go back");
+        setCopied("Copied!");
+        setCopyAll("Copy all");
         setExtractUniqueWords("Extract unique words");
-        setClear("CLEAR");
-        setUniqueWordsWillAppearHere("Unique words will appear here!");
+        setExtract("Extract");
+        setTextLanguage("Text language");
+        setCustomCharacters("Custom characters");
+        setAllowAll("Allow all");
+        setEnterYourTextHere("Enter your text here...");
+        setExtractionTime("Extraction time");
+        setAllWords("All words");
+        setCharacters("Characters");
+        setTools("Tools");
+        setClear("Clear");
         setInitialWords("Initial words");
         setUniqueWords("Unique words");
-        setExtractTheUniqueWordsFromAnyText(
-          "Extract the unique words from any text!"
-        );
         //blend page
         setSelectTwoLanguages("Select two languages!");
         setWordsPerPage("Words per page");
@@ -126,6 +184,8 @@ export const useLanguage = () => {
         //resources
         setLanguageWordList("Language word lists (all words)");
         //languages
+        setUkrainian("Ukrainian");
+        setDutch("Dutch");
         setEnglish("English");
         setFinnish("Finnish");
         setFrench("French");
@@ -168,18 +228,21 @@ export const useLanguage = () => {
         );
 
         //tools
-        setTools("Unelte");
-        setTextScraper("IDENTIFICATOR CUVINTE UNICE");
-        setGoBack("Înapoi");
+        setCopied("Copiat!");
+        setCopyAll("Copiază tot");
         setExtractUniqueWords("Extrage cuvinte unice");
-        setClear("ȘTERGE");
-        setUniqueWordsWillAppearHere("Cuvintele unice vor apărea aici!");
+        setExtract("Extrage");
+        setTextLanguage("Limba textului");
+        setCustomCharacters("Permite doar caracterele următoare");
+        setAllowAll("Permite tot");
+        setEnterYourTextHere("Introdu textul aici...");
+        setExtractionTime("Durată extragere");
+        setAllWords("Cuvinte totale");
+        setCharacters("Caractere");
+        setTools("Unelte");
+        setClear("Șterge");
         setInitialWords("Cuvinte inițiale");
         setUniqueWords("Cuvinte unice");
-        setExtractTheUniqueWordsFromAnyText(
-          "Extrage cuvintele unice din orice text!"
-        );
-
         //blend page
         setSelectTwoLanguages("Selectează două limbi diferite!");
         setWordsPerPage("Cuvinte pe pagină");
@@ -202,6 +265,8 @@ export const useLanguage = () => {
           "Listele de cuvinte ale limbilor (toate cuvintele)"
         );
         //languages
+        setUkrainian("Ucraineană");
+        setDutch("Neerlandeză");
         setEnglish("Engleză");
         setFinnish("Finlandeză");
         setFrench("Franceză");
@@ -245,15 +310,21 @@ export const useLanguage = () => {
     startExploring,
     landingPageText,
     //tools
+    copied,
+    copyAll,
+    allWords,
+    extractionTime,
+    extract,
+    textLanguage,
+    customCharacters,
+    allowAll,
+    enterYourTextHere,
+    extractUniqueWords,
+    characters,
     clear,
-    uniqueWordsWillAppearHere,
     initialWords,
     uniqueWords,
     tools,
-    textScraper,
-    goBack,
-    extractTheUniqueWordsFromAnyText,
-    extractUniqueWords,
     //blend page
     selectTwoLanguages,
     wordsPerPage,
@@ -270,6 +341,8 @@ export const useLanguage = () => {
     //resources
     languageWordList,
     //languages
+    ukrainian,
+    dutch,
     english,
     finnish,
     french,

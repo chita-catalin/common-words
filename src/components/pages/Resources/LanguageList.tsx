@@ -13,7 +13,6 @@ const LanguageList = () => {
 
   const getLanguage = async () => {
     setLoading(true);
-
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/getLanguage?language=${language}`
@@ -25,7 +24,6 @@ const LanguageList = () => {
     } catch (error) {
       console.log(error);
     }
-
     setLoading(false);
   };
 

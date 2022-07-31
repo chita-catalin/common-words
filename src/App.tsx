@@ -3,7 +3,6 @@ import LanguageList from "./components/pages/Resources/LanguageList";
 import { Route, Routes, HashRouter, Link } from "react-router-dom";
 import Resources from "./components/pages/Resources/Resources";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
-import TextScraper from "./components/pages/Tools/TextScraper";
 import NotFound from "./components/pages/NotFound/NotFound";
 import LandingPage from "./components/pages/LandingPage";
 import useLanguageBlend from "./useLanguageBlend";
@@ -179,7 +178,6 @@ function App() {
                   <Route path="/" element={<LandingPage />} />
                   <Route path="*" element={<NotFound />} />
                   <Route path="/tools" element={<Tools />} />
-                  <Route path="/tools/text-scraper" element={<TextScraper />} />
                 </Routes>
               </Content>
             </Layout>

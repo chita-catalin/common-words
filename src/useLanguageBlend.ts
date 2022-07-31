@@ -44,7 +44,6 @@ const useLanguageBlend = () => {
 
   const getLanguages = async () => {
     setLoading(true);
-
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/getLanguages`
@@ -56,7 +55,6 @@ const useLanguageBlend = () => {
     } catch (error) {
       console.log(error);
     }
-
     setLoading(false);
   };
 

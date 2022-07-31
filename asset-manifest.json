@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/common-words/static/css/main.d996de48.chunk.css",
-    "main.js": "/common-words/static/js/main.41b2039a.chunk.js",
-    "main.js.map": "/common-words/static/js/main.41b2039a.chunk.js.map",
+    "main.css": "/common-words/static/css/main.a25ab0cc.chunk.css",
+    "main.js": "/common-words/static/js/main.aa718a37.chunk.js",
+    "main.js.map": "/common-words/static/js/main.aa718a37.chunk.js.map",
     "runtime-main.js": "/common-words/static/js/runtime-main.b0b396bb.js",
     "runtime-main.js.map": "/common-words/static/js/runtime-main.b0b396bb.js.map",
     "static/css/2.56d20c57.chunk.css": "/common-words/static/css/2.56d20c57.chunk.css",
-    "static/js/2.00758e3c.chunk.js": "/common-words/static/js/2.00758e3c.chunk.js",
-    "static/js/2.00758e3c.chunk.js.map": "/common-words/static/js/2.00758e3c.chunk.js.map",
+    "static/js/2.bbc10c3c.chunk.js": "/common-words/static/js/2.bbc10c3c.chunk.js",
+    "static/js/2.bbc10c3c.chunk.js.map": "/common-words/static/js/2.bbc10c3c.chunk.js.map",
     "index.html": "/common-words/index.html",
     "static/css/2.56d20c57.chunk.css.map": "/common-words/static/css/2.56d20c57.chunk.css.map",
-    "static/css/main.d996de48.chunk.css.map": "/common-words/static/css/main.d996de48.chunk.css.map",
-    "static/js/2.00758e3c.chunk.js.LICENSE.txt": "/common-words/static/js/2.00758e3c.chunk.js.LICENSE.txt"
+    "static/css/main.a25ab0cc.chunk.css.map": "/common-words/static/css/main.a25ab0cc.chunk.css.map",
+    "static/js/2.bbc10c3c.chunk.js.LICENSE.txt": "/common-words/static/js/2.bbc10c3c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b0b396bb.js",
     "static/css/2.56d20c57.chunk.css",
-    "static/js/2.00758e3c.chunk.js",
-    "static/css/main.d996de48.chunk.css",
-    "static/js/main.41b2039a.chunk.js"
+    "static/js/2.bbc10c3c.chunk.js",
+    "static/css/main.a25ab0cc.chunk.css",
+    "static/js/main.aa718a37.chunk.js"
   ]
 }

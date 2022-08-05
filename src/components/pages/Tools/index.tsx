@@ -168,6 +168,10 @@ const Tools = () => {
           </div>
           <div style={{ margin: "0px 6px 2px 6px", fontWeight: "bold" }}>
             <Progress
+              strokeColor={{
+                "0%": "#00ADB5",
+                "100%": "#00ADB5",
+              }}
               percent={(extractionTime * 100) / 1000}
               size="small"
               width={20}
@@ -187,10 +191,15 @@ const Tools = () => {
             }}
           >
             <Progress
+              strokeColor={{
+                "0%": "#EEEEEE",
+                "100%": "#EEEEEE",
+              }}
               width={80}
               type="circle"
               percent={100}
               format={() => allWordsCount.toString()}
+              className="white-text"
             />
           </div>
 
@@ -206,6 +215,10 @@ const Tools = () => {
             }}
           >
             <Progress
+              strokeColor={{
+                "0%": "#00ADB5",
+                "100%": "#00ADB5",
+              }}
               width={80}
               type="circle"
               percent={(uniqueWordsCount * 100) / allWordsCount}

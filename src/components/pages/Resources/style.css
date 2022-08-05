@@ -23,5 +23,11 @@
 #resource-spinner {
   color: #00adb5;
   font-size: 100px;
-  margin:auto;
+  margin: auto;
+}
+
+.download-link {
+  color: #00adb5;
+  text-decoration: underline;
+  cursor:pointer;
 }

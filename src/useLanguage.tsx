@@ -5,7 +5,7 @@ export const useLanguage = () => {
 
   const [explore, setExplore] = useState("Explore");
   const [compareLanguages, setCompareLanguages] = useState("Compare languages");
-  const [viewList, setViewList] = useState("View list");
+  const [viewList, setViewList] = useState("Download list (.txt)");
 
   const [commonWords, setCommonWords] = useState<string>("COMMON WORDS");
   const [resources, setResources] = useState("resources");
@@ -144,7 +144,7 @@ export const useLanguage = () => {
         setCommonWords("COMMON WORDS");
         setExplore("Explore");
         setCompareLanguages("Compare languages");
-        setViewList("View list");
+        setViewList("Download list (.txt)");
         setResources("resources");
         setAbout("about");
         setChangelog("changelog");
@@ -218,7 +218,7 @@ export const useLanguage = () => {
         setCommonWords("CUVINTE COMUNE");
         setExplore("Explorează");
         setCompareLanguages("Compară");
-        setViewList("Vezi lista");
+        setViewList("Descarcă lista (.txt)");
         setResources("Resurse");
         setAbout("Despre");
         setChangelog("Istoric schimbari");

@@ -12,23 +12,79 @@ const ChangeLog = () => {
     <div>
       <div id="changelog-container">
         <div id="changelog-sub-container">
-          <Card title="V1.0.0 / -" style={{ margin: "12px" }}></Card>
-          <Card title="V0.5.0 / 17.5.2022" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V1.0.0 / -"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          ></Card>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.5.0 / 17.5.2022"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update6}
           </Card>
-          <Card title="V0.0.5 / 26.4.2022" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.0.5 / 26.4.2022"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update5}
           </Card>
-          <Card title="V0.0.4 / 16.4.2022" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.0.4 / 16.4.2022"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update4}
           </Card>
-          <Card title="V0.3 / 29.12.2021" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.3 / 29.12.2021"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update3}
           </Card>
-          <Card title="V0.2 / 10.12.2021" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.2 / 10.12.2021"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update2}
           </Card>
-          <Card title="V0.1 / 1.12.2021" style={{ margin: "12px" }}>
+          <Card
+            headStyle={{ color: "white" }}
+            title="V0.1 / 1.12.2021"
+            style={{
+              margin: "12px",
+              backgroundColor: "#393E46",
+              color: "white",
+            }}
+          >
             {update1}
           </Card>
         </div>

@@ -40,3 +40,16 @@
     display: none;
   }
 }
+
+.ant-menu-item-selected {
+  background-color: #00adb5 !important;
+}
+
+.blue-text.ant-progress .ant-progress-text {
+  color: #00adb5;
+  font-size:14px;
+}
+
+.white-text.ant-progress .ant-progress-text {
+  color: #eeeeee;
+}

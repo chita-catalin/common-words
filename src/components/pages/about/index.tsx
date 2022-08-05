@@ -26,27 +26,27 @@ export const About = () => {
   return (
     <div id="about-page-container">
       <Card id="project-description-container">
-        <h1>{findTheCommonWordsOfLanguages}</h1>
+        <h1 style={{ color: "white" }}>{findTheCommonWordsOfLanguages}</h1>
         <div
           style={{
             display: "flex",
-            color: "grey",
+            color: "#EEEEEE",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           <div
             style={{
-              color: "grey",
+              color: "#EEEEEE",
               display: "flex",
               flexDirection: "column",
-              border: "1px solid lightgrey",
+              border: "1px solid light#EEEEEE",
               padding: "8px",
-              borderRadius: "10px",
+              borderRadius: "4px",
             }}
           >
-            <span style={{ color: "#2f54eb" }}>ABC</span> PVBF AUX{" "}
-            <span style={{ color: "#2f54eb" }}>DEF</span> IQYE
+            <span style={{ color: "#00ADB5" }}>ABC</span> PVBF AUX{" "}
+            <span style={{ color: "#00ADB5" }}>DEF</span> IQYE
           </div>
 
           <SwapOutlined
@@ -55,21 +55,21 @@ export const About = () => {
 
           <div
             style={{
-              color: "grey",
+              color: "#EEEEEE",
               display: "flex",
               flexDirection: "column",
-              border: "1px solid lightgrey",
+              border: "1px solid light#EEEEEE",
               padding: "8px",
-              borderRadius: "10px",
+              borderRadius: "4px",
             }}
           >
-            OQUE <span style={{ color: "#2f54eb" }}>ABC</span> KIYW JSU{" "}
-            <span style={{ color: "#2f54eb" }}>DEF</span>
+            OQUE <span style={{ color: "#00ADB5" }}>ABC</span> KIYW JSU{" "}
+            <span style={{ color: "#00ADB5" }}>DEF</span>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
             <ArrowRightOutlined
-              style={{ fontSize: "2rem", color: "grey", marginLeft: "10px" }}
+              style={{ fontSize: "2rem", color: "#EEEEEE", marginLeft: "10px" }}
             />
           </div>
 
@@ -83,11 +83,11 @@ export const About = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                color: "#2f54eb",
+                color: "#00ADB5",
                 marginLeft: "7px",
-                border: "1px solid lightgrey",
+                border: "1px solid light#EEEEEE",
                 padding: "8px",
-                borderRadius: "10px",
+                borderRadius: "4px",
               }}
             >
               <span>ABC</span>
@@ -99,67 +99,77 @@ export const About = () => {
       {/*App made using mern stack*/}
 
       <Card id="mern-container">
-        <h1>{appBuiltUsingMERN}</h1>
+        <h1 style={{ color: "white" }}>{appBuiltUsingMERN}</h1>
         <div style={{ display: "flex", flexWrap: "wrap" }}>
           <div className="technology-container">
-            <a href="https://www.mongodb.com/" style={{ color: "#2f54eb" }}>
+            <a href="https://www.mongodb.com/" style={{ color: "#00ADB5" }}>
               mongoDB
             </a>
             <DatabaseOutlined
-              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+              style={{ fontSize: "3rem", color: "#EEEEEE", marginTop: "8px" }}
             />
           </div>
 
           <div className="technology-container">
-            <a href="https://nodejs.dev/" style={{ color: "#2f54eb" }}>
+            <a href="https://nodejs.dev/" style={{ color: "#00ADB5" }}>
               Node
             </a>
             <CloudServerOutlined
-              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+              style={{ fontSize: "3rem", color: "#EEEEEE", marginTop: "8px" }}
             />
           </div>
 
           <div className="technology-container">
-            <a href="https://expressjs.com/" style={{ color: "#2f54eb" }}>
+            <a href="https://expressjs.com/" style={{ color: "#00ADB5" }}>
               Express
             </a>
             <ToolOutlined
-              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+              style={{ fontSize: "3rem", color: "#EEEEEE", marginTop: "8px" }}
             />
           </div>
 
           <div className="technology-container">
-            <a href="https://reactjs.org/" style={{ color: "#2f54eb" }}>
+            <a href="https://reactjs.org/" style={{ color: "#00ADB5" }}>
               React
             </a>
             <AntDesignOutlined
-              style={{ fontSize: "3rem", color: "grey", marginTop: "8px" }}
+              style={{ fontSize: "3rem", color: "#EEEEEE", marginTop: "8px" }}
             />
           </div>
         </div>
       </Card>
 
       <Card id="developer-and-community-container">
-        <h1>{developerAndCommunity}</h1>
+        <h1 style={{ color: "white" }}>{developerAndCommunity}</h1>
 
         <div style={{ display: "flex", alignItems: "center" }}>
           <MailOutlined
-            style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
+            style={{
+              fontSize: "1.5rem",
+              color: "#EEEEEE",
+              marginRight: "10px",
+            }}
           />
-          <div style={{ color: "#2f54eb" }}>chita.catalin.adrian@gmail.com</div>
+          <div style={{ color: "#00ADB5" }}>chita.catalin.adrian@gmail.com</div>
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
           <GithubOutlined
-            style={{ fontSize: "1.5rem", color: "grey", marginRight: "10px" }}
+            style={{
+              fontSize: "1.5rem",
+              color: "#EEEEEE",
+              marginRight: "10px",
+            }}
           />
-          <div style={{ color: "#2f54eb" }}>
+          <div style={{ color: "#00ADB5" }}>
             github.com/chita-catalin/common-words{" "}
           </div>
         </div>
 
-        <h2 style={{ fontWeight: 100 }}>{contribuitors}</h2>
-        <a href="https://github.com/chita-catalin" style={{ color: "#2f54eb" }}>
+        <h2 style={{ fontWeight: 100, color: "white", marginTop: "10px" }}>
+          {contribuitors}
+        </h2>
+        <a href="https://github.com/chita-catalin" style={{ color: "#00ADB5" }}>
           chita-catalin
         </a>
       </Card>

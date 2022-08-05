@@ -1,12 +1,4 @@
-import {
-  Button,
-  Card,
-  Divider,
-  InputNumber,
-  Select,
-  Statistic,
-  Switch,
-} from "antd";
+import { Button, Card, Divider, InputNumber, Select, Statistic } from "antd";
 import { WordsTable } from "./components/wordsTable";
 import { SwapOutlined } from "@ant-design/icons";
 import { BlendContext } from "../../../App";
@@ -51,7 +43,9 @@ const LanguageBlendPage = () => {
               );
             })}
           </Select>
-          <SwapOutlined style={{ marginLeft: "10px", marginRight: "10px" }} />
+          <SwapOutlined
+            style={{ marginLeft: "10px", marginRight: "10px", color: "white" }}
+          />
 
           <Select
             placeholder="select another language"
@@ -74,30 +68,7 @@ const LanguageBlendPage = () => {
           </Select>
         </Card>
 
-        <Card id="statistics-card">
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <Statistic
-              title="Common words"
-              value={0}
-              style={{ marginRight: "24px" }}
-            />
-            {/* <Statistic
-              title="Language match"
-              suffix="%"
-              value={
-                blend.filteredList.length > 0
-                  ? (
-                      ((blend.filteredList.length * 100) /
-                        (blend.selectedLanguage1.length +
-                          blend.selectedLanguage2.length)) *
-                      2
-                    ).toFixed(2)
-                  : 0
-              }
-              style={{ marginRight: "24px" }}
-            /> */}
-          </div>
-        </Card>
+        <Card id="statistics-card">add statistics here</Card>
 
         {blend.blendedList.length > 0 && (
           <Card id="controls-card">

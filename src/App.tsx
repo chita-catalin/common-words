@@ -1,10 +1,8 @@
 import LanguageBlendPage from "./components/pages/LanguageBlendPage/index";
-import LanguageList from "./components/pages/Resources/LanguageList";
 import { Route, Routes, HashRouter, Link } from "react-router-dom";
 import Resources from "./components/pages/Resources/Resources";
 import ChangeLog from "./components/pages/changelog/ChangeLog";
 import NotFound from "./components/pages/NotFound/NotFound";
-import LandingPage from "./components/pages/LandingPage";
 import useLanguageBlend from "./useLanguageBlend";
 import { About } from "./components/pages/about";
 import Tools from "./components/pages/Tools";
@@ -14,10 +12,10 @@ import {
   MenuUnfoldOutlined,
   ToolOutlined,
   HistoryOutlined,
-  HomeOutlined,
   SwapOutlined,
   DatabaseOutlined,
   InfoCircleOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu, Select } from "antd";
 import React, { useState } from "react";
@@ -56,33 +54,28 @@ function App() {
                   paddingTop: "60px",
                   minHeight: "100vh",
                   height: "100%",
+                  backgroundColor: "#393E46",
                 }}
-                theme="light"
+                theme="dark"
                 mode="inline"
-                defaultSelectedKeys={["0"]}
+                defaultSelectedKeys={["1"]}
               >
-                <Menu.Item key="0">
-                  <Link to="/">
-                    <HomeOutlined />
-                    <span>{language.explore}</span>
-                  </Link>
-                </Menu.Item>
-
                 <Menu.Item key="1">
                   <Link to="/language-blend">
                     <SwapOutlined /> <span>{language.compareLanguages}</span>
                   </Link>
                 </Menu.Item>
                 <Menu.Item key="2">
-                  <Link to="/tools">
-                    <ToolOutlined /> <span>{language.extractUniqueWords}</span>
-                  </Link>
-                </Menu.Item>
-                <Menu.Item key="3">
                   <Link to="/resources">
                     <DatabaseOutlined /> <span>{language.resources}</span>
                   </Link>
                 </Menu.Item>
+                <Menu.Item key="3">
+                  <Link to="/tools">
+                    <ToolOutlined /> <span>{language.extractUniqueWords}</span>
+                  </Link>
+                </Menu.Item>
+
                 <Menu.Item key="4">
                   <Link to="/about">
                     <InfoCircleOutlined /> <span>{language.about}</span>
@@ -99,6 +92,8 @@ function App() {
               <Header
                 className="site-layout-background"
                 style={{
+                  color: "white",
+                  backgroundColor: "#393E46",
                   padding: 0,
                   display: "flex",
                   alignItems: "center",
@@ -124,13 +119,17 @@ function App() {
                     to="/"
                     style={{
                       textDecoration: "none",
-                      color: "black",
+                      color: "white",
                     }}
                   >
                     {language.commonWords}
                   </Link>
                   <span
-                    style={{ fontSize: "15px", marginLeft: "2px" }}
+                    style={{
+                      fontSize: "15px",
+                      marginLeft: "2px",
+                      color: "white",
+                    }}
                     className="version"
                   >
                     V1.0.0
@@ -138,7 +137,8 @@ function App() {
                 </div>
 
                 <Select
-                  style={{ marginRight: "24px" }}
+                  suffixIcon={<DownOutlined style={{ color: "white" }} />}
+                  style={{ marginRight: "24px", color: "white" }}
                   defaultValue="english"
                   bordered={false}
                   value={
@@ -160,7 +160,7 @@ function App() {
                   color: "white",
                   minHeight: 280,
                   minWidth: 320,
-                  backgroundColor: "#434343",
+                  backgroundColor: "#222831",
                 }}
               >
                 <Routes>
@@ -169,15 +169,11 @@ function App() {
                     element={<LanguageBlendPage />}
                   />
                   <Route path="/resources" element={<Resources />} />
-                  <Route
-                    path="/resources/:language"
-                    element={<LanguageList />}
-                  />
                   <Route path="/changelog" element={<ChangeLog />} />
                   <Route path="/about" element={<About />} />
-                  <Route path="/" element={<LandingPage />} />
                   <Route path="*" element={<NotFound />} />
                   <Route path="/tools" element={<Tools />} />
+                  <Route path="/" element={<LanguageBlendPage />} />
                 </Routes>
               </Content>
             </Layout>

@@ -3,18 +3,13 @@ import { useEffect, useState } from "react";
 export const useLanguage = () => {
   const [language, setLanguage] = useState("english");
 
-  const [explore, setExplore] = useState("Explore");
   const [compareLanguages, setCompareLanguages] = useState("Compare languages");
   const [viewList, setViewList] = useState("Download list (.txt)");
 
   const [commonWords, setCommonWords] = useState<string>("COMMON WORDS");
-  const [resources, setResources] = useState("resources");
-  const [about, setAbout] = useState("about");
-  const [changelog, setChangelog] = useState("changelog");
-  const [startExploring, setStartExploring] = useState("START EXPLORING");
-  const [landingPageText, setLandingPageText] = useState(
-    "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
-  );
+  const [resources, setResources] = useState("Resources");
+  const [about, setAbout] = useState("About");
+  const [changelog, setChangelog] = useState("Changelog");
 
   //tools page
   const [copied, setCopied] = useState("Copied!");
@@ -126,32 +121,27 @@ export const useLanguage = () => {
   const [update1, setUpdate1] = useState("Project created");
   const [update2, setUpdate2] = useState("Added basic language blending");
   const [update3, setUpdate3] = useState(
-    `Added Italian,French,Finnish languages\nEnhanced results page.\nadded ${"changelog"} section.\nadded country flags.\nadded dark/light theme switch`
+    `Added Italian,French,Finnish languages.Enhanced results page..added ${"changelog"} section..added country flags..added dark/light theme switch`
   );
   const [update4, setUpdate4] = useState(
-    `Removed language lists from frontend side\nAdded about section\nRemoved light/dark theme switch\nEnhanced landing page UI\nUpdated versioning system to match web standards`
+    `Removed language lists from frontend side.Added about section.Removed light/dark theme switch.Enhanced landing page UI.Updated versioning system to match web standards`
   );
   const [update5, setUpdate5] = useState(
-    `Connected to Backend App\nNow retreiving languages list from database\nAdded not-yet-functional table to "blend-page"\nadded Romanian word list to "Resources" page`
+    `Connected to Backend App.Now retreiving languages list from database.Added not-yet-functional table to "blend-page".added Romanian word list to "Resources" page`
   );
   const [update6, setUpdate6] = useState(
-    "Added language switch RO/EN\nAdded more languages\nAdded language comparing functionality\nAdded tools section, with unique word extraction tool\nAdded languages list from database to resources page\nImproved general UI"
+    "Added language switch RO/EN.Added more languages.Added language comparing functionality.Added tools section, with unique word extraction tool.Added languages list from database to resources page.Improved general UI"
   );
 
   useEffect(() => {
     switch (language) {
       case "english":
         setCommonWords("COMMON WORDS");
-        setExplore("Explore");
         setCompareLanguages("Compare languages");
         setViewList("Download list (.txt)");
-        setResources("resources");
-        setAbout("about");
-        setChangelog("changelog");
-        setStartExploring("START EXPLORING");
-        setLandingPageText(
-          "Compare your language with another! Find the common words, and more fun statistics about languages, completely free!"
-        );
+        setResources("Resources");
+        setAbout("About");
+        setChangelog("Changelog");
         //tools
         setCopied("Copied!");
         setCopyAll("Copy all");
@@ -200,33 +190,27 @@ export const useLanguage = () => {
         setUpdate1("Project created");
         setUpdate2("Added basic language blending");
         setUpdate3(
-          `Added Italian,French,Finnish languages\nEnhanced results page.\nadded ${"changelog"} section.\nadded country flags.\nadded dark/light theme switch`
+          `Added Italian,French,Finnish languages.Enhanced results page..added ${"changelog"} section..added country flags..added dark/light theme switch`
         );
         setUpdate4(
-          `Removed language lists from frontend side\nAdded about section\nRemoved light/dark theme switch\nEnhanced landing page UI\nUpdated versioning system to match web standards`
+          `Removed language lists from frontend side.Added about section.Removed light/dark theme switch.Enhanced landing page UI.Updated versioning system to match web standards`
         );
         setUpdate5(
-          `Connected to Backend App\nNow retreiving languages list from database\nAdded not-yet-functional table to "blend-page"\nadded Romanian word list to "Resources" page`
+          `Connected to Backend App.Now retreiving languages list from database.Added not-yet-functional table to "blend-page".added Romanian word list to "Resources" page`
         );
         setUpdate6(
-          "Added language switch RO/EN\nAdded more languages\nAdded language comparing functionality\nAdded tools section, with unique word extraction tool\nAdded languages list from database to resources page\nImproved general UI"
+          "Added language switch RO/EN.Added more languages.Added language comparing functionality.Added tools section, with unique word extraction tool.Added languages list from database to resources page.Improved general UI"
         );
 
         break;
 
       case "romanian":
         setCommonWords("CUVINTE COMUNE");
-        setExplore("Explorează");
         setCompareLanguages("Compară");
         setViewList("Descarcă lista (.txt)");
         setResources("Resurse");
         setAbout("Despre");
         setChangelog("Istoric schimbari");
-        setStartExploring("EXPLOREAZĂ");
-        setLandingPageText(
-          "Compară limba ta cu altă limbă! Găsește cuvintele comune, și alte statistici interesante despre limbi, complet gratuit!"
-        );
-
         //tools
         setCopied("Copiat!");
         setCopyAll("Copiază tot");
@@ -281,16 +265,16 @@ export const useLanguage = () => {
         setUpdate1("Început proiect");
         setUpdate2("Adăugat algoritm de combinare a limbilor");
         setUpdate3(
-          `Adăugat Italiană, Franceză, Finlandeză\nÎmbunătățit pagina de rezultate\nAdăugat secțiune de "istoric schimbări"\nAdăugat steaguri pentru țări\nAdăugat buton pentru temă light/dark`
+          `Adăugat Italiană, Franceză, Finlandeză.Îmbunătățit pagina de rezultate.Adăugat secțiune de "istoric schimbări".Adăugat steaguri pentru țări.Adăugat buton pentru temă light/dark`
         );
         setUpdate4(
-          `Înlăturat listele de cuvinte din Frontend\nAdăugat secțiunea "despre"\nÎnlăturat butonul pentru temă light/dark\nÎmbunătățit UI-ul paginii de pornire\nUpdatat sistemul de versionare cu standardul web`
+          `Înlăturat listele de cuvinte din Frontend.Adăugat secțiunea "despre".Înlăturat butonul pentru temă light/dark.Îmbunătățit UI-ul paginii de pornire.Updatat sistemul de versionare cu standardul web`
         );
         setUpdate5(
-          `Conectat aplicația web la Backend\nListele de limbi acum sunt preluate dintr-o bază de date\nAdăugat tabel de cuvinte, încă nefuncțional\nAdăugat lista cuvintelor din limba română la pagina de resurse `
+          `Conectat aplicația web la Backend.Listele de limbi acum sunt preluate dintr-o bază de date.Adăugat tabel de cuvinte, încă nefuncțional.Adăugat lista cuvintelor din limba română la pagina de resurse `
         );
         setUpdate6(
-          `Adăugat funcția de schimbare de limbă\nAdăugat mai multe limbi\nAdăugat funcția de comparare a limbilor\nAdăugat secțiunea de unelte\nAdăugat unealta de extragere a cuvintelor unice\nAdăugat liste de limbi la pagina de resurse\nÎmbunătățit UI general`
+          `Adăugat funcția de schimbare de limbă.Adăugat mai multe limbi.Adăugat funcția de comparare a limbilor.Adăugat secțiunea de unelte.Adăugat unealta de extragere a cuvintelor unice.Adăugat liste de limbi la pagina de resurse.Îmbunătățit UI general`
         );
 
         break;
@@ -299,7 +283,6 @@ export const useLanguage = () => {
 
   return {
     language,
-    explore,
     compareLanguages,
     viewList,
     setLanguage,
@@ -307,8 +290,6 @@ export const useLanguage = () => {
     resources,
     about,
     changelog,
-    startExploring,
-    landingPageText,
     //tools
     copied,
     copyAll,

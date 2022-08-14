@@ -21,11 +21,12 @@
 }
 
 #controls-card {
-  background: #f0f0f0;
-  border-width: 0px;
-  border-radius: 0px;
+  background: #393e46;
+  border-width: 1px;
+  border-radius: 4px;
   flex-grow: 1;
-  border-radius: 10px;
+  margin-top: 24px;
+  color: white;
 }
 
 #controls-content {
@@ -38,5 +39,6 @@
 
 .word-tag:hover {
   border-color: black;
-  box-shadow: 1px 1px 5px #0050b3;
+  box-shadow: 3px 3px 0px #eeeeee;
+  color: white;
 }

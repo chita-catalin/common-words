@@ -9,7 +9,7 @@ const ChangeLog = () => {
     useContext(LanguageContext);
 
   return (
-    <div>
+    <div style={{ whiteSpace: "pre-wrap" }}>
       <div id="changelog-container">
         <div id="changelog-sub-container">
           <Card
@@ -30,7 +30,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update6}
+            {update6.split(".").join("\n")}
           </Card>
           <Card
             headStyle={{ color: "white" }}
@@ -41,7 +41,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update5}
+            {update5.split(".").join("\n")}
           </Card>
           <Card
             headStyle={{ color: "white" }}
@@ -52,7 +52,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update4}
+            <div>{update4.split(".").join("\n")}</div>
           </Card>
           <Card
             headStyle={{ color: "white" }}
@@ -63,7 +63,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update3}
+            {update3.split(".").join("\n")}
           </Card>
           <Card
             headStyle={{ color: "white" }}
@@ -74,7 +74,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update2}
+            {update2.split(".").join("\n")}
           </Card>
           <Card
             headStyle={{ color: "white" }}
@@ -85,7 +85,7 @@ const ChangeLog = () => {
               color: "white",
             }}
           >
-            {update1}
+            {update1.split(".").join("\n")}
           </Card>
         </div>
       </div>

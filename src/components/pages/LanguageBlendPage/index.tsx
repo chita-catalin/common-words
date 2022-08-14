@@ -1,6 +1,6 @@
-import { Button, Card, Divider, InputNumber, Select, Statistic } from "antd";
+import { Button, Card, Divider, InputNumber, Select } from "antd";
 import { WordsTable } from "./components/wordsTable";
-import { SwapOutlined } from "@ant-design/icons";
+import { DownOutlined, SwapOutlined } from "@ant-design/icons";
 import { BlendContext } from "../../../App";
 import { Language } from "../../../types";
 import React from "react";
@@ -30,6 +30,11 @@ const LanguageBlendPage = () => {
       <div id="header-container">
         <Card id="inputs-card">
           <Select
+            suffixIcon={
+              <DownOutlined
+                style={{ color: "black", fontWeight: "bold", fontSize: "14px" }}
+              />
+            }
             onChange={handleFirstLanguageChange}
             placeholder="select a language"
             style={{ width: "160px" }}
@@ -48,6 +53,11 @@ const LanguageBlendPage = () => {
           />
 
           <Select
+            suffixIcon={
+              <DownOutlined
+                style={{ color: "black", fontWeight: "bold", fontSize: "14px" }}
+              />
+            }
             placeholder="select another language"
             onChange={handleSecondLanguageChange}
             defaultValue={""}
@@ -116,6 +126,7 @@ const LanguageBlendPage = () => {
                   style={{ marginLeft: "2px", width: "55px" }}
                 />
               </div>
+
               <Divider type="vertical" />
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>

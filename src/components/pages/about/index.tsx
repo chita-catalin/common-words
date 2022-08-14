@@ -166,9 +166,7 @@ export const About = () => {
           </div>
         </div>
 
-        <h2 style={{ fontWeight: 100, color: "white", marginTop: "10px" }}>
-          {contribuitors}
-        </h2>
+        <h1 style={{ color: "white", marginTop: "10px" }}>{contribuitors}</h1>
         <a href="https://github.com/chita-catalin" style={{ color: "#00ADB5" }}>
           chita-catalin
         </a>

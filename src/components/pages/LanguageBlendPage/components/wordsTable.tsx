@@ -1,8 +1,8 @@
 import { BlendContext, LanguageContext } from "../../../../App";
 import { useContext, useEffect, useState } from "react";
+import { Badge, Modal, Pagination, Spin } from "antd";
 
 import "../style.css";
-import { Badge, Modal, Pagination, Spin, Table, Tag, Tooltip } from "antd";
 
 export const WordsTable = () => {
   const blend = useContext(BlendContext);
@@ -14,19 +14,21 @@ export const WordsTable = () => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(200);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [selectedWordsArray, setSelectedWordsArray] = useState<string[]>([]);
+  const [totalWords, setTotalWords] = useState(blend.blendedList.length);
 
-  const data: any = blend.blendedList.map((el: string) => {
-    return { word: el };
-  });
-
-  const columns: any = [
-    {
-      title: "word",
-      dataIndex: "word",
-      key: "word",
-      render: (text: string) => <a>{text}</a>,
-    },
-  ];
+  useEffect(() => {
+    setTotalWords(
+      blend.blendedList.filter((word: string) => {
+        if (
+          word.length <= blend.maxLength + 1 &&
+          word.length >= blend.minLength
+        ) {
+          return true;
+        }
+        return false;
+      }).length
+    );
+  }, [blend.maxLength, blend.minLength]);
 
   return (
     <>
@@ -43,7 +45,7 @@ export const WordsTable = () => {
             current={page}
             pageSize={itemsPerPage}
             defaultCurrent={1}
-            total={blend.blendedList.length}
+            total={totalWords}
             pageSizeOptions={[50, 100, 200, 500, 1000, 2000, 5000, 10000]}
             style={{ flexGrow: 1 }}
             onChange={(page, pageSize: number) => {
@@ -51,37 +53,40 @@ export const WordsTable = () => {
               setPage(page);
             }}
           />
-          <div style={{ display: "flex", flexWrap: "wrap", marginTop: "6px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", marginTop: "12px" }}>
             {blend.prefixLetters > 0 &&
               typeof blend.blendedList[0] === "object" &&
-              //map(nested => nested.map(element => element * 2));
-
               blend.blendedList.map((nested: any, index1: number) =>
                 nested?.map((el: string, index2: number) => {
                   if (
-                    index1 * index2 >= itemsPerPage * page &&
-                    index1 * index2 <= itemsPerPage * (page + 1) - 1 &&
-                    el.length <= blend.maxLength &&
+                    index1 >= itemsPerPage * page + 1 &&
+                    index1 <= itemsPerPage * (page + 2) - 1 &&
+                    el.length <= blend.maxLength + 1 &&
                     el.length >= blend.minLength &&
                     //and both languages are present
                     nested.join().indexOf("1") !== -1 &&
                     nested.join().indexOf("2") !== -1
                   ) {
                     return (
-                      <Tag
+                      <div
                         className="word-tag"
                         style={{
+                          color: "white",
+                          fontSize: "17px",
+                          margin: "10px",
+                          padding: "4px",
+                          borderRadius: "4px",
                           cursor: "pointer",
                           flexGrow: 1,
                           marginTop: "6px",
                           backgroundColor:
                             el.length <= 5
-                              ? "#e6f7ff"
+                              ? "#58606e"
                               : el.length <= 10
-                              ? "#bae7ff"
+                              ? "#707a8c"
                               : el.length <= 15
-                              ? "#91d5ff"
-                              : "#69c0ff",
+                              ? "#8b97ad"
+                              : "#a3b2cc",
                         }}
                         onClick={() => {
                           setSelectedWordsArray(nested);
@@ -109,7 +114,7 @@ export const WordsTable = () => {
                               {letter}
                             </span>
                           ))}
-                      </Tag>
+                      </div>
                     );
                   }
                 })
@@ -163,52 +168,6 @@ export const WordsTable = () => {
                 );
               })}
             </Modal>
-
-            {blend.prefixLetters === 0 &&
-              blend.blendedList.map((word: string, index: number) => {
-                if (
-                  index >= itemsPerPage * page &&
-                  index <= itemsPerPage * (page + 1) - 1 &&
-                  word.length <= blend.maxLength &&
-                  word.length >= blend.minLength
-                ) {
-                  return (
-                    <Tag
-                      style={{
-                        flexGrow: 1,
-                        marginTop: "6px",
-                        backgroundColor:
-                          word.length <= 5
-                            ? "#e6f7ff"
-                            : word.length <= 10
-                            ? "#bae7ff"
-                            : word.length <= 15
-                            ? "#91d5ff"
-                            : "#69c0ff",
-                      }}
-                    >
-                      {word.split("").map((letter: string, index) => (
-                        <span
-                          style={{
-                            color:
-                              index < blend.prefixLetters &&
-                              blend.prefixLetetrs1 !== 0
-                                ? "#002766"
-                                : "black",
-                            fontWeight:
-                              index < blend.prefixLetters &&
-                              blend.prefixLetters !== 0
-                                ? 500
-                                : 100,
-                          }}
-                        >
-                          {letter}
-                        </span>
-                      ))}
-                    </Tag>
-                  );
-                }
-              })}
           </div>
         </div>
       ) : null}

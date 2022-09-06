@@ -32,6 +32,9 @@ export const useLanguage = () => {
   const [initialWords, setInitialWords] = useState("Initial words");
   const [uniqueWords, setUniqueWords] = useState("Unique words");
   //blend page
+  const [resetAllFilters, setResetAllFilters] = useState("Reset all filters");
+  const [samePrefixLength, setSamePrefixLength] =
+    useState("Same prefix length");
   const [selectTwoLanguages, setSelectTwoLanguages] = useState(
     "Select two languages!"
   );
@@ -159,6 +162,8 @@ export const useLanguage = () => {
         setInitialWords("Initial words");
         setUniqueWords("Unique words");
         //blend page
+        setResetAllFilters("Reset all filters");
+        setSamePrefixLength("Same prefix length");
         setSelectTwoLanguages("Select two languages!");
         setWordsPerPage("Words per page");
         setWords("Words");
@@ -228,6 +233,8 @@ export const useLanguage = () => {
         setInitialWords("Cuvinte inițiale");
         setUniqueWords("Cuvinte unice");
         //blend page
+        setResetAllFilters("Resetează toate filtrele");
+        setSamePrefixLength("Același prefix");
         setSelectTwoLanguages("Selectează două limbi diferite!");
         setWordsPerPage("Cuvinte pe pagină");
         setWords("Cuvinte");
@@ -307,12 +314,14 @@ export const useLanguage = () => {
     uniqueWords,
     tools,
     //blend page
+    samePrefixLength,
     selectTwoLanguages,
     wordsPerPage,
     words,
     minWordLength,
     maxWordLength,
     //about page
+    resetAllFilters,
     findTheCommonWordsOfLanguages,
     developerAndCommunity,
     getInvolved,

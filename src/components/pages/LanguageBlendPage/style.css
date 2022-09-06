@@ -1,6 +1,6 @@
 #header-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   overflow: hidden;
   margin: 12px;
 }
@@ -10,7 +10,6 @@
   display: flex;
   background-color: #393e46;
   border-radius: 4px;
-  margin-right: 24px;
 }
 
 #statistics-card {
@@ -37,8 +36,26 @@
   margin: -5px;
 }
 
+.word-tag {
+  color: white;
+  font-size: 17px;
+  margin: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-grow: 1;
+  margin-top: 6px;
+}
+
 .word-tag:hover {
   border-color: black;
   box-shadow: 3px 3px 0px #eeeeee;
   color: white;
+}
+
+#pagination-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 12px;
 }

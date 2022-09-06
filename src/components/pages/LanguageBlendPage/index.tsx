@@ -1,7 +1,7 @@
 import { Button, Card, Divider, InputNumber, Select } from "antd";
 import { WordsTable } from "./components/wordsTable";
 import { DownOutlined, SwapOutlined } from "@ant-design/icons";
-import { BlendContext } from "../../../App";
+import { BlendContext, LanguageContext } from "../../../App";
 import { Language } from "../../../types";
 import React from "react";
 
@@ -11,6 +11,7 @@ export const LanguageBlendContext = React.createContext<any>(null);
 
 const LanguageBlendPage = () => {
   const blend = React.useContext(BlendContext);
+  const language = React.useContext(LanguageContext);
 
   const resetFilters = () => {
     blend.setMinLength(1);
@@ -78,13 +79,11 @@ const LanguageBlendPage = () => {
           </Select>
         </Card>
 
-        <Card id="statistics-card">add statistics here</Card>
-
         {blend.blendedList.length > 0 && (
           <Card id="controls-card">
             <div id="controls-content">
               <div style={{ margin: "5px" }}>
-                Min. word length:{" "}
+                {language.minWordLength}{" "}
                 <InputNumber
                   size="small"
                   min={1}
@@ -99,7 +98,7 @@ const LanguageBlendPage = () => {
               <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
-                Max. word length:{" "}
+                {language.maxWordLength}{" "}
                 <InputNumber
                   size="small"
                   min={1}
@@ -114,7 +113,7 @@ const LanguageBlendPage = () => {
               <Divider type="vertical" />
 
               <div style={{ margin: "5px" }}>
-                Same prefix length:{" "}
+                {language.samePrefixLength}{" "}
                 <InputNumber
                   size="small"
                   min={3}
@@ -131,7 +130,7 @@ const LanguageBlendPage = () => {
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button style={{ marginTop: "12px" }} onClick={resetFilters}>
-                Reset all filters
+                {language.resetAllFilters}
               </Button>
             </div>
           </Card>
